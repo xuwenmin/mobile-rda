@@ -152,9 +152,7 @@ define(["zepto"],function($){
 	})();
 	return {
 		//当前浏览器信息
-		_platform:function(){
-			return versions;
-		},
+		_platform:versions,
 		//弹出层对象
 		popwindow:popwindow,
 		//遮盖层对象

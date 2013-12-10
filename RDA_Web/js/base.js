@@ -20,6 +20,7 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
             });
         }
         var html = " <div  class=\"wrapper deviceselction gonext\"></div>";
+        console.log(util._platform);
         if (util._platform.android || util._platform.iPhone) {
             curwidth = parseFloat($("body").offset().width); //获取当前设备的width
             touchevent = "touchstart";
@@ -74,8 +75,54 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
                     $target[0].style.webkitTransition = "-webkit-transform .3s linear 0s";
                     $target[0].style.webkitTransform = 'translateX(' + -curwidth + 'px)';
 
-                    isend = true;
+                    // isend = true;
 
+                    _.delay(function(){
+                        $target[0].style.webkitTransition = "none 0s linear 0s";
+                        $target.children().first().remove();
+                        $target[0].style.webkitTransform = 'translateX(' + 0 + 'px)';
+                        $target.append(html);
+                        isgo = false;
+                        //效果做玩之后,再执行下面的check
+                        if (hashobj.hash == "cwzb_hbzj") {
+                            //财务指表的数据报表页
+                            $.ajax({
+                                url: "getdata.aspx",
+                                type: "get",
+                                dataType: "json",
+                                data: {
+                                    action: "Index_KeyFinancial_Data",
+                                    code: hashobj.para.code
+                                },
+                                success: function(msg) {
+                                    cwzb.createchart_cwzb(msg, hashobj);
+                                },
+                                error: function() {
+                                    alert("亲，暂时无数据！");
+                                }
+                            });
+                        } else if (hashobj.hash == "fxyj_xjll_xjdqzwb") {
+                            _.delay(function() {
+                                fxyj.createchart_fxyj_xjll_xjdqzwb();
+                            }, 0);
+                        } else if (hashobj.hash == "index" || hashobj.hash == "ssxyzhpf") {
+                            _.delay(function() {
+                                index.animateindex.reload();
+                            });
+                        } else if (hashobj.hash == "rzgl_fbrzxx" || hashobj.hash == "rzgl_fbrzxx_2" || hashobj.hash == "cwzb" || hashobj.hash == "fxyj_zhsl") {
+                            _.delay(function() {
+                                scroll_loaded();
+                            }, 0)
+                        } else if (hashobj.hash == "bj") {
+                            _.delay(function() {
+                                window.location.hash = "login";
+                            }, 1000);
+                        }
+
+                        util.loadtip.hide();
+
+                        // isend = false;
+                    },300)
                 },
                 error: function() {
                      util.loadtip.hide();
@@ -85,30 +132,39 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
         isgo = false;
         curmodel = "page1";
         window.location.hash = "bj";
-        //动态绑定跳转下一页的事件
-        $target.delegate("[to]", touchevent, function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            // isgo=false;
-            if (!isgo) {
-                window.location.hash = $(this).attr("to");
-            }
-        });
-        //按下滑动事件
-        /* $target.delegate("[to]", "touchmove", function(event) {
-                    // event.stopPropagation();
+        if (util._platform.android || util._platform.iPhone) {
+            //动态绑定跳转下一页的事件
+                $target.delegate("[to]", touchevent, function(event) {
+                    event.stopPropagation();
                     event.preventDefault();
-                    isgo=true;
-        });
-                 //按下弹起事件
-        $target.delegate("[to]", "touchend", function(event) {
-                    // event.stopPropagation();
+                    isgo=false;
+                });
+                //按下滑动事件
+                 $target.delegate("[to]", "touchmove", function(event) {
+                            // event.stopPropagation();
+                    event.preventDefault();
+                    sgo=true;
+                });
+                //按下弹起事件
+                $target.delegate("[to]", "touchend", function(event) {
+                            // event.stopPropagation();
                     event.preventDefault();
                     if(!isgo){
                         window.location.hash = $(this).attr("to");
                     }
                     isgo=false;
-         });*/
+                 });
+        }else{
+             //动态绑定跳转下一页的事件
+            $target.delegate("[to]", touchevent, function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+                // isgo=false;
+                if (!isgo) {
+                    window.location.hash = $(this).attr("to");
+                }
+            });
+        }
         //动态绑定返回上一页的事件
         $target.delegate(".pre[from]", touchevent, function(event) {
             event.stopPropagation();
@@ -138,7 +194,7 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
         $target.delegate(".hasloadsub",touchevent,function(){
             if ($(this).hasClass("active")) {
                 var code=$(this).attr("data-code");
-                fxyj.getsubitembycode(code);
+                fxyj.getsubitembycode(code,$(this));
             }
         });
 
@@ -359,60 +415,12 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
             }
         });
         // 绑定翻页完成事件
-        $target[0].addEventListener("webkitTransitionEnd", function(e) {
+       /* $target[0].addEventListener("webkitTransitionEnd", function(e) {
 
             if (!isend) return;
             //翻页完成之后的操作
-            $target[0].style.webkitTransition = "none 0s linear 0s";
-            $target.children().first().remove();
-            $target[0].style.webkitTransform = 'translateX(' + 0 + 'px)';
-            $target.append(html);
-            isgo = false;
-            //效果做玩之后,再执行下面的check
-            if (hashobj.hash == "cwzb_hbzj") {
-                //财务指表的数据报表页
-                $.ajax({
-                    url: "getdata.aspx",
-                    type: "get",
-                    dataType: "json",
-                    data: {
-                        action: "Index_KeyFinancial_Data",
-                        code: hashobj.para.code
-                    },
-                    beforeSend:function(){
-                        util.loadtip.show();
-                    },
-                    success: function(msg) {
-                        cwzb.createchart_cwzb(msg, hashobj);
-                         util.loadtip.hide();
-                    },
-                    error: function() {
-                        util.loadtip.hide();
-                        alert("亲，暂时无数据！");
-                    }
-                });
-            } else if (hashobj.hash == "fxyj_xjll_xjdqzwb") {
-                _.delay(function() {
-                    fxyj.createchart_fxyj_xjll_xjdqzwb();
-                }, 0);
-            } else if (hashobj.hash == "index" || hashobj.hash == "ssxyzhpf") {
-                _.delay(function() {
-                    index.animateindex.reload();
-                });
-            } else if (hashobj.hash == "rzgl_fbrzxx" || hashobj.hash == "rzgl_fbrzxx_2" || hashobj.hash == "cwzb") {
-                _.delay(function() {
-                    scroll_loaded();
-                }, 0)
-            } else if (hashobj.hash == "bj") {
-                _.delay(function() {
-                    window.location.hash = "login";
-                }, 1000);
-            }
-
-            util.loadtip.hide();
-
-            isend = false;
-        });
+           
+        });*/
     };
     return {
         init: function() {

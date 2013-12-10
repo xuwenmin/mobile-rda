@@ -101,6 +101,14 @@ define(["zepto","util","underscore"],function($,util,_){
 	    }));
 	    chart.draw();
 	};
+	var $template='{{ for(var i=0;i<it.length;i++) { }}'+
+	'<li  name="li{{=it[i].code}}" class="subli">'+
+                                '<a href="#" class="desc">'+
+                                    '{{=it[i].name}}<div class="list_next list_topright">'+
+                                    '<img src="images/a_right.png" alt="">'+
+                                '</div></a>'+
+                             '</li>'+
+                             '{{ } }}';
 	var codeinfo={
 		//综合实力代码
 		1:"综合实力分析--经营能力",2:"综合实力分析--偿债能力--短期偿还",3:"综合实力分析--偿债能力--长期偿还",
@@ -111,7 +119,7 @@ define(["zepto","util","underscore"],function($,util,_){
 		//现金流量代码
 		9:"现金流量分析_流动性分析",10:"现金流量--获取现金能力",11:"现金流量--现金保障能力"
 	};
-	var _getsubitembycode=function(code){
+	var _getsubitembycode=function(code,$this){
 		var result=[];
 		$.ajax({
 			url:"getdata.aspx",
@@ -122,7 +130,6 @@ define(["zepto","util","underscore"],function($,util,_){
 				util.loadtip.show();
 			},
 			success:function(msg){
-				console.log(msg);
 				//此处开始检查业务逻辑
 				//1.检查子项的数据是否为空，为空，则过滤掉
 				//2.检查子项的数据最后一项是不是当前月减1,假如当前月是1月，则最后一月要是12
@@ -150,23 +157,33 @@ define(["zepto","util","underscore"],function($,util,_){
 								//与参考值进行对比
 								var argcode=_.where(msg[1].Data.table0,{"参考值说明__编号":id});
 								if(!argcode.length) return false;
-								if(parseFloat(argitem.cval)>parseFloat(argcode["参考值说明__参考值"])) return false;
+								if(parseFloat(argitem.cval)>parseFloat(argcode[0]["参考值说明__参考值"])) return false;
 								return true;
 							});
 							//生成一个符合要求，并且增加参考值属性的数组
 							result=_.map(result,function(v){
 								//此处可以把参考值的相关信息加进去
 								var argcode=_.where(msg[1].Data.table0,{"参考值说明__编号":v.id});
-								v.codenumber=argcode["参考值说明__参考值"];
+								v.codenumber=argcode[0]["参考值说明__参考值"];
+								v.code=code;
 								return v;
 							});
 							//更新或者保存到localstorage里去
 							if("localStorage" in window){
 								window.localStorage["fxyj_item"]=JSON.stringify(result);
 							}
+
 							console.log(result);
 						}
 					}
+				}
+				if(result.length){
+					//开始拼html
+					var groupname = $this.attr("rel");
+					$("[name=" + groupname + "]").remove();
+					var dotobj=doT.template($template);
+					$this.after(dotobj(result));
+					$("[name=" + groupname + "]").show();
 				}
 				util.loadtip.hide();
 			},
