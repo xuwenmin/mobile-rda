@@ -1,0 +1,308 @@
+*{
+    margin: 0;padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html{overflow:hidden}
+body{
+    font: normal 100% Helvetica, Arial, sans-serif;
+
+
+}
+
+.container{
+    -webkit-animation:fadeInRightBig 1s 1s ease both;
+}
+@-webkit-keyframes fadeInRightBig{
+    0%{opacity:0;
+        -webkit-transform:translateX(2000px)}
+    100%{opacity:1;
+        -webkit-transform:translateX(0)}
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+.hide{
+    display: none;
+}
+.show{
+    display: show;
+}
+.clear{
+    clear: both;
+}
+.header{
+    position:absolute;
+    z-index: 2;
+    height:3.1em;
+    width: 100%;
+    background-color: #1B52A5;
+    border-radius:2px 2px 0 0 ;
+    text-align: center;
+    padding-top: 10px;
+    top:0;left:0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.header h1{
+    color: #ffffff;
+    font-size: 1.5em;
+}
+.header .lefticon{
+    float: left;
+    margin-top: -32px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #0c3e87;
+    padding: 5px;
+}
+.header .lefticon img{
+    width: 35px;
+    height: 35px;
+}
+.header .righticon{
+    float: right;
+    margin-top: -32px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #0c3e87;
+    padding:5px;
+}
+.header .righticon img{
+    width: 35px;
+    height: 35px;
+}
+.header .righticon a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.content{
+    position:absolute; z-index:1;
+    top: 3.3em;bottom: 4em;
+    overflow-y: auto;
+    left: 2000px;
+    width: 100%;
+    /*-webkit-animation:fadeInRightBig .5s .2s ease both;*/
+}
+.contentex{
+    clear: both;
+    /*height: 406px;*/
+    overflow-y: auto;
+}
+.content .descinfo{
+    background-color: #e6e6e6;
+}
+.content .descinfo ul{
+    list-style: none;
+    padding: 10px;
+}
+.content .descinfo ul li{
+    display: inline-block;
+    margin-right: 10px;
+}
+.content .content_list ul{
+    list-style: none;
+    padding: 0;margin: 0;
+}
+.content  .content_list ul li{
+    padding: 15px;
+    border-top: 1px solid #d3d3d3;
+    border-bottom:1px solid #d3d3d3;
+    background-color: #ffffff;
+
+}
+.content  .content_list ul li{
+    border-top: none;
+}
+.content .content_list ul li a{
+    text-decoration: none;
+    font-size: 0.7em;
+}
+
+.content .content_list ul li:hover{
+    background-color: #e4efff;
+}
+.content  .content_list ul li .list_img{
+    display: inline-block;
+    width: 10%;
+}
+.content .content_list ul li .list_img img{
+    float: right;
+    width:50px;
+    height: 15px;
+}
+.content  .content_list ul li .list_desc{
+    display: inline-block;
+    width: 85%;
+}
+.content  .content_list ul li .list_desc h1{
+    font-size: 0.8em;
+}
+.footer{
+    position:absolute; z-index:2;
+    bottom:0; left:0;
+    width:100%;
+    height:48px;
+    background-color:#222;
+    background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+    background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
+    background-image:-o-linear-gradient(top, #999, #666 2%, #222);
+    padding:0;
+    border-top:1px solid #444;
+}
+.footer a{
+    display: block;
+    text-decoration: none;
+    color: #769ad0;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: -2px;
+}
+.footer div{
+    padding: 0;margin: 0;
+    height: 40px;
+
+}
+.footer img{
+    width: 40px;
+    height: 40px;
+    padding-top: 2px;
+}
+
+.footer .bottominfo{
+    float: left;
+    width: 25%;
+    height: 100%;
+    background-color: #1B52A5;
+}
+.footer .activebottom{
+    background-color:#0c3e87;
+}
+.footer .activebottom a{
+    color: #ffffff;
+}
+.footer .bottominfo:hover{
+    background-color:  #0c3e87;
+}
+.bubble{
+    display: none;
+    position:absolute;
+    padding:15px;
+    margin:0.2em 0.2em 3em;width:80px;
+    line-height:1.2;text-align:center;
+    color:#fff;
+    background:#0c3e87;
+    border-radius: 10px;
+    z-index:100;
+}
+.bubble:before {content:"\00a0";width:0;height:0;}
+
+.bubble:before{
+    display:block;
+    border-style:solid;
+    border-width:12px;
+    border-color:transparent transparent #0c3e87 transparent;
+}
+.bubble:before{	position:absolute;z-index:1;top:-20px;left:25px;}
+.bubble ul{
+    list-style: none;
+}
+.bubble ul li{
+    margin-bottom: 5px;
+}
+.bubble ul li a{
+    text-decoration: none;
+    color:#ffffff;
+    font-size: 1.5em;
+}
+
+/*------------------------滑动按钮的样式-------------start-------------------------*/
+.qmsilder .silder{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+    position:absolute;top:2px;left:2px;bottom:2px;right:2px;
+    width:50px;height:25px;
+    text-align: center;
+}
+.qmsilder .silder a{
+    color:#c2c2c2;
+    display: block;
+    padding-top: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: none;
+}
+.qmsilder .silder_r{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+    position:absolute;top:2px;left:48px;bottom:2px;right:2px;
+    width:50px;height:25px;
+    text-align: center;
+}
+.qmsilder .silder_r a{
+    color:#c2c2c2 ;
+    display: block;
+    padding-top: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: none;
+}
+.qmsilder{
+    display: block;
+    position: relative;
+    background-color: #1b52a5;
+    height:29px;
+    width:100px;
+    padding: 0;margin: 0;
+    border-radius:5px;
+}
+.mainr{
+    background-color: #c2c2c2;
+}
+.qmsilder .silderleft{
+    border-radius:10px;
+    text-align: center;
+    background-color: #1b52a5;
+    float: left;
+    width: 50px;
+    height: 100%;
+}
+.qmsilder .silderleft a{
+    color: #ffffff;
+    display: block;
+    padding-top: 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: none;
+}
+.qmsilder .silderright {
+    border-radius:5px;
+    text-align: center;
+    background-color:#c2c2c2;
+    float: right;
+    width: 50px;
+    height: 100%;
+}
+.qmsilder .silderright a{
+    display: block;
+    padding-top:8px;
+    color: #ffffff;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/*------------------------滑动按钮的样式-------------end-------------------------*/
+
+.translate-action{
+    -webkit-transform:translate(-2000px,0px);
+    -webkit-transition-property:-webkit-transform ;
+    -webkit-transition-duration:.5s;
+    -webkit-transition-timing-function:ease;
+    -webkit-transition-delay:.2s;
+}

@@ -1,0 +1,1 @@
+(function(e,t){function n(){e(t).on("scroll",e.debounce(80,function(){e(t).trigger("scrollStop")},!1))}function r(){e(t).off("scroll"),n()}n(),e(t).on("pageshow",function(n){n.persisted&&e(t).off("touchstart",r).one("touchstart",r)})})(Zepto,window);

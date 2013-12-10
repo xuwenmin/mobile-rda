@@ -1,0 +1,734 @@
+       /*------------------------一些通用reset样式--------start-----------------*/
+       *{
+            padding: 0;margin: 0;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        .hide{
+            display: none;
+        }
+        html{
+            overflow: hidden;
+            height: 100%;
+            font-family: "微软雅黑";
+        }
+        body{
+            font-size: 62.5%;
+            overflow: hidden;
+            height: 100%;
+            background-color: rgba(29,151,222,.1);
+        }
+        img{
+            border: 0;
+            max-width: 100%;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        ul{
+            list-style: none;
+        }
+       /*------------------------一些通用reset样式------end-------------------*/
+        /*页面根容器*/
+        ._wrapper{
+            display: -webkit-box;
+            display: box;
+            height: 100%;
+            -webkit-box-orient:horizontal;
+            box-orient:horizontal;
+        }
+        /*所有页面的容器样式*/
+        .main1{
+            -webkit-box-flex:1;
+            box-flex:1;
+            display: -webkit-box;
+            display: box;
+            height: 100%;
+            -webkit-box-orient:horizontal;
+            box-orient:horizontal;
+            -webkit-transition-property:-webkit-transform ;
+            -webkit-transition-duration:.3s;
+            -webkit-transition-timing-function:linear;
+            -webkit-transition-delay:0s;
+        }
+        /*单页容器样式*/
+        .wrapper{
+            display: -webkit-box;
+            display: box;
+            height: 100%;
+            -webkit-box-orient:vertical;
+            box-orient:vertical;
+            text-align:center;
+            /*width: 480px;*/
+        }
+        /*首页样式*/
+        .wrapper .index{
+           -webkit-box-flex:1;
+           box-flex:1;
+           background-color: #fff;
+           position: relative;
+           text-align: center;
+
+        }
+        /*首页背景样式*/
+        .wrapper .index img{
+            border: 0;
+            max-width: 100%;
+        }
+        /*首页中间部分样式*/
+        .wrapper .index .index_content{
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            margin-top: -112px;
+        }
+        /*首页背景图*/
+        .wrapper .index .index_content img{
+            border: 0;
+            width: 112px;
+            height: 112px;
+            /*max-width: 100%;*/
+        }
+        .wrapper .index .index_content p{
+            font-size: 30px;
+            color: #000;
+            margin-top: 15px;
+            font-weight: bolder;
+        }
+        /*首页底部样式*/
+        .wrapper .index .index_footer{
+            position: absolute;
+            bottom: 15px;
+            text-align: center;
+            width: 100%;
+
+        }
+        /*首页底部P标签样式*/
+        .wrapper .index .index_footer p{
+            font-size: 18px;
+            line-height: 30px;
+            color: #333;
+        }
+        /*内容页面中间内容样式*/
+        .wrapper .content{
+            -webkit-box-flex:1;
+            box-flex:1;
+            position: relative;
+            overflow: hidden;
+            background-color: #f2f2f2;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient:vertical;
+            box-orient:vertical;
+            /*强制换行*/
+            word-wrap:break-word;
+            text-align: left;
+            height: 100%;
+        }
+        /*内容页中间内容的头部样式*/
+        .wrapper .content .content_title{
+            height: 60px;
+            background-color: #ddd;
+            line-height: 60px;
+            text-align: left;
+            z-index: 10;
+        }
+        .wrapper .content .content_title p{
+            color: #333;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+        .wrapper .content .content_title p span{
+            text-align: right;
+        }
+        /*头部中的消息提示*/
+       .wrapper .head em.yuan{
+           position: absolute;
+           /*display: block;*/
+           width: 20px;
+           height: 20px;
+           background-color: #ff3000;
+           border-radius: 10px;
+           border: 1px solid #fff;
+           font-size: 12px;
+           line-height:20px;
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           text-align: center;
+           color: white;
+           font-style: normal;
+           top: 5px;
+           right: 3px;
+       }
+        /*内容页中小圆图标*/
+       .wrapper .content em.yuan{
+           position: absolute;
+           /*display: block;*/
+           width: 20px;
+           height: 20px;
+           background-color: #ff3000;
+           border-radius: 10px;
+           font-size: 12px;
+           line-height:20px;
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           text-align: center;
+           color: white;
+           font-style: normal;
+           top: -5px;
+       }
+       .wrapper .content em.yuan1{
+           background-color: #ff8a00;
+       }
+        /*内容页中图表的样式*/
+       .wrapper .content .tubiao{
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           width: 98%;
+           /*border: 1px dashed red;*/
+           margin: 10px auto;
+           min-height: 200px;
+       }
+       .wrapper .content  p.p18{
+           font-size: 18px;
+           line-height: 20px;
+           width: 98%;
+           margin: 10px 20px auto;
+       }
+       .wrapper .content  p.p16{
+           font-size: 16px;
+           /*line-height: 18px;*/
+           width: 98%;
+           margin: 5px auto;
+       }
+       .wrapper .content  p.p14{
+           font-size: 14px;
+           /*line-height: 16px;*/
+           width: 98%;
+           margin: 5px auto;
+       }
+        /*内容页中间,列表内容样式*/
+        .wrapper .content .content_list li{
+            height: 60px;
+            -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ccc;
+            font-size: 0;
+        }
+       .wrapper .content .content_list li.white{
+           background-color: #fff;
+           height: 50px;
+       }
+       .wrapper .content .content_list .hassub .imgdown{
+           display: inline-block;
+       }
+       .wrapper .content .content_list .hassub .imgtop{
+           display: none;
+       }
+       .wrapper .content .content_list .hassub.active{
+           background-color: #fff;
+       }
+       .wrapper .content .content_list .hassub.active .imgdown{
+           display: none;
+       }
+       .wrapper .content .content_list .hassub.active .imgtop{
+           display: inline-block;
+       }
+       .wrapper .content .content_list .subli{
+           height: 60px;
+           background-color:#fff;
+           display: none;
+       }
+       .wrapper .content .content_list .subli a{
+           padding-left: 35px;
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+       }
+       .wrapper .content .content_list .subli a p{
+           padding-right: 35px;
+       }
+        /*做上下居中效果*/
+        .wrapper .content .content_list li:before{
+            height: 100%;
+            width: 2%;
+            display: inline-block;
+            vertical-align: middle;
+            content: "\200b";
+        }
+       /* .wrapper .content .content_list li:hover{
+            background-color: #fff; 
+        }*/
+        .wrapper .content .content_list li:active{
+           background-color: #fff; 
+        }
+        /*列表项内容为行块*/
+        .wrapper .content .content_list li a{
+            color: #000;
+            font-size:18px;
+            display:inline-block;
+            vertical-align: middle;
+            width: 97%;
+            position: relative;
+        }
+        .wrapper .content .content_list li a .icon{
+            margin-right: 10px;
+            margin-bottom: -5px;
+            width: 25px;
+            height: 25px;
+        }
+        .wrapper .content .content_list li a .list_next{
+            float: right;
+            width: 25px;
+            height: 25px;
+            padding-right: 10px;
+        }
+       .wrapper .content .content_list li a .list_topright{
+           width: auto;
+       }
+       .wrapper .content .content_list li a .list_topright p{
+           display: inline-block;
+           vertical-align: middle;
+           line-height: 25px;
+       }
+       .wrapper .content .content_list li a .list_topright img{
+           display: inline-block;
+           vertical-align: middle;
+           margin-left: 5px;
+           width: 25px;
+           height: 25px;
+       }
+        .wrapper .content .subitem{
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 50%;
+            border: 10px solid #fff;
+            background-color:greenyellow;
+        }
+       .wrapper .content .subitem .f1{
+           float: left;
+           height: 100%;
+           width: 50%;
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           background-color: #0080d9;
+           border-right: 10px solid #fff;
+       }
+       .wrapper .content .subitem .r1{
+           height:50%;
+           width: 50%;
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           background-color: #d7512c;
+           overflow: hidden;
+           border-bottom: 10px solid #fff;
+       }
+       .wrapper .content .subitem .r2{
+           border-bottom: 0;
+           background-color: #Fbb033;
+       }
+       .wrapper .content .subitem .item_desc{
+           display: inline-block;
+           vertical-align: middle;
+       }
+       .wrapper .content .subitem .item_desc img{
+           width: 54px;
+           height: 54px;
+       }
+       .wrapper .content .subitem .item_desc p{
+           color: #fff;
+           font-size: 16px;
+           line-height: 20px;
+       }
+       /*左右上下居中样式*/
+       .qmcenter{
+           text-align: center;
+       }
+       .qmcenter:before{
+           height: 100%;
+           width: 1%;
+           display: inline-block;
+           vertical-align: middle;
+           content: "\200b";
+           overflow: hidden;
+       }
+
+        /*内容页，头部样式*/
+        .wrapper .head{
+            height: 60px;
+            background-color: #1d97de;
+            position: relative;
+            line-height: 60px;
+            /*text-align: left;*/
+        }
+
+        .wrapper .head h1{
+            display: inline-block;
+            vertical-align: middle;
+            width: 83%;
+            font-size: 25px;
+        }
+        .wrapper .head h1.only{
+            width: 75%;
+        }
+        .wrapper .head .pre{
+            display: inline-block;
+            vertical-align: middle;
+            width: 6%;
+            max-width: 100%;
+        }
+        .wrapper .head .next{
+            display: inline-block;
+            vertical-align: middle;
+            width: 6%;
+        }
+        /*内容页，尾部样式*/
+        .wrapper .footer{
+            height: 80px;         
+            background-color: blue;
+            line-height: 80px;
+        }
+        /*主页头部左侧 设置图标*/
+        .wrapper .head .main_pre{
+
+
+        }
+        /*主页头部右侧消息图标*/
+         .wrapper .head .main_next{
+
+        }
+        .wrapper .content.m_con{
+            background-color: #fff;
+            height: 100%;
+        }
+        /*---------主页内容头部样式-------start----------*/
+        .wrapper .content .content_main_title{
+            margin: 20px 10px;
+            position: relative;
+        }
+        .wrapper .content .content_main_title .m_head{
+            color: #333;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .wrapper .content .content_main_title .m_desc{
+            float: left;
+        }
+        .wrapper .content .content_main_title .m_desc p{
+            color: #333;
+            font-size:20px;
+            line-height: 30px;
+
+        }
+        .wrapper .content .content_main_title .m_desc .m_d_info{
+            font-size:21px;
+            color: #1d97de;
+            font-weight: bold;
+        }
+        /*评分动画效果样式*/
+        .wrapper .content .content_main_title .m_pingfen{
+            float: right;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 75px;
+            background: url("../images/200a.png");
+            background-size:cover;
+            background-color: #fff;
+            margin-top: -25px;
+        }
+       .m_pingfen .pf_left{
+           width: 150px;
+           height: 150px;
+           left: 0;
+           top: 0;
+           -webkit-transform: rotate(0deg);
+           position: absolute;
+       }
+       .m_pingfen .pf_left .pf_bgl{
+           left: 0;
+           top: 0;
+           position: absolute;
+           width: 75px;
+           height: 150px;
+           background: url("../images/200.png") no-repeat left top;
+           background-size:cover;
+       }
+       .m_pingfen .pf_right{
+           width: 150px;
+           height: 150px;
+           -webkit-transform: rotate(15deg);
+           position: absolute;
+           display: none;
+           top: 0;
+           left: 0;
+           z-index: 11;
+       }
+       .m_pingfen .pf_right .pf_bgr{
+           position: absolute;
+           width: 75px;
+           height: 150px;
+           left: 75px;
+           top: 0;
+           background: url("../images/200.png") no-repeat right top;
+           background-size:cover;
+
+       }
+       .m_pingfen .pf_front{
+           width:75px;
+           height:150px;
+           position:absolute;
+           background: url("../images/200a.png");
+           background-size:cover;
+           background-color: #fff;
+           top:0;
+           left: 0;
+           z-index: 10;
+       }
+       .m_pingfen .pf_display{
+           /* Holds the number of seconds, minutes or hours respectfully */
+           position: absolute;
+           width:150px;
+           font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+           z-index:20;
+           height: 50px;
+           text-align:center;
+           left: 0;
+           top:40px;
+           /* CSS3 text shadow: */
+
+       }
+       .m_pingfen .pf_display  p.pf_f1{
+           color:#000;
+           display: inline-block;
+           font-size:40px;
+           font-weight: bolder;
+           /*text-shadow:0px 0px 3px #333333;*/
+       }
+       .m_pingfen .pf_display  p.pf_f2{
+           color:#000;
+           -webkit-text-size-adjust:none;
+           text-size-adjust:none;
+           font-size:10px;
+       }
+       .m_pingfen .pf_display img{
+           width: 25px;
+           height: 25px;
+           margin-left: -10px;
+       }
+         /*---------主页内容头部样式-------end----------*/
+
+        /*----------主页内容中布局项样式---------start----------*/
+       .wrapper .content .content_main_item{
+            -webkit-box-flex:1;
+            box-flex:1;
+            /*margin: 20px 10px;*/
+            display: -webkit-box;
+            display: box;
+            height: 100%;
+            /*min-height: 320px;*/
+            -webkit-box-orient:vertical;
+            box-orient:vertical;
+            position: relative;
+
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 10px solid #fff;
+            border-bottom: 0;
+        }
+       .wrapper .content .content_main_item .item{
+            -webkit-box-flex:1;
+            box-flex:1;
+            height: 100%;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient:horizontal;
+            box-orient:horizontal;
+            width: 100%;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            /*border-bottom: 10px solid #fff;*/
+            margin-bottom: 10px;
+        }
+       .wrapper .content .content_main_item .item.enditem{
+           /*border-bottom: 0;*/
+       }
+       .wrapper .content .content_main_item .item .item_module{
+            -webkit-box-flex:1;
+            box-flex:1; 
+            position: relative;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            /*下面是不同宽度的不同值，需要做适配*/
+            /*480,20%*/
+            /*400,17*/
+            height: 17%;
+            line-height: 17%;
+            text-align: center;
+        }
+       .wrapper .content .content_main_item .item .item_module:before{
+           height: 100%;
+           width: 2%;
+           display: inline-block;
+           vertical-align: middle;
+           content: "\200b";
+       }
+       .wrapper .content .content_main_item .item .item_module img{
+           width: 50px;
+           height: 50px;
+           max-width: 100%;
+           display: inline-block;
+           vertical-align: middle;
+       }
+       .wrapper .content .content_main_item .item .item_module a{
+            display: inline-block;
+            position: absolute;
+            left: 10px;
+            bottom: 15px;
+            font-size: 1.5em;
+        }
+       .wrapper .content .content_main_item .item .co1{
+            background-color: #0080d9;
+            border-right: 10px solid #fff;
+        }
+       .wrapper .content .content_main_item .item .co2{
+            background-color: #Fbb033;
+            border-right: 10px solid #fff;
+        }
+       .wrapper .content .content_main_item .item .co3{
+            background-color: #d7512c;
+        }
+       .wrapper .content .content_main_item .item .co4{
+            background-color: #89cb48;
+            /*下面是不同宽度的不同值，需要做适配*/
+            /*480,2.7*/
+            /*400,3*/
+            -webkit-box-flex:3;
+            box-flex:3;
+            border-right: 10px solid #fff;
+        }
+       .wrapper .content .content_main_item .item .co5{
+            background-color: #33cbcc;
+        }
+       .wrapper .content .content_main_item .item .co7{
+            background-color: #9999cd;
+             border-right: 10px solid #fff;
+        }
+       .wrapper .content .content_main_item .item .co8{
+            background-color: #c3795d;
+            border-right: 10px solid #fff;
+        }
+       .wrapper .content .content_main_item .item .co9{
+            background-color: #63889b;
+        }
+
+         /*----------主页内容中布局项样式---------end----------*/
+
+        .wrapper h1{
+            font-size: 20px;
+            color:white;
+            font-weight: normal;
+        }
+        /*加载提示框的样式  */
+        .load{
+            display: none;
+            z-index: 999;
+            position: absolute;
+        }
+
+        .load img{
+            border: 0;
+        }
+
+        @media screen and (max-width: 480px){
+             .deviceselction{
+                width: 480px;
+             }
+            .wrapper .content .content_main_item .item .item_module{
+                -webkit-box-flex:1;
+                box-flex:1;
+                position: relative;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                /*下面是不同宽度的不同值，需要做适配*/
+                /*480,20%*/
+                /*400,17*/
+                height:20%;
+                line-height: 20%;
+                text-align: center;
+            }
+            .wrapper .content .content_main_item .item .co4{
+                background-color: #89cb48;
+                /*下面是不同宽度的不同值，需要做适配*/
+                /*480,2.7*/
+                /*400,3*/
+                -webkit-box-flex:2.7;
+                box-flex:2.7;
+                border-right: 10px solid #fff;
+            }
+        }
+        @media screen and (max-width: 400px){
+           .deviceselction{
+               width: 400px;
+           }
+            .wrapper .content .content_main_item .item .item_module{
+                -webkit-box-flex:1;
+                box-flex:1;
+                position: relative;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                /*下面是不同宽度的不同值，需要做适配*/
+                /*480,20%*/
+                /*400,17*/
+                height:17%;
+                line-height: 17%;
+                text-align: center;
+            }
+            .wrapper .content .content_main_item .item .co4{
+                background-color: #89cb48;
+                /*下面是不同宽度的不同值，需要做适配*/
+                /*480,2.7*/
+                /*400,3*/
+                -webkit-box-flex:3;
+                box-flex:3;
+                border-right: 10px solid #fff;
+            }
+        }
+        @media screen and (max-width: 320px){
+             .deviceselction{
+                width: 320px
+             }
+        }
+        @media screen and (min-width: 500px){
+             .deviceselction{
+                width: 480px;
+                 /*width: 400px;*/
+             }
+            .wrapper .content .content_main_item .item .item_module{
+                -webkit-box-flex:1;
+                box-flex:1;
+                position: relative;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                /*下面是不同宽度的不同值，需要做适配*/
+                /*480,20%*/
+                /*400,17*/
+                height:20%;
+                line-height: 20%;
+                text-align: center;
+            }
+            .wrapper .content .content_main_item .item .co4{
+                background-color: #89cb48;
+                /*下面是不同宽度的不同值，需要做适配*/
+                /*480,2.7*/
+                /*400,3*/
+                -webkit-box-flex:2.7;
+                box-flex:2.7;
+                border-right: 10px solid #fff;
+            }
+        }

@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="RDAWebServiceSpace" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="RDAWebServiceSpace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="RDAWebServiceSpace">
+      <s:element name="USER_CheckLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_CheckLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_CheckLoginNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOAPHeaderHandle" type="tns:SOAPHeaderHandle" />
+      <s:complexType name="SOAPHeaderHandle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CurName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurPwd" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="USER_CheckCompanyName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_CheckCompanyNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_CheckCompanyNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_Register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_RegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_RegisterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_OtherFinancial_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_OtherFinancial_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Index_OtherFinancial_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_ReferenceValue_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_ReferenceValue_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Index_ReferenceValue_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_KeyFinancial_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_KeyFinancial_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Index_KeyFinancial_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Report_Assets_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Report_Assets_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Report_Assets_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Report_Profit_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Report_Profit_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Report_Profit_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Report_CashFlow_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Report_CashFlow_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Report_CashFlow_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreditReport_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreditReport_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreditReport_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="USER_CheckLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_CheckLoginName" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_CheckLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckLoginNameSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckCompanyNameSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_CheckCompanyName" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckCompanyNameSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_CheckCompanyNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckCompanyNameSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="USER_RegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_Register" />
+  </wsdl:message>
+  <wsdl:message name="USER_RegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_RegisterSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="USER_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_Login" />
+  </wsdl:message>
+  <wsdl:message name="USER_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_LoginSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Index_OtherFinancial_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Index_OtherFinancial_Data" />
+  </wsdl:message>
+  <wsdl:message name="Index_OtherFinancial_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Index_OtherFinancial_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Index_OtherFinancial_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Index_ReferenceValue_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Index_ReferenceValue_Data" />
+  </wsdl:message>
+  <wsdl:message name="Index_ReferenceValue_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Index_ReferenceValue_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Index_ReferenceValue_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Index_KeyFinancial_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Index_KeyFinancial_Data" />
+  </wsdl:message>
+  <wsdl:message name="Index_KeyFinancial_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Index_KeyFinancial_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Index_KeyFinancial_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Report_Assets_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Report_Assets_Data" />
+  </wsdl:message>
+  <wsdl:message name="Report_Assets_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Report_Assets_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Report_Assets_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Report_Profit_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Report_Profit_Data" />
+  </wsdl:message>
+  <wsdl:message name="Report_Profit_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Report_Profit_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Report_Profit_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Report_CashFlow_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Report_CashFlow_Data" />
+  </wsdl:message>
+  <wsdl:message name="Report_CashFlow_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Report_CashFlow_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Report_CashFlow_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="CreditReport_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:CreditReport_Data" />
+  </wsdl:message>
+  <wsdl:message name="CreditReport_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:CreditReport_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreditReport_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:portType name="RDAWebServiceSoap">
+    <wsdl:operation name="USER_CheckLoginName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证用户名是否已存在</wsdl:documentation>
+      <wsdl:input message="tns:USER_CheckLoginNameSoapIn" />
+      <wsdl:output message="tns:USER_CheckLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USER_CheckCompanyName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证企业是否已存在</wsdl:documentation>
+      <wsdl:input message="tns:USER_CheckCompanyNameSoapIn" />
+      <wsdl:output message="tns:USER_CheckCompanyNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USER_Register">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">注册用户</wsdl:documentation>
+      <wsdl:input message="tns:USER_RegisterSoapIn" />
+      <wsdl:output message="tns:USER_RegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USER_Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">用户登录</wsdl:documentation>
+      <wsdl:input message="tns:USER_LoginSoapIn" />
+      <wsdl:output message="tns:USER_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Index_OtherFinancial_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业 综合实力、资产质量、现金流量 指标数据</wsdl:documentation>
+      <wsdl:input message="tns:Index_OtherFinancial_DataSoapIn" />
+      <wsdl:output message="tns:Index_OtherFinancial_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Index_ReferenceValue_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业财务指标参考值数据</wsdl:documentation>
+      <wsdl:input message="tns:Index_ReferenceValue_DataSoapIn" />
+      <wsdl:output message="tns:Index_ReferenceValue_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Index_KeyFinancial_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业关键财务指标数据</wsdl:documentation>
+      <wsdl:input message="tns:Index_KeyFinancial_DataSoapIn" />
+      <wsdl:output message="tns:Index_KeyFinancial_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Report_Assets_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业月份资产负债表数据</wsdl:documentation>
+      <wsdl:input message="tns:Report_Assets_DataSoapIn" />
+      <wsdl:output message="tns:Report_Assets_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Report_Profit_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业月份利润表数据</wsdl:documentation>
+      <wsdl:input message="tns:Report_Profit_DataSoapIn" />
+      <wsdl:output message="tns:Report_Profit_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Report_CashFlow_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业月份现金流量表数据</wsdl:documentation>
+      <wsdl:input message="tns:Report_CashFlow_DataSoapIn" />
+      <wsdl:output message="tns:Report_CashFlow_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreditReport_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业信用报告数据</wsdl:documentation>
+      <wsdl:input message="tns:CreditReport_DataSoapIn" />
+      <wsdl:output message="tns:CreditReport_DataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RDAWebServiceSoap" type="tns:RDAWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="USER_CheckLoginName">
+      <soap:operation soapAction="RDAWebServiceSpace/USER_CheckLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_CheckLoginNameSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_CheckCompanyName">
+      <soap:operation soapAction="RDAWebServiceSpace/USER_CheckCompanyName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_CheckCompanyNameSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Register">
+      <soap:operation soapAction="RDAWebServiceSpace/USER_Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_RegisterSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Login">
+      <soap:operation soapAction="RDAWebServiceSpace/USER_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_LoginSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_OtherFinancial_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Index_OtherFinancial_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Index_OtherFinancial_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_ReferenceValue_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Index_ReferenceValue_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Index_ReferenceValue_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_KeyFinancial_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Index_KeyFinancial_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Index_KeyFinancial_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Report_Assets_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Report_Assets_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Report_Assets_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Report_Profit_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Report_Profit_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Report_Profit_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Report_CashFlow_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Report_CashFlow_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Report_CashFlow_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditReport_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/CreditReport_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreditReport_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RDAWebServiceSoap12" type="tns:RDAWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="USER_CheckLoginName">
+      <soap12:operation soapAction="RDAWebServiceSpace/USER_CheckLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_CheckLoginNameSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_CheckCompanyName">
+      <soap12:operation soapAction="RDAWebServiceSpace/USER_CheckCompanyName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_CheckCompanyNameSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Register">
+      <soap12:operation soapAction="RDAWebServiceSpace/USER_Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_RegisterSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Login">
+      <soap12:operation soapAction="RDAWebServiceSpace/USER_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_LoginSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_OtherFinancial_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Index_OtherFinancial_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Index_OtherFinancial_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_ReferenceValue_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Index_ReferenceValue_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Index_ReferenceValue_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_KeyFinancial_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Index_KeyFinancial_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Index_KeyFinancial_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Report_Assets_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Report_Assets_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Report_Assets_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Report_Profit_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Report_Profit_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Report_Profit_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Report_CashFlow_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Report_CashFlow_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Report_CashFlow_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditReport_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/CreditReport_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreditReport_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RDAWebService">
+    <wsdl:port name="RDAWebServiceSoap" binding="tns:RDAWebServiceSoap">
+      <soap:address location="http://192.168.1.9:6100/RDAWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RDAWebServiceSoap12" binding="tns:RDAWebServiceSoap12">
+      <soap12:address location="http://192.168.1.9:6100/RDAWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
