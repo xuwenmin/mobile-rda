@@ -122,6 +122,15 @@ define(["zepto","util","underscore"],function($,util,_){
                                 '</div></a>'+
                              '</li>'+
                              '{{ } }}';
+    var $template_cwbb='{{ for(var i=0;i<it.length;i++) { }}'+
+    ' <li  name="li{{=it[i].code}}" class="subli">'+
+                             '<a href="#" class="desc">'+
+                                 '<p class="pleft">{{=it[i].Name}}</p><div class="list_next list_topright list_right_content">'+
+                                  '<p class="pred">{{=it[i].State}}</p>'+
+                                  '<p class="p12">{{=it[i].ReportType}} {{=it[i].Year}}</p>'+
+                             '</div></a>'+
+                         '</li>'+
+                         '{{ } }}';
 	var codeinfo={
 		//综合实力代码
 		1:"综合实力分析--经营能力",2:"综合实力分析--偿债能力--短期偿还",3:"综合实力分析--偿债能力--长期偿还",
@@ -208,6 +217,43 @@ define(["zepto","util","underscore"],function($,util,_){
 			}
 		});
 	};
+	//通过风险预警的财务报表父类，获取子类信息
+	var _get_fxyj_cwbb=function(code,$this){
+		var result=[];
+		$.ajax({
+			url:"getdata.aspx",
+			type:"get",
+			dataType:"json",
+			data:{action:"Risk_Report_Data",flag:code},
+			beforeSend:function(){
+				util.loadtip.show();
+			},
+			success:function(msg){
+				if(msg.Result){
+					if(msg.Data.table0.length){
+						//开始加载子项
+						var groupname = $this.attr("rel");
+						$("[name=" + groupname + "]").remove();
+						var dotobj=doT.template($template_cwbb);
+						result=_.map(msg.Data.table0,function(v){
+							v.code=code;
+							if(!v.Name){
+								v.Name=v.ReportType;
+							}
+							return v;
+						});
+						$this.after(dotobj(result));
+						$("[name=" + groupname + "]").show();
+					}
+				}
+				
+				util.loadtip.hide();
+			},
+			error:function(){
+				util.loadtip.hide();
+			}
+		});
+	};
 	//获取风险预警统计相关信息
 	var _get_fxyj_tjinfo=function(){
 		$.ajax({
@@ -224,7 +270,7 @@ define(["zepto","util","underscore"],function($,util,_){
 						}
 					}
 				}				
-			    console.log(msg);
+			    // console.log(msg);
 			}
 		});
 	};
@@ -234,6 +280,8 @@ define(["zepto","util","underscore"],function($,util,_){
 		//通过父级获取下面可用的子级，需要跟参考值进行对比
 		getsubitembycode:_getsubitembycode,
 		//获取风险预警首页，统计数量信息
-		get_fxyj_tjinfo:_get_fxyj_tjinfo
+		get_fxyj_tjinfo:_get_fxyj_tjinfo,
+		//获取风险预警，财务报表信息
+		get_fxyj_cwbb:_get_fxyj_cwbb
 	}
 });

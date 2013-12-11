@@ -24,6 +24,6 @@
                              <a href="#" class="desc">注解</a>
                          </li>
                      </ul>
-                     <p class="p16">什么是货币乘数?</p>
-                     <p class="p14">sdfsdddddddddddddddddddddddddddddddd234234234234234234rwerwerwerwerwer</p>
+                     <!-- <p class="p16">什么是货币乘数?</p> -->
+                     <p class="p14">{{=it.codeinfo}}</p>
                  </div>

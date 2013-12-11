@@ -1,6 +1,6 @@
 // 公共js功能模块.by xuwm
 define(["zepto","underscore"],function($,_){
-	var _scrollload=["rzgl_fbrzxx","rzgl_fbrzxx_2","cwzb","fxyj_zhsl","fxyj_xjll","fxyj_zczl"];
+	var _scrollload=["rzgl_fbrzxx","rzgl_fbrzxx_2","cwzb","fxyj_zhsl","fxyj_xjll","fxyj_zczl","fxyj_cwbb"];
 	 //检测平台
     var versions=function() {
             var  u  =  navigator.userAgent,

@@ -521,3 +521,24 @@ input::-webkit-input-placeholder{
      font-size: 15px;
 }
 
+.wrapper .content .content_list li a .list_right_content{
+    height: 30px;
+}
+.wrapper .content .content_list li a .list_right_content p{
+    display: block;
+    text-align: right;
+    padding: 0;
+}
+.wrapper .content  .content_list li a .list_right_content p.pred{
+    color: red;
+}
+.wrapper .content  .content_list li a .list_right_content p.p12{
+    font-size: 12px;
+    color: #333;
+}
+.wrapper .content .content_list .subli a p.pleft{
+    float: left;
+    padding: 0;
+    width: 40%;
+}
+

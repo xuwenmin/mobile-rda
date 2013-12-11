@@ -80,7 +80,6 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
                     if (hashobj.hash=="fxyj"){
                         fxyj.get_fxyj_tjinfo();
                         _obj=JSON.parse(localStorage["fxyj_index"]);
-                        console.log(_obj);
                     }
 
                     hashobj.para=_obj;
@@ -160,7 +159,11 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
         $target.delegate(".hasloadsub",touchevent,function(){
             if ($(this).hasClass("active")) {
                 var code=$(this).attr("data-code");
-                fxyj.getsubitembycode(code,$(this));
+                if(hashobj.hash=="fxyj_cwbb"){
+                    fxyj.get_fxyj_cwbb(code,$(this));  
+                }else{
+                    fxyj.getsubitembycode(code,$(this)); 
+                }
             }
         });
 
