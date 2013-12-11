@@ -8,8 +8,8 @@
 
                      <ul class="content_list">
                          <!--财务报表-->
-                         <li>
-                             <a href="#" class="desc">
+                         <li to="fxyj_cwbb">
+                             <a href="#fxyj_cwbb" class="desc">
                                  <img src="images/xtyx.png" alt="" class="icon">
                                  财务报表{{ if (it.CWBB) { }}<em class="yuan">{{=it.CWBB}}</em>{{  } }}<div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">
