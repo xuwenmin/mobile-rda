@@ -23,7 +23,8 @@
                              <a href="#" class="desc">
                                  <img src="images/zxpg.png" alt="" class="icon">
                                  现金流量表<div class="list_next list_topright">
-                                 <img src="images/a_right.png" alt="">
+                                  <img src="images/a_down.png" alt="" class="imgdown">
+                                 <img src="images/a_top.png" alt="" class="imgtop">
                              </div></a>
                          </li>
                          <!--利润表-->
@@ -31,7 +32,8 @@
                              <a href="#" class="desc">
                                  <img src="images/zxpg.png" alt="" class="icon">
                                  利润表<div class="list_next list_topright">
-                                 <img src="images/a_right.png" alt="">
+                                 <img src="images/a_down.png" alt="" class="imgdown">
+                                 <img src="images/a_top.png" alt="" class="imgtop">
                              </div></a>
                          </li>
                      </ul>
