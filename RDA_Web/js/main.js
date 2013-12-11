@@ -10,8 +10,6 @@ require.config({
     paths:{
         "zepto":"zepto.min",
         "underscore":"underscore.min",
-        "offset":"extend/offset",
-        "position":"extend/position",
         "iscroll":"iscroll",
         "ichart":"ichart.1.2.min",
         "base":"base",
@@ -28,15 +26,6 @@ require.config({
         "ichart":{
             exports:"iChart"
         },
-        "position":{
-            deps:["offset"]
-        },
-        "offset":{
-            deps:["zepto"]
-        },
-        "util":{
-            deps:["position"]
-        },
         "zepto":{
             exports:"$"
         },
@@ -44,7 +33,7 @@ require.config({
             exports:"_"
         },
         "base":{
-           deps:["underscore","position","iscroll","ichart"] 
+           deps:["underscore","zepto","iscroll","ichart"] 
         }
     },
     // 处理js cache问题

@@ -1,24 +1,24 @@
-<!-- 风险预警--综合实力--图表 -->
+<!-- 风险预警--通用--图表 -->
  <div class="head">
-                     <img from="fxyj_xjll" class="pre" src="images/pre.png" alt="">
+                     <img from="{{=it.oldhash}}" class="pre" src="images/pre.png" alt="">
                      <h1>风险预警</h1>
                      <a href="#" class="next"></a>
                  </div>
                  <div class="content m_con">
                      <ul class="content_list">
                          <li class="white">
-                             <a href="#" class="desc">现金到期债务比</a>
+                             <a href="#" class="desc">{{=it.name}}</a>
                          </li>
                      </ul>
-                     <div class="tubiao" id="fxyj_xjll_xjdqzwb">
+                     <div class="tubiao" id="fxyj_zhsl_tb">
                      </div>
                      <ul class="content_list">
                          <li class="white">
                              <a href="#" class="desc">计算公式</a>
                          </li>
                      </ul>
-                     <p class="p14">应收账款周转率</p>
-                     <p class="p14">=企业一定时期的营业收入/应收账款平均余额</p>
+                     <p class="p14">{{=it.codename}}</p>
+                     <p class="p14">{{=it.codegongshi}}</p>
                      <ul class="content_list">
                          <li class="white">
                              <a href="#" class="desc">注解</a>

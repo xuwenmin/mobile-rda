@@ -1,9 +1,9 @@
-define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) {
+define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
     var _init = function() {
         console.log("if have some problem,please call me 151481184@qq.com,tks!")
         var $target = $(".main1");
         var curx = 0;
-        var curwidth, touchevent, curmodel, isgo;
+        var curwidth, touchevent, curmodel, isgo,oldhash;
         var hashobj = {}; //hash对象,保存hash和传的参数信息
         //iscroll滚动条初始化
         var myScroll;
@@ -34,9 +34,12 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
         }
         //路由事件
         $(window).on("hashchange", function(event) {
+           
             if (isgo) return;
             var hash = window.location.hash;
+
             if (!hash) return;
+
             isgo = true;
             index.animateindex.stop();
             var reg = /(#(.*)!\/(.*))|(#(.*))/;
@@ -59,7 +62,6 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
             }
 
             var url = "tmpl/" + hashobj.hash + ".tpl?" + (+new Date());
-            // console.log(url);
             $.ajax({
                 url: url,
                 type: "get",
@@ -70,14 +72,17 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
                 },
                 success: function(msg) {
                     var dotobj = doT.template(msg);
+                    if(hashobj.hash=="fxyj_tb"){
+                        _obj=(_.where(JSON.parse(localStorage["fxyj_item"]),{id:parseInt(_obj.code)}))[0];
+                        _obj.oldhash=oldhash;
+                        console.log(_obj);
+                    }
+                    hashobj.para=_obj;
                     $(".gonext").html(dotobj(_obj)).addClass("gopre").removeClass("gonext");
                     $target[0].style.webkitTransition = "-webkit-transform .3s linear 0s";
                     $target[0].style.webkitTransform = 'translateX(' + -curwidth + 'px)';
-
-                    isend = true;
-
-                    
-                   
+                    isend = true; 
+                    oldhash=hashobj.hash;
                 },
                 error: function() {
                      util.loadtip.hide();
@@ -397,15 +402,15 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
                         alert("亲，暂时无数据！");
                     }
                 });
-            } else if (hashobj.hash == "fxyj_xjll_xjdqzwb") {
+            } else if (hashobj.hash == "fxyj_tb") {
                 _.delay(function() {
-                    fxyj.createchart_fxyj_xjll_xjdqzwb();
+                    fxyj.createchart_fxyj_tb(hashobj);
                 }, 0);
             } else if (hashobj.hash == "index" || hashobj.hash == "ssxyzhpf") {
                 _.delay(function() {
                     index.animateindex.reload();
                 });
-            } else if (hashobj.hash == "rzgl_fbrzxx" || hashobj.hash == "rzgl_fbrzxx_2" || hashobj.hash == "cwzb" || hashobj.hash == "fxyj_zhsl") {
+            } else if (util.isscroll(hashobj.hash)) {
                 _.delay(function() {
                     scroll_loaded();
                 }, 0)

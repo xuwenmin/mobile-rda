@@ -1,5 +1,6 @@
 // 公共js功能模块.by xuwm
-define(["zepto"],function($){
+define(["zepto","underscore"],function($,_){
+	var _scrollload=["rzgl_fbrzxx","rzgl_fbrzxx_2","cwzb","fxyj_zhsl","fxyj_xjll","fxyj_zczl"];
 	 //检测平台
     var versions=function() {
             var  u  =  navigator.userAgent,
@@ -150,6 +151,9 @@ define(["zepto"],function($){
 			}
 		}
 	})();
+	var _isscroll=function(s){
+		return _.contains(_scrollload,s);
+	}
 	return {
 		//当前浏览器信息
 		_platform:versions,
@@ -161,6 +165,9 @@ define(["zepto"],function($){
 		returnexit:returnexit,
 		getFloat2:getFloat2,
 		loadJs:loadJs,
-		loadtip:_loadtip
+		loadtip:_loadtip,
+		isscroll:function(s){
+			return _isscroll(s);
+		}
 	}
 });

@@ -7,6 +7,7 @@
                  <div class="content">
                       <div id="qm_wrapper" class="scroll_ul scroll_ul0">
                         <div class="qm_scroll">
+                            
                      <ul class="content_list">
                          <li>
                              <a href="#" class="desc">综合实力<p class="list_next list_topright"></p></a>

@@ -1,18 +1,31 @@
 // 风险预警js功能模块.by xuwm
 define(["zepto","util","underscore"],function($,util,_){
 	//风险预警--现金流量--现金到期债务比 图表
-	var createchart_fxyj_xjll_xjdqzwb = function() {
+	var createchart_fxyj_tb = function(hash) {
+		var _data=hash.para;
+		var arg=_data.vals;//所有月份的数剧
+		//获取所有的月份值和月份
+		var month_arg=[];
+		var month_val=[];
+
+		_.each(arg,function(v,k){ 
+			month_arg.push(v.cmonth+"月");
+			month_val.push(v.cval);
+		})
+		//参考值
+		var codenumber=parseFloat(_data.codenumber);
+
 	    var data = [{
-	        name: '北京',
-	        value: [2, 1, 12, 20, 26, 30, 32, 29, 22, 12, 0, 2],
+	        name: 'rda',
+	        value: month_val,
 	        color: '#00ac82',
 	        line_width: 3
 	    }];
 	    var chart = new iChart.LineBasic2D({
-	        render: 'fxyj_xjll_xjdqzwb',
+	        render: 'fxyj_zhsl_tb',
 	        data: data,
 	        title: {
-	            text: '参考值:20',
+	            text: '参考值:'+codenumber,
 	            color: '#666',
 	            textAlign: 'right',
 	            fontsize: 12,
@@ -49,7 +62,7 @@ define(["zepto","util","underscore"],function($,util,_){
 	                    fontweight: 600
 	                },
 	                scale_enable: false,
-	                labels: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
+	                labels: month_arg
 	            }]
 	        },
 	        listeners: {
@@ -79,7 +92,7 @@ define(["zepto","util","underscore"],function($,util,_){
 	            }
 	        }
 	    });
-	    chart.plugin(new iChart.Custom({
+	   /* chart.plugin(new iChart.Custom({
 	        drawFn: function() {
 	            var coo = chart.getCoordinate(),
 	                x = coo.get('originx'),
@@ -98,12 +111,12 @@ define(["zepto","util","underscore"],function($,util,_){
 	                if (startx > (x + W)) break;
 	            }
 	        }
-	    }));
+	    }));*/
 	    chart.draw();
 	};
 	var $template='{{ for(var i=0;i<it.length;i++) { }}'+
-	'<li  name="li{{=it[i].code}}" class="subli">'+
-                                '<a href="#{{}}" class="desc">'+
+	'<li  name="li{{=it[i].code}}" to="fxyj_tb!/code={{=it[i].id}}" class="subli">'+
+                                '<a href="#fxyj_tb!/code={{=it[i].id}}" class="desc">'+
                                     '{{=it[i].name}}<div class="list_next list_topright">'+
                                     '<img src="images/a_right.png" alt="">'+
                                 '</div></a>'+
@@ -165,6 +178,10 @@ define(["zepto","util","underscore"],function($,util,_){
 								//此处可以把参考值的相关信息加进去
 								var argcode=_.where(msg[1].Data.table0,{"参考值说明__编号":v.id});
 								v.codenumber=argcode[0]["参考值说明__参考值"];
+								v.codegongshi=argcode[0]["参考值说明__计算公式"];
+								v.codename=argcode[0]["参考值说明__名称"];
+								v.codeinfo=argcode[0]["参考值说明__参考值含义"];
+								v.codedesc=argcode[0]["参考值说明__参考值说明"];
 								v.code=code;
 								return v;
 							});
@@ -172,8 +189,6 @@ define(["zepto","util","underscore"],function($,util,_){
 							if("localStorage" in window){
 								window.localStorage["fxyj_item"]=JSON.stringify(result);
 							}
-
-							console.log(result);
 						}
 					}
 				}
@@ -193,7 +208,7 @@ define(["zepto","util","underscore"],function($,util,_){
 		});
 	}
 	return {
-		createchart_fxyj_xjll_xjdqzwb:createchart_fxyj_xjll_xjdqzwb,
+		createchart_fxyj_tb:createchart_fxyj_tb,
 		//通过父级获取下面可用的子级，需要跟参考值进行对比
 		getsubitembycode:_getsubitembycode
 	}
