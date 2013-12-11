@@ -3,3 +3,8 @@ C:\git\RDA_Web\RDA_Web\bin\RDA_Web.pdb
 C:\git\RDA_Web\RDA_Web\obj\Debug\ResolveAssemblyReference.cache
 C:\git\RDA_Web\RDA_Web\obj\Debug\RDA_Web.dll
 C:\git\RDA_Web\RDA_Web\obj\Debug\RDA_Web.pdb
+C:\git\mobile-rda\RDA_Web\bin\RDA_Web.dll
+C:\git\mobile-rda\RDA_Web\bin\RDA_Web.pdb
+C:\git\mobile-rda\RDA_Web\obj\Debug\ResolveAssemblyReference.cache
+C:\git\mobile-rda\RDA_Web\obj\Debug\RDA_Web.dll
+C:\git\mobile-rda\RDA_Web\obj\Debug\RDA_Web.pdb

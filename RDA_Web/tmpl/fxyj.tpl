@@ -7,6 +7,14 @@
                  <div class="content">
 
                      <ul class="content_list">
+                         <!--财务报表-->
+                         <li>
+                             <a href="#" class="desc">
+                                 <img src="images/xtyx.png" alt="" class="icon">
+                                 财务报表<div class="list_next list_topright">
+                                 <img src="images/a_right.png" alt="">
+                             </div></a>
+                         </li>
                          <!--财务指标-->
                          <li rel="li1"  class="hassub">
                              <a href="#" class="desc">

@@ -53,6 +53,10 @@ namespace RDA_Web.RDA {
         
         private System.Threading.SendOrPostCallback CreditReport_DataOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Risk_Count_DataOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Risk_Report_DataOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -132,6 +136,12 @@ namespace RDA_Web.RDA {
         
         /// <remarks/>
         public event CreditReport_DataCompletedEventHandler CreditReport_DataCompleted;
+        
+        /// <remarks/>
+        public event Risk_Count_DataCompletedEventHandler Risk_Count_DataCompleted;
+        
+        /// <remarks/>
+        public event Risk_Report_DataCompletedEventHandler Risk_Report_DataCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleValue")]
@@ -460,6 +470,66 @@ namespace RDA_Web.RDA {
             if ((this.CreditReport_DataCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CreditReport_DataCompleted(this, new CreditReport_DataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleValue")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("RDAWebServiceSpace/Risk_Count_Data", RequestNamespace="RDAWebServiceSpace", ResponseNamespace="RDAWebServiceSpace", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string Risk_Count_Data(string param) {
+            object[] results = this.Invoke("Risk_Count_Data", new object[] {
+                        param});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Risk_Count_DataAsync(string param) {
+            this.Risk_Count_DataAsync(param, null);
+        }
+        
+        /// <remarks/>
+        public void Risk_Count_DataAsync(string param, object userState) {
+            if ((this.Risk_Count_DataOperationCompleted == null)) {
+                this.Risk_Count_DataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRisk_Count_DataOperationCompleted);
+            }
+            this.InvokeAsync("Risk_Count_Data", new object[] {
+                        param}, this.Risk_Count_DataOperationCompleted, userState);
+        }
+        
+        private void OnRisk_Count_DataOperationCompleted(object arg) {
+            if ((this.Risk_Count_DataCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Risk_Count_DataCompleted(this, new Risk_Count_DataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleValue")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("RDAWebServiceSpace/Risk_Report_Data", RequestNamespace="RDAWebServiceSpace", ResponseNamespace="RDAWebServiceSpace", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string Risk_Report_Data(string param) {
+            object[] results = this.Invoke("Risk_Report_Data", new object[] {
+                        param});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Risk_Report_DataAsync(string param) {
+            this.Risk_Report_DataAsync(param, null);
+        }
+        
+        /// <remarks/>
+        public void Risk_Report_DataAsync(string param, object userState) {
+            if ((this.Risk_Report_DataOperationCompleted == null)) {
+                this.Risk_Report_DataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRisk_Report_DataOperationCompleted);
+            }
+            this.InvokeAsync("Risk_Report_Data", new object[] {
+                        param}, this.Risk_Report_DataOperationCompleted, userState);
+        }
+        
+        private void OnRisk_Report_DataOperationCompleted(object arg) {
+            if ((this.Risk_Report_DataCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Risk_Report_DataCompleted(this, new Risk_Report_DataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -802,6 +872,58 @@ namespace RDA_Web.RDA {
         private object[] results;
         
         internal CreditReport_DataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void Risk_Count_DataCompletedEventHandler(object sender, Risk_Count_DataCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Risk_Count_DataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Risk_Count_DataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void Risk_Report_DataCompletedEventHandler(object sender, Risk_Report_DataCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Risk_Report_DataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Risk_Report_DataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -26,11 +26,21 @@ namespace RDA_Web.bill
                 case "Index_OtherFinancial_Data":
                     Index_OtherFinancial_Data(context);
                     break;
+                //用户登录
                 case "USER_Login":
                     USER_Login(context);
                     break;
+                //用户注册
                 case "USER_Register":
                     USER_Register(context);
+                    break;
+                //查询风险预警首页统计数量信息
+                case "Risk_Count_Data":
+                    Risk_Count_Data(context);
+                    break;
+                //查询风险预警,财务报表相关信息
+                case "Risk_Report_Data":
+                    Risk_Report_Data(context);
                     break;
             }
             context.Response.Write("");
@@ -48,10 +58,11 @@ namespace RDA_Web.bill
         }
         /// <summary>
         /// 用户登录接口.by xuwm on 20131209
+        /// //{'UserName':'rdatest31','Password':'e10adc3949ba59abbe56e057f20f883e'}
         /// </summary>
         /// <param name="context"></param>
         public void USER_Login(HttpContext context) {
-            //{'UserName':'rdatest31','Password':'e10adc3949ba59abbe56e057f20f883e'}
+            
             string result = string.Empty;
             string username = HttpUtility.UrlDecode(context.Request["username"]);
             string pwd = NewMD5(HttpUtility.UrlDecode(context.Request["pwd"]),"utf-8").ToLower();
@@ -61,10 +72,11 @@ namespace RDA_Web.bill
         }
         /// <summary>
         /// 用户注册接口.by xuwm on 20131209
+        ///  //{'UserName':'rdatest31','Password':'e10adc3949ba59abbe56e057f20f883e','EtpName':'etp_rdatest31','Type':'1'} 
         /// </summary>
         /// <param name="context"></param>
         public void USER_Register(HttpContext context) {
-            //{'UserName':'rdatest31','Password':'e10adc3949ba59abbe56e057f20f883e','EtpName':'etp_rdatest31','Type':'1'} 
+           
             string result = string.Empty;
             string username = HttpUtility.UrlDecode(context.Request["username"]);
             string pwd = NewMD5(HttpUtility.UrlDecode(context.Request["pwd"]),"utf-8").ToLower();
@@ -76,10 +88,11 @@ namespace RDA_Web.bill
         }
         /// <summary>
         /// 获取风险预警数据.by xuwm on 20131210
+        ///  //{\"GroupID\":\"IBD116\",\"Code\":\"1\"}
         /// </summary>
         /// <param name="context"></param>
         public void Index_OtherFinancial_Data(HttpContext context) {
-            //{\"GroupID\":\"IBD116\",\"Code\":\"1\"}
+           
             string result = string.Empty;
 
             string iteminfo=string.Empty;//父类下面的所有子项
@@ -97,7 +110,39 @@ namespace RDA_Web.bill
            
             context.Response.Write(result);
         }
+        /// <summary>
+        /// 获取风险预警,首页相关图标统计数据.by xuwm on 20131211
+        ///   //{\"GroupID\":\"IBD116\"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void Risk_Count_Data(HttpContext context) {
+          
+            string result = string.Empty;
+            string json = "{\"GroupID\":\"IBD116\"}";
+            result = rdaws.Risk_Count_Data(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 获取风险预警,财务报表相关的信息
+        ///{\"GroupID\":\"IBD116\",\"Flag\":\"0\"}
+        ///GroupID：企业Id,Flag：0 - 资产负债 1 - 现金流量 2 - 利润
+        /// </summary>
+        /// <param name="context"></param>
+        public void Risk_Report_Data(HttpContext context) {
+          
+            string result = string.Empty;
+            string flag = context.Request["flag"];
+            string json = "{\"GroupID\":\"IBD116\",\"Flag\":\""+flag+"\"}";
+            result = rdaws.Risk_Report_Data(json);
+            context.Response.Write(result);
+        }
 
+        /// <summary>
+        /// md5相关加密方法
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="charset"></param>
+        /// <returns></returns>
         private string NewMD5(string source, string charset)
         {
             StringBuilder sb = new StringBuilder();

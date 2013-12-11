@@ -164,6 +164,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Risk_Count_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Risk_Count_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Risk_Count_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Risk_Report_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Risk_Report_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Risk_Report_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="USER_CheckLoginNameSoapIn">
@@ -265,6 +293,24 @@
   <wsdl:message name="CreditReport_DataSOAPHeaderHandle">
     <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
   </wsdl:message>
+  <wsdl:message name="Risk_Count_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Risk_Count_Data" />
+  </wsdl:message>
+  <wsdl:message name="Risk_Count_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Risk_Count_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Risk_Count_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Risk_Report_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Risk_Report_Data" />
+  </wsdl:message>
+  <wsdl:message name="Risk_Report_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Risk_Report_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Risk_Report_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
   <wsdl:portType name="RDAWebServiceSoap">
     <wsdl:operation name="USER_CheckLoginName">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证用户名是否已存在</wsdl:documentation>
@@ -320,6 +366,16 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业信用报告数据</wsdl:documentation>
       <wsdl:input message="tns:CreditReport_DataSoapIn" />
       <wsdl:output message="tns:CreditReport_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Risk_Count_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业风险预警 - 首页</wsdl:documentation>
+      <wsdl:input message="tns:Risk_Count_DataSoapIn" />
+      <wsdl:output message="tns:Risk_Count_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Risk_Report_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业风险预警 - 财务报表</wsdl:documentation>
+      <wsdl:input message="tns:Risk_Report_DataSoapIn" />
+      <wsdl:output message="tns:Risk_Report_DataSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RDAWebServiceSoap" type="tns:RDAWebServiceSoap">
@@ -434,6 +490,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Risk_Count_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Risk_Count_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Risk_Count_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Risk_Report_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Risk_Report_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Risk_Report_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RDAWebServiceSoap12" type="tns:RDAWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -542,6 +618,26 @@
       <wsdl:input>
         <soap12:body use="literal" />
         <soap12:header message="tns:CreditReport_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Risk_Count_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Risk_Count_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Risk_Count_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Risk_Report_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Risk_Report_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Risk_Report_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />

@@ -73,7 +73,7 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
                 success: function(msg) {
                     var dotobj = doT.template(msg);
                     if(hashobj.hash=="fxyj_tb"){
-                        _obj=(_.where(JSON.parse(localStorage["fxyj_item"]),{id:parseInt(_obj.code)}))[0];
+                        _obj=(_.where(JSON.parse(localStorage["fxyj_tb"]),{id:parseInt(_obj.code)}))[0];
                         _obj.oldhash=oldhash;
                         console.log(_obj);
                     }
@@ -418,6 +418,10 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
                 _.delay(function() {
                     window.location.hash = "login";
                 }, 1000);
+            }else if (hashobj.hash=="fxyj"){
+                _.delay(function(){
+                    fxyj.get_fxyj_tjinfo();
+                },0);
             }
 
             util.loadtip.hide();

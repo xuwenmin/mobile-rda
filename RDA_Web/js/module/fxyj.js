@@ -132,6 +132,7 @@ define(["zepto","util","underscore"],function($,util,_){
 		//现金流量代码
 		9:"现金流量分析_流动性分析",10:"现金流量--获取现金能力",11:"现金流量--现金保障能力"
 	};
+	//通过父级获取子级相关可用项
 	var _getsubitembycode=function(code,$this){
 		var result=[];
 		$.ajax({
@@ -187,7 +188,7 @@ define(["zepto","util","underscore"],function($,util,_){
 							});
 							//更新或者保存到localstorage里去
 							if("localStorage" in window){
-								window.localStorage["fxyj_item"]=JSON.stringify(result);
+								window.localStorage["fxyj_tb"]=JSON.stringify(result);
 							}
 						}
 					}
@@ -206,10 +207,32 @@ define(["zepto","util","underscore"],function($,util,_){
 				util.loadtip.hide();
 			}
 		});
-	}
+	};
+	//获取风险预警统计相关信息
+	var _get_fxyj_tjinfo=function(){
+		$.ajax({
+			url:"getdata.aspx",
+			data:{action:"Risk_Count_Data"},
+			type:"get",
+			dataType:"json",
+			beforeSend:function(){
+				util.loadtip.show();
+			},
+			success:function(msg){
+			    console.log(msg);
+			    util.loadtip.hide();
+			},
+			error:function(){
+				util.loadtip.hide();
+			}
+		});
+	};
 	return {
+		//统一创建风险预警图表信息
 		createchart_fxyj_tb:createchart_fxyj_tb,
 		//通过父级获取下面可用的子级，需要跟参考值进行对比
-		getsubitembycode:_getsubitembycode
+		getsubitembycode:_getsubitembycode,
+		//获取风险预警首页，统计数量信息
+		get_fxyj_tjinfo:_get_fxyj_tjinfo
 	}
 });

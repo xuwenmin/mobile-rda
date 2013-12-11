@@ -73,5 +73,21 @@ namespace RDA_Web.dal
         public static string Index_ReferenceValue_Data(string json) {
             return _rda.Index_ReferenceValue_Data(json);
         }
+        /// <summary>
+        /// 获取风险预警首页,所有预警的图标数量
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Risk_Count_Data(string json) {
+            return _rda.Risk_Count_Data(json);
+        }
+        /// <summary>
+        /// 获取风险预警,财务报表相关的数据
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Risk_Report_Data(string json) {
+            return _rda.Risk_Report_Data(json);
+        }
     }
 }
