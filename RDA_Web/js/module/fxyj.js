@@ -215,15 +215,16 @@ define(["zepto","util","underscore"],function($,util,_){
 			data:{action:"Risk_Count_Data"},
 			type:"get",
 			dataType:"json",
-			beforeSend:function(){
-				util.loadtip.show();
-			},
+			async:false,
 			success:function(msg){
+				if(msg.Result){
+					if(msg.Data.table0.length){
+						if("localStorage" in window){
+							window.localStorage["fxyj_index"]=JSON.stringify(msg.Data.table0[0]);
+						}
+					}
+				}				
 			    console.log(msg);
-			    util.loadtip.hide();
-			},
-			error:function(){
-				util.loadtip.hide();
 			}
 		});
 	};

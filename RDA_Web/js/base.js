@@ -72,11 +72,17 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
                 },
                 success: function(msg) {
                     var dotobj = doT.template(msg);
+                    
                     if(hashobj.hash=="fxyj_tb"){
                         _obj=(_.where(JSON.parse(localStorage["fxyj_tb"]),{id:parseInt(_obj.code)}))[0];
                         _obj.oldhash=oldhash;
+                    }
+                    if (hashobj.hash=="fxyj"){
+                        fxyj.get_fxyj_tjinfo();
+                        _obj=JSON.parse(localStorage["fxyj_index"]);
                         console.log(_obj);
                     }
+
                     hashobj.para=_obj;
                     $(".gonext").html(dotobj(_obj)).addClass("gopre").removeClass("gonext");
                     $target[0].style.webkitTransition = "-webkit-transform .3s linear 0s";
@@ -418,10 +424,6 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
                 _.delay(function() {
                     window.location.hash = "login";
                 }, 1000);
-            }else if (hashobj.hash=="fxyj"){
-                _.delay(function(){
-                    fxyj.get_fxyj_tjinfo();
-                },0);
             }
 
             util.loadtip.hide();

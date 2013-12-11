@@ -11,7 +11,7 @@
                          <li>
                              <a href="#" class="desc">
                                  <img src="images/xtyx.png" alt="" class="icon">
-                                 财务报表<div class="list_next list_topright">
+                                 财务报表{{ if (it.CWBB) { }}<em class="yuan">{{=it.CWBB}}</em>{{  } }}<div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">
                              </div></a>
                          </li>
@@ -19,27 +19,27 @@
                          <li rel="li1"  class="hassub">
                              <a href="#" class="desc">
                                  <img src="images/cwzb.png" alt="" class="icon">
-                                 财务指标<div class="list_next list_topright">
+                                 财务指标{{ if (it.CWZB) { }}<em class="yuan">{{=it.CWZB}}</em>{{  } }}<div class="list_next list_topright">
                                  <img src="images/a_down.png" alt="" class="imgdown">
                                  <img src="images/a_top.png" alt="" class="imgtop">
                              </div></a>
                          </li>
                          <li to="fxyj_zhsl" name="li1" class="subli">
                              <a href="#fxyj_zhsl" class="desc">
-                                 综合实力<em class="yuan">12</em><div class="list_next list_topright">
+                                 综合实力{{ if (it.FZHSL) { }}<em class="yuan">{{=it.FZHSL}}</em>{{  } }}<div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">
                              </div></a>
                          </li>
                          <li to="fxyj_zczl" name="li1"  class="subli">
                              <a href="#fxyj_zczl" class="desc">
-                                 资产质量<em class="yuan">12</em><div class="list_next list_topright">
+                                 资产质量{{ if (it.FZCZL) { }}<em class="yuan">{{=it.FZCZL}}</em>{{  } }}<div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">
                              </div>
                              </a>
                          </li>
                          <li to="fxyj_xjll" name="li1"  class="subli">
                              <a href="#fxyj_xjll" class="desc">
-                                 现金流量<div class="list_next list_topright">
+                                 现金流量{{ if (it.FXJLL) { }}<em class="yuan">{{=it.FXJLL}}</em>{{  } }}<div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">
                              </div>
                              </a>
@@ -70,7 +70,7 @@
                          <li>
                              <a href="#" class="desc">
                                  <img src="images/wlxj.png" alt="" class="icon">
-                                 网络巡检<em class="yuan">12</em><div class="list_next list_topright">
+                                 网络巡检{{ if (it.WLXJ) { }}<em class="yuan">{{=it.WLXJ}}</em>{{  } }}<div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">
                              </div></a>
                          </li>

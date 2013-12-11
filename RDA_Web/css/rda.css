@@ -166,12 +166,12 @@
        .wrapper .content em.yuan{
            position: absolute;
            /*display: block;*/
-           width: 20px;
-           height: 20px;
+           width: 30px;
+           height: 30px;
            background-color: #ff3000;
-           border-radius: 10px;
+           border-radius: 15px;
            font-size: 12px;
-           line-height:20px;
+           line-height:30px;
            -webkit-box-sizing: border-box;
            box-sizing: border-box;
            text-align: center;
