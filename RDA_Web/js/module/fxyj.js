@@ -103,7 +103,7 @@ define(["zepto","util","underscore"],function($,util,_){
 	};
 	var $template='{{ for(var i=0;i<it.length;i++) { }}'+
 	'<li  name="li{{=it[i].code}}" class="subli">'+
-                                '<a href="#" class="desc">'+
+                                '<a href="#{{}}" class="desc">'+
                                     '{{=it[i].name}}<div class="list_next list_topright">'+
                                     '<img src="images/a_right.png" alt="">'+
                                 '</div></a>'+

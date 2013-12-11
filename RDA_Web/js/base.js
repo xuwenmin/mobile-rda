@@ -20,7 +20,6 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
             });
         }
         var html = " <div  class=\"wrapper deviceselction gonext\"></div>";
-        console.log(util._platform);
         if (util._platform.android || util._platform.iPhone) {
             curwidth = parseFloat($("body").offset().width); //获取当前设备的width
             touchevent = "touchstart";
@@ -99,7 +98,7 @@ define(["zepto","util","index","fxyj","cwzb"], function($,util,index,fxyj,cwzb) 
                  $target.delegate("[to]", "touchmove", function(event) {
                             // event.stopPropagation();
                     event.preventDefault();
-                    sgo=true;
+                    isgo=true;
                 });
                 //按下弹起事件
                 $target.delegate("[to]", "touchend", function(event) {

@@ -34,6 +34,9 @@ require.config({
         "offset":{
             deps:["zepto"]
         },
+        "util":{
+            deps:["position"]
+        },
         "zepto":{
             exports:"$"
         },
