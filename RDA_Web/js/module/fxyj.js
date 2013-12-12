@@ -240,8 +240,12 @@ define(["zepto","util","underscore"],function($,util,_){
 							if(!v.Name){
 								v.Name=v.ReportType;
 							}
+							if(v.Month!=="--"){
+								v.Year=v.Year+v.Month;
+							}
 							return v;
 						});
+						console.log(result);
 						$this.after(dotobj(result));
 						$("[name=" + groupname + "]").show();
 					}
