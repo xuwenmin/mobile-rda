@@ -17,6 +17,7 @@ require.config({
         "cwzb":"module/cwzb",//财务指标
         "fxyj":"module/fxyj",//风险预警
         "index":"module/index",//首页
+        "cwbb":"module/cwbb",
         "util":"module/util"    //公共
     },
     shim:{

@@ -245,7 +245,6 @@ define(["zepto","util","underscore"],function($,util,_){
 							}
 							return v;
 						});
-						console.log(result);
 						$this.after(dotobj(result));
 						$("[name=" + groupname + "]").show();
 					}

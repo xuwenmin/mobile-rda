@@ -139,7 +139,6 @@ define(["zepto", "util"], function($, util) {
 			$("#cwzb_hbzj_m3").html(util.getFloat2(_data.Data.table0[0].money));
 		}
 	};
-
 	return {
 		getDescByCode: getDescByCode,
 		createchart_cwzb: createchart_cwzb

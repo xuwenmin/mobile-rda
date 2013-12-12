@@ -9,24 +9,11 @@
                        <div class="content_title">
                            <p>会计年度: <select><option value="">2013</option></select> 年 <select><option value="">12</option></select> 月  <span>单位:人民币元</span></p>
                        </div>
-                       <ul class="content_list">
-                           <li>
-                               <a href="#" class="desc">
-                                   <img src="images/icon2.png" alt="" class="icon">
-                                   实收资本<div class="list_next list_topright">
-                                   <p>1254.12</p>
-                               </div></a>
-                           </li>
-                           <li>
-                               <a href="#" class="desc">
-                                   <img src="images/icon2.png" alt="" class="icon">
-                                   资本公积<div class="list_next list_topright">
-                                   <p>1254.12</p>
-                               </div></a>
-                           </li>
-                         <li to="ly_fp">
-                           <a href="#ly_fp" class="desc">
-                               <img src="images/icon2.png" alt="" class="icon">利润分配
-                               <img src="images/a_right.png" alt="" class="list_next"></a></li>
+                        <div id="qm_wrapper" class="scroll_ul">
+                            <div class="qm_scroll">
+                       <ul class="content_list" id="ul_cwbb">
+                          
                        </ul>
+                     </div>
+                   </div>
                    </div>

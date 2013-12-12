@@ -1,4 +1,4 @@
-define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
+define(["util","index","fxyj","cwzb","cwbb"], function(util,index,fxyj,cwzb,cwbb) {
     var _init = function() {
         console.log("if have some problem,please call me 151481184@qq.com,tks!")
         var $target = $(".main1");
@@ -81,6 +81,15 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
                         fxyj.get_fxyj_tjinfo();
                         _obj=JSON.parse(localStorage["fxyj_index"]);
                     }
+                    if(hashobj.hash=="zcfz"){
+                        cwbb.getcwbb_zcfz_infex();
+                        _obj=JSON.parse(localStorage["cwbb_index"]);
+                    }
+                    if(hashobj.hash=="zcfz_sub"){
+                        var __arg=JSON.parse(localStorage["cwbb_index"]);
+                        console.log(__arg);
+                        _obj=(_.where(__arg,{ "typeid":parseInt(hashobj.para.fid) }))[0];
+                    }
 
                     hashobj.para=_obj;
                     $(".gonext").html(dotobj(_obj)).addClass("gopre").removeClass("gonext");
@@ -161,6 +170,12 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
                 var code=$(this).attr("data-code");
                 if(hashobj.hash=="fxyj_cwbb"){
                     fxyj.get_fxyj_cwbb(code,$(this));  
+                }else if(hashobj.hash=="xjll"){
+                    cwbb.getcwbb_sub_byfid(code,$(this),"Report_CashFlow_Data");
+                }else if(hashobj.hash=="ly"){
+                    cwbb.getcwbb_sub_byfid(code,$(this),"Report_Profit_Data");
+                }else if(hashobj.hash=="zcfz_sub"){
+                    cwbb.getcwbb_zcfz_sub(code,$(this));
                 }else{
                     fxyj.getsubitembycode(code,$(this)); 
                 }
@@ -394,6 +409,21 @@ define(["util","index","fxyj","cwzb"], function(util,index,fxyj,cwzb) {
             $target.append(html);
             isgo = false;
             //效果做玩之后,再执行下面的check
+
+            if (hashobj.hash=="xjll"){
+                //开始获取现金流量信息
+                cwbb.getcwbb_byfid(0,$("#ul_cwbb"),"Report_CashFlow_Data");
+            };
+            if (hashobj.hash=="ly"){
+                //开始获取现金流量信息
+                cwbb.getcwbb_byfid(0,$("#ul_cwbb"),"Report_Profit_Data");
+            };
+            if(hashobj.hash=="zcfz_sub"){
+                 //开始获取财务报表-资产负债相关信息
+                cwbb.getcwbb_zcfz(hashobj.para.typeid,$("#ul_zcfz"));
+            }
+
+
             if (hashobj.hash == "cwzb_hbzj") {
                 //财务指表的数据报表页
                 $.ajax({

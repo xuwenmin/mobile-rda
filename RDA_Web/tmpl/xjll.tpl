@@ -9,71 +9,11 @@
                      <div class="content_title">
                          <p>会计年度: <select><option value="">2013</option></select> 年 <select><option value="">12</option></select> 月  <span>单位:人民币元</span></p>
                      </div>
-                     <ul class="content_list">
-                         <li rel="li1"  class="hassub">
-                             <a href="#" class="desc">
-                                 <img src="images/icon2.png" alt="" class="icon">
-                                 流动资产<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                                 <img src="images/a_down.png" alt="" class="imgdown">
-                                 <img src="images/a_top.png" alt="" class="imgtop">
-                             </div></a>
-                         </li>
-                         <li name="li1" class="subli">
-                             <a href="#" class="desc">
-                                 长期投资<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                             </div></a>
-                         </li>
-                         <li name="li1"  class="subli">
-                             <a href="#" class="desc">
-                                 固定资产<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                             </div>
-                             </a>
-                         </li>
-                         <li rel="li2" class="hassub">
-                             <a href="#" class="desc">
-                                 <img src="images/icon2.png" alt="" class="icon">
-                                 非流动资产<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                                 <img src="images/a_down.png" alt="" class="imgdown">
-                                 <img src="images/a_top.png" alt="" class="imgtop">
-                             </div></a>
-                         </li>
-                         <li name="li2" class="subli">
-                             <a href="#" class="desc">
-                                 长期投资<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                             </div></a>
-                         </li>
-                         <li name="li2"  class="subli">
-                             <a href="#" class="desc">
-                                 固定资产<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                             </div>
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#" class="desc">
-                                 <img src="images/icon2.png" alt="" class="icon">
-                                 实收资本<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                             </div></a>
-                         </li>
-                         <li>
-                             <a href="#" class="desc">
-                                 <img src="images/icon2.png" alt="" class="icon">
-                                 资本公积<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                             </div></a>
-                         </li>
-                         <li>
-                             <a href="#" class="desc">
-                                 <img src="images/icon2.png" alt="" class="icon">
-                                 利润分配<div class="list_next list_topright">
-                                 <p>1254.12</p>
-                             </div></a>
-                         </li>
-                     </ul>
+                          <div id="qm_wrapper" class="scroll_ul">
+                            <div class="qm_scroll">
+                         <ul class="content_list" id="ul_cwbb">
+                            
+                         </ul>
+                     </div>
+                 </div>
                  </div>

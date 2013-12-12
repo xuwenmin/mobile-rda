@@ -11,28 +11,27 @@
                     </div>
                     <div class="subitem">
                         <!--资产-->
-                        <div to="zcfz_zc" class="f1 qmcenter">
-                            <div class="item_desc">
+                        <div to="zcfz_sub!/fid={{=it[0].typeid}}" class="f1 qmcenter">
+                            <div class="item_desc item_desc_w100">
                                 <img src="images/zcicon.png" alt=""/>
-                                <p>资产</p>
-                                <p>5201,2010.23</p>
+                                <p>{{=it[0].truename}}</p>
+                                <p>{{=it[0].Money}}</p>
                             </div>
                         </div>
                         <!--负债-->
-                        <div to="zcfz_fz" class="r1 qmcenter">
-                            <div class="item_desc">
+                        <div to="zcfz_sub!/fid={{=it[1].typeid}}" class="r1 qmcenter">
+                            <div class="item_desc item_desc_w100">
                                 <img src="images/fzicon.png" alt=""/>
-                                <p>负债</p>
-                                <p>2205,17.06</p>
+                                <p>{{=it[1].truename}}</p>
+                                <p>{{=it[1].Money}}</p>
                             </div>
                         </div>
                         <!--所有者权益-->
-                        <div to="zcfz_syzqy" class="r1 r2 qmcenter">
-                            <div class="item_desc">
+                        <div to="zcfz_sub!/fid={{=it[2].typeid}}" class="r1 r2 qmcenter">
+                            <div class="item_desc item_desc_w100">
                                 <img src="images/syzqyicon.png" alt=""/>
-                                <p>所有者权益</p>
-                                <p>(或股东权益)</p>
-                                <p>9805,69.83</p>
+                                <p>{{=it[2].truename}}</p>
+                                <p>{{=it[2].Money}}</p>
                             </div>
                         </div>
                     </div>

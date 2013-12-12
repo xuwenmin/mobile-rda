@@ -541,4 +541,7 @@ input::-webkit-input-placeholder{
     padding: 0;
     width: 40%;
 }
+.wrapper .content .subitem .item_desc_w100{
+    max-width: 50%;
+}
 

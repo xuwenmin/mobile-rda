@@ -58,6 +58,14 @@ namespace RDA_Web.dal
             return _rda.Report_Profit_Data(json);
         }
         /// <summary>
+        /// 获取财务报表--资产负债 相关信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Report_Assets_Data(string json) {
+            return _rda.Report_Assets_Data(json);
+        }
+        /// <summary>
         /// 获取风险预警数据
         /// </summary>
         /// <param name="json"></param>
@@ -89,5 +97,6 @@ namespace RDA_Web.dal
         public static string Risk_Report_Data(string json) {
             return _rda.Risk_Report_Data(json);
         }
+
     }
 }
