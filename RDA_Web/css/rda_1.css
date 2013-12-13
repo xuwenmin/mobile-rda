@@ -285,7 +285,7 @@
     color: white;
 }
 /*评分页分按钮样式*/
-.list_next .pfbutton{
+.pfbutton{
     display: inline-block;
     width: 70px;
     height: 30px;
@@ -299,13 +299,13 @@
     border-radius: 3px;
     background-color: #f1f1f1;
 }
-.list_next .pfbutton:active,.list_next .pfbutton:focus{
+.pfbutton:active,.pfbutton:focus{
     background-color: #21a9f8;
     color: white;
     outline: none;
     border: 0;
 }
-.list_next .pfbutton.pfbutton_sq:active,.list_next .pfbutton.pfbutton_sq:focus{
+ .pfbutton.pfbutton_sq:active, .pfbutton.pfbutton_sq:focus{
     background-color: #5ea000;
     color: white;
     outline: none;
@@ -522,7 +522,8 @@ input::-webkit-input-placeholder{
 }
 
 .wrapper .content .content_list li a .list_right_content{
-    height: 30px;
+    /*height: 30px;*/
+    height: auto;
 }
 .wrapper .content .content_list li a .list_right_content p{
     display: block;
@@ -541,7 +542,46 @@ input::-webkit-input-placeholder{
     padding: 0;
     width: 40%;
 }
+.wrapper .content .content_list .subli a p.pleft_up{
+    width: 85%;
+}
 .wrapper .content .subitem .item_desc_w100{
     max-width: 50%;
 }
+.wrapper .content .content_list .subli_desc{
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*融资管理详细页面内的button样式*/
+.rzbutton{
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    margin-right: 10px;
+}
+.rzbutton:active,.rzbutton:focus{
+    outline: none;
+}
+/*普通状态*/
+.rzbutton.normal:active,.rzbutton.normal:focus{
+    background-color: #21a9f8;
+    color: white;
+    border: 0;
+}
+/*禁用状态*/
+.rzbutton.disable{
+    background-color: #f1f1f1;
+    color: #d2d2d2;
+} 
 

@@ -54,6 +54,14 @@ namespace RDA_Web.bill
                 case "Report_Assets_Data":
                     Report_Assets_Data(context);
                     break;
+                //查询融资详细信息
+                case "Trading_Get":
+                    Trading_Get(context);
+                    break;
+                //查询融资列表信息
+                case "Trading_List":
+                    Trading_List(context);
+                    break;
             }
             context.Response.Write("");
         }
@@ -184,6 +192,29 @@ namespace RDA_Web.bill
             string json = "{\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
             result = rdaws.Report_Assets_Data(json);
             context.Response.Write(result);   
+        }
+        /// <summary>
+        /// 查看融资详细信息.by xuwm 20131213
+        /// {\"ProjectID\":\"82694bed-c841-43bf-a697-f6aecc655db3\"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void Trading_Get(HttpContext context) {
+            string result = string.Empty;
+            string projectid = context.Request["projectid"];
+            string json = "{\"ProjectID\":\""+projectid+"\"}";
+            result = rdaws.Trading_Get(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 查看融资列表信息
+        /// {\"GroupID\":\"IBD116\"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void Trading_List(HttpContext context) {
+            string result = string.Empty;
+            string json = "{\"GroupID\":\"IBD153\"}";
+            result = rdaws.Trading_List(json);
+            context.Response.Write(result);
         }
 
         /// <summary>

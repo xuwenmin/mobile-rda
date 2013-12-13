@@ -17,7 +17,8 @@ require.config({
         "cwzb":"module/cwzb",//财务指标
         "fxyj":"module/fxyj",//风险预警
         "index":"module/index",//首页
-        "cwbb":"module/cwbb",
+        "cwbb":"module/cwbb", //财务报表
+        "rzgl":"module/rzgl", //融资管理
         "util":"module/util"    //公共
     },
     shim:{

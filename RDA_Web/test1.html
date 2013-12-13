@@ -23,7 +23,10 @@
 </head>
 <body>
 <div class="main" id="cwzb_hbzj">
-   
+   <button onclick="alert(this.tagName.toLowerCase());">Show this</button>
+The above alert shows button. Note however that only the outer code has its this set this way:
+<button onclick="alert(this.tagName.toLowerCase()+(function(){return this}()));">Show inner this</button>
+
 </div>
 <script src="js/zepto.min.js"></script>
 <script src="js/extend/offset.js"></script>
@@ -33,108 +36,7 @@
 <script type="text/javascript" src="js/ichart.1.2.min.js"></script>
 <script>
     
-    var createchart_cwzb = function() {
-        var data = [{
-            name: '北京',
-            value: [2, 1, 12, 20, 26, 30, 32, 50, 22, 12, 0, 2],
-            color: '#00ac82',
-            line_width: 3
-        }];
-        var chart = new iChart.LineBasic2D({
-            render: 'cwzb_hbzj',
-            data: data,
-            title: {
-                text: '参考值:20',
-                color: '#666',
-                textAlign: 'right',
-                fontsize: 12,
-                offsetx: -20
-            },
-            width: 500,
-            height: 200,
-            coordinate: {
-                height: '80%',
-                background_color: null,
-                gridlinesVisible: false,
-                axis: {
-                    color: "#d9d9d9",
-                    width: [0, 0, 1, 0]
-                },
-                scale: [{
-                    position: 'left',
-                    // start_scale: 0,
-                    // end_scale: 40,
-                    scale_enable: true,
-                    listeners: {
-                        parseText: function(t, x, y) {
-                            return {
-                                text: t
-                            }
-                        }
-                    }
-                }, {
-                    position: 'bottom',
-                    label: {
-                        color: '#666',
-                        font: '微软雅黑',
-                        fontsize: 11,
-                        fontweight: 600
-                    },
-                    scale_enable: false,
-                    labels: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
-                }]
-            },
-            listeners: {
-                parsePoint: function(d, v, x, y, j) {
-                    if (v < 30) {
-                        return {
-                            color: '#eb3d3d'
-                        }
-                    } else if (v == 30) {
-                        return {
-                            color: '#ff9600'
-                        }
-                    }
-                }
-            },
-            border: {
-                enable: false
-            },
-            sub_option: {
-                hollow_inside: false, //设置一个点的亮色在外环的效果
-                point_size: 10,
-                hollow: false,
-                smooth: true,
-                label: {
-                    color: "blank",
-                    fontsize: 12
-                }
-            }
-        });
-        chart.plugin(new iChart.Custom({
-            drawFn: function() {
-                var coo = chart.getCoordinate(),
-                    x = coo.get('originx'),
-                    W = coo.width,
-                    S = coo.getScale('left'),
-                    H = coo.height,
-                    y = H;
-                var base = (coo.height / S.distance) * 30 + chart.y;
-                var startx = x,
-                    endx = x;
-                var len = W / 10;
-                for (var i = 1; i < len; i++) {
-                    endx = startx + 10;
-                    chart.target.line(startx, base, endx, base, 1, '#999');
-                    startx = startx + 20;
-                    if (startx > (x + W)) break;
-                }
-            }
-        }));
-        chart.draw();
-    };
-
-    createchart_cwzb();
+   
 </script>
 </body>
 </html>

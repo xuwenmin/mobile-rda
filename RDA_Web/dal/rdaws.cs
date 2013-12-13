@@ -98,5 +98,17 @@ namespace RDA_Web.dal
             return _rda.Risk_Report_Data(json);
         }
 
+        //查询融资类型详细信息
+        public static string Trading_Get(string json) {
+            return _rda.Trading_Get(json);
+        }
+        /// <summary>
+        /// 查询融资类型列表信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Trading_List(string json) {
+            return _rda.Trading_List(json);
+        }
     }
 }

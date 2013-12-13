@@ -1,4 +1,4 @@
-define(["util","index","fxyj","cwzb","cwbb"], function(util,index,fxyj,cwzb,cwbb) {
+define(["util","index","fxyj","cwzb","cwbb","rzgl"], function(util,index,fxyj,cwzb,cwbb,rzgl) {
     var _init = function() {
         console.log("if have some problem,please call me 151481184@qq.com,tks!")
         var $target = $(".main1");
@@ -87,7 +87,7 @@ define(["util","index","fxyj","cwzb","cwbb"], function(util,index,fxyj,cwzb,cwbb
                     }
                     if(hashobj.hash=="zcfz_sub"){
                         var __arg=JSON.parse(localStorage["cwbb_index"]);
-                        console.log(__arg);
+                        // console.log(__arg);
                         _obj=(_.where(__arg,{ "typeid":parseInt(hashobj.para.fid) }))[0];
                     }
 
@@ -274,7 +274,7 @@ define(["util","index","fxyj","cwzb","cwbb"], function(util,index,fxyj,cwzb,cwbb
                                             groupid: msg.Data.table0[0].InfoList[0].GroupID,
                                             userid: msg.Data.table0[0].InfoList[0].UserID
                                         });
-                                        console.log(window.localStorage["userinfo"]);
+                                        // console.log(window.localStorage["userinfo"]);
                                     }
                                     window.location.hash = "index";
                                 }
@@ -329,7 +329,7 @@ define(["util","index","fxyj","cwzb","cwbb"], function(util,index,fxyj,cwzb,cwbb
                 },
                 success: function(msg) {
                     util.loadtip.hide();
-                    console.log(msg);
+                    // console.log(msg);
                     if (msg.Result) {
                         if (msg.Data.table0.length) {
                             if (msg.Data.table0[0].Flag == "2") {
@@ -421,6 +421,10 @@ define(["util","index","fxyj","cwzb","cwbb"], function(util,index,fxyj,cwzb,cwbb
             if(hashobj.hash=="zcfz_sub"){
                  //开始获取财务报表-资产负债相关信息
                 cwbb.getcwbb_zcfz(hashobj.para.typeid,$("#ul_zcfz"));
+            };
+            if(hashobj.hash=="rzgl_list"){
+                //开始获取融资项目列表信息
+                rzgl.getrzgl_list($("#ul_rzgl_list"));
             }
 
 

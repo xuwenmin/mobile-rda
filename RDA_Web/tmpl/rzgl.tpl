@@ -17,8 +17,8 @@
                              </div></a>
                          </li>
                          <!--在线评估-->
-                         <li >
-                             <a href="#" class="desc">
+                         <li to="rzgl_list" >
+                             <a href="#rzgl_list" class="desc">
                                  <img src="images/zxpg.png" alt="" class="icon">
                                  查看融资信息<div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">

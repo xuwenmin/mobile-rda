@@ -192,6 +192,90 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Trading_List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Trading_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_Enum_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_Enum_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Trading_Enum_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Enterprise_BasicData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Enterprise_BasicDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Enterprise_BasicDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Trading_GetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_EditStepOne">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_EditStepOneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Trading_EditStepOneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_EditStepTwo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Trading_EditStepTwoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Trading_EditStepTwoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="USER_CheckLoginNameSoapIn">
@@ -311,6 +395,60 @@
   <wsdl:message name="Risk_Report_DataSOAPHeaderHandle">
     <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
   </wsdl:message>
+  <wsdl:message name="Trading_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Trading_List" />
+  </wsdl:message>
+  <wsdl:message name="Trading_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Trading_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Trading_ListSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Trading_Enum_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Trading_Enum_Data" />
+  </wsdl:message>
+  <wsdl:message name="Trading_Enum_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Trading_Enum_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Trading_Enum_DataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Enterprise_BasicDataSoapIn">
+    <wsdl:part name="parameters" element="tns:Enterprise_BasicData" />
+  </wsdl:message>
+  <wsdl:message name="Enterprise_BasicDataSoapOut">
+    <wsdl:part name="parameters" element="tns:Enterprise_BasicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Enterprise_BasicDataSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Trading_GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Trading_Get" />
+  </wsdl:message>
+  <wsdl:message name="Trading_GetSoapOut">
+    <wsdl:part name="parameters" element="tns:Trading_GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="Trading_GetSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Trading_EditStepOneSoapIn">
+    <wsdl:part name="parameters" element="tns:Trading_EditStepOne" />
+  </wsdl:message>
+  <wsdl:message name="Trading_EditStepOneSoapOut">
+    <wsdl:part name="parameters" element="tns:Trading_EditStepOneResponse" />
+  </wsdl:message>
+  <wsdl:message name="Trading_EditStepOneSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
+  <wsdl:message name="Trading_EditStepTwoSoapIn">
+    <wsdl:part name="parameters" element="tns:Trading_EditStepTwo" />
+  </wsdl:message>
+  <wsdl:message name="Trading_EditStepTwoSoapOut">
+    <wsdl:part name="parameters" element="tns:Trading_EditStepTwoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Trading_EditStepTwoSOAPHeaderHandle">
+    <wsdl:part name="SOAPHeaderHandle" element="tns:SOAPHeaderHandle" />
+  </wsdl:message>
   <wsdl:portType name="RDAWebServiceSoap">
     <wsdl:operation name="USER_CheckLoginName">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证用户名是否已存在</wsdl:documentation>
@@ -376,6 +514,36 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业风险预警 - 财务报表</wsdl:documentation>
       <wsdl:input message="tns:Risk_Report_DataSoapIn" />
       <wsdl:output message="tns:Risk_Report_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Trading_List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">融资项目列表</wsdl:documentation>
+      <wsdl:input message="tns:Trading_ListSoapIn" />
+      <wsdl:output message="tns:Trading_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Trading_Enum_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">融资枚举数据获取</wsdl:documentation>
+      <wsdl:input message="tns:Trading_Enum_DataSoapIn" />
+      <wsdl:output message="tns:Trading_Enum_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Enterprise_BasicData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">企业基本信息获取</wsdl:documentation>
+      <wsdl:input message="tns:Enterprise_BasicDataSoapIn" />
+      <wsdl:output message="tns:Enterprise_BasicDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Trading_Get">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">融资项目信息 - 根据项目编号</wsdl:documentation>
+      <wsdl:input message="tns:Trading_GetSoapIn" />
+      <wsdl:output message="tns:Trading_GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Trading_EditStepOne">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发布融资项目第一步数据提交</wsdl:documentation>
+      <wsdl:input message="tns:Trading_EditStepOneSoapIn" />
+      <wsdl:output message="tns:Trading_EditStepOneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Trading_EditStepTwo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发布融资项目第二步数据提交</wsdl:documentation>
+      <wsdl:input message="tns:Trading_EditStepTwoSoapIn" />
+      <wsdl:output message="tns:Trading_EditStepTwoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RDAWebServiceSoap" type="tns:RDAWebServiceSoap">
@@ -510,6 +678,66 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Trading_List">
+      <soap:operation soapAction="RDAWebServiceSpace/Trading_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Trading_ListSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_Enum_Data">
+      <soap:operation soapAction="RDAWebServiceSpace/Trading_Enum_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Trading_Enum_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enterprise_BasicData">
+      <soap:operation soapAction="RDAWebServiceSpace/Enterprise_BasicData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Enterprise_BasicDataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_Get">
+      <soap:operation soapAction="RDAWebServiceSpace/Trading_Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Trading_GetSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_EditStepOne">
+      <soap:operation soapAction="RDAWebServiceSpace/Trading_EditStepOne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Trading_EditStepOneSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_EditStepTwo">
+      <soap:operation soapAction="RDAWebServiceSpace/Trading_EditStepTwo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Trading_EditStepTwoSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RDAWebServiceSoap12" type="tns:RDAWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -638,6 +866,66 @@
       <wsdl:input>
         <soap12:body use="literal" />
         <soap12:header message="tns:Risk_Report_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_List">
+      <soap12:operation soapAction="RDAWebServiceSpace/Trading_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Trading_ListSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_Enum_Data">
+      <soap12:operation soapAction="RDAWebServiceSpace/Trading_Enum_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Trading_Enum_DataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enterprise_BasicData">
+      <soap12:operation soapAction="RDAWebServiceSpace/Enterprise_BasicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Enterprise_BasicDataSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_Get">
+      <soap12:operation soapAction="RDAWebServiceSpace/Trading_Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Trading_GetSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_EditStepOne">
+      <soap12:operation soapAction="RDAWebServiceSpace/Trading_EditStepOne" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Trading_EditStepOneSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trading_EditStepTwo">
+      <soap12:operation soapAction="RDAWebServiceSpace/Trading_EditStepTwo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Trading_EditStepTwoSOAPHeaderHandle" part="SOAPHeaderHandle" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
