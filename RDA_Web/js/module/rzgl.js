@@ -23,6 +23,39 @@ define(["zepto","util","underscore"],function($,util,_){
                             '</a>'+
                         '</li>'+
                          '{{ } }}';
+    var $template_enum='<li><a href="#" class="desc">所属行业</a></li>'+
+    '{{ for(var i=0;i<it.length;i++) { }}'+
+    ' <li rel="li{{=it[i].EnumID}}"  class="hassub">'+
+                                    '<a href="#" class="desc">'+
+                                      '<div class="enum_item enum_item80">'+
+                                           '<div class="divwhite">'+
+                                            '<img class="hide" src="images/select.png" alt=""/>'+
+                                         '</div>'+
+                                         '<p class="p_item">{{=it[i].EnumName}}</p>'+
+                                      '</div>'+
+                                      '{{ if(it[i].ischild) { }}'+
+                                      '<div class="list_next list_topright">'+
+                                         '<img src="images/a_down.png" alt="" class="imgdown">'+
+                                         '<img src="images/a_top.png" alt="" class="imgtop">'+
+                                       '</div>'+
+                                       '{{  } }}'+
+                                     '</a>'+
+                                 '</li>'+
+                                  '{{ if(it[i].ischild) { }}'+
+                                 '<li name="li{{=it[i].EnumID}}" class="subli subli_desc">'+
+                                    '<a href="#" class="desc">'+
+                                     '{{ for(var j=0;j<it[i].childs.length;j++) { }}'+
+                                        '<div class="enum_item">'+
+                                             '<div class="divwhite">'+
+                                              '<img class="hide" src="images/select.png" alt=""/>'+
+                                           '</div>'+
+                                           '<p class="p_item">{{=it[i].childs[j].EnumName}}</p>'+
+                                       '</div>' +
+                                        '{{ } }}'+
+                                    '</a>'+
+                                '</li>'+
+                                 '{{  } }}'+
+                                 '{{ } }}';
 	//查询融资详细信息
 	var _getrzgl_desc=function(projectid){
 		$.ajax({
@@ -75,10 +108,57 @@ define(["zepto","util","underscore"],function($,util,_){
 			}
 		});
 	};
+
+	var _getrzgl_enum=function(typeid,$this){
+		var result=[];
+		$.ajax({
+			url:"getdata.aspx",
+			type:"get",
+			data:{action:"Trading_Enum_Data",typeid:typeid},
+			dataType:"json",
+			beforeSend:function(){
+				util.loadtip.show();
+			},
+			success:function(msg){
+				// console.log(msg);
+				//对这些enum信息进行按父子进行分组行成这样的结构
+				/*
+				**{ id,childs:[{id,info....}]}
+				*/
+				result=msg.Data["table0"] || msg.Data["Table1"] ;
+				//深度depth:2相对于typeid来说是子级，但是在结果里是父级
+				var parenarg=_.where(result,{Depth:2});
+				//假定depth只到3
+				var childarg=_.filter(result, function(v){ 
+					return v.Depth!==2; 
+				});
+				result=_.map(parenarg,function(v){
+					v.childs=_.where(childarg,{ParentID:v.EnumID});
+					if(v.childs.length){
+						v.ischild=true;
+					}
+					return v;
+				});
+				if(result.length){
+					//开始拼html
+					var dotobj=doT.template($template_enum);
+					$this.html(dotobj(result));
+				};
+				util.loadtip.hide();
+				//console.log(result);
+				//开始拼html
+
+			},error:function(){
+				util.loadtip.hide();
+			}
+		});
+	};
 	return {
 		//查看融资详细信息
 		getrzgl_desc:_getrzgl_desc,
 		//查看融资列表信息
-		getrzgl_list:_getrzgl_list
+		getrzgl_list:_getrzgl_list,
+		//获取融资enum信息
+		getrzgl_enum:_getrzgl_enum
 	}
 });

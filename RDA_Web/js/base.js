@@ -22,7 +22,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         var html = " <div  class=\"wrapper deviceselction gonext\"></div>";
         if (util._platform.android || util._platform.iPhone) {
             curwidth = parseFloat($("body").offset().width); //获取当前设备的width
-            touchevent = "touchstart";
+            // touchevent = "touchstart";
+            touchevent="tap";
             // touchevent = "click";
             //开始加载cordova.js
             util.loadJs("js/cordova.js", function() {
@@ -110,9 +111,9 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         isgo = false;
         curmodel = "page1";
         window.location.hash = "bj";
-        if (util._platform.android || util._platform.iPhone) {
+/*        if (util._platform.android || util._platform.iPhone) {
             //动态绑定跳转下一页的事件
-            $target.delegate("[to]", touchevent, function(event) {
+            $target.delegate("[to]", "touchstart", function(event) {
                 event.stopPropagation();
                 event.preventDefault();
                 isgo = false;
@@ -132,7 +133,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 }
                 isgo = false;
             });
-        } else {
+        } else {*/
             //动态绑定跳转下一页的事件
             $target.delegate("[to]", touchevent, function(event) {
                 event.stopPropagation();
@@ -142,7 +143,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     window.location.hash = $(this).attr("to");
                 }
             });
-        }
+        // }
         //动态绑定返回上一页的事件
         $target.delegate(".pre[from]", touchevent, function(event) {
             event.stopPropagation();
@@ -197,6 +198,37 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             }
 
         });
+        $target.delegate("#sel_rzsshy",touchevent,function(){
+            $("#rzgl_rzxx_main").show();
+            $("#rzgl_rzxx_sub").hide();
+            $("#sel_rzsshy").hide();
+        });
+        //动态绑定所属行业 事件
+        $target.delegate("#rzgl_sshy",touchevent,function(){
+            $("#rzgl_rzxx_main").hide();
+            $("#rzgl_rzxx_sub").show();
+            $("#sel_rzsshy").show();
+             rzgl.getrzgl_enum("2",$("#rzgl_rzxx_sub"));
+        });
+        //动态绑定融资时长,融资金额的事件
+        $target.delegate("#rzgl_sc,#rzgl_rmb",touchevent,function(){
+            var groupname = $(this).attr("id");
+            var $obj = $("[for=" + groupname + "]");
+            if ($obj.hasClass("hide")) {
+                $obj.removeClass("hide");
+            } else {
+                $obj.addClass("hide");
+            }
+        });
+
+        //动态绑定下拉列表选中的事件
+        $target.delegate(".ul_select li",touchevent,function(){
+            var val=$(this).html();
+            var _for=$(this).parent().attr("for");
+            $("#"+_for).val(val);
+            $(this).parent().addClass("hide");
+        });
+
         //动态绑定选中选项的效果
         $target.delegate(".divwhite", touchevent, function() {
             var $obj = $(this).find("img");
@@ -206,6 +238,22 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 $obj.addClass("hide");
             }
         });
+
+        //动态的勾选赋值
+        $target.delegate(".hascheckbox", touchevent, function() {
+            var sto=$(this).attr("toid");
+            //获取所有相同目标选中的状态
+            var arg=[];
+            $("[toid="+sto+"]").each(function(){
+                var _for=$(this).attr("for");
+                if(!$(this).find("img").first().hasClass("hide")){
+                    arg.push($("[name="+_for+"]").html());
+                }
+            });
+            $("#"+sto).val(arg.join(','));
+        });
+
+
         //动态绑定动画单击事件
         $target.delegate(".m_pingfen .pf_display", touchevent, function() {
             window.location.hash = "ssxyzhpf";
@@ -429,6 +477,9 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             if (hashobj.hash == "rzgl_list") {
                 //开始获取融资项目列表信息
                 rzgl.getrzgl_list($("#ul_rzgl_list"));
+            };
+            if(hashobj.hash=="rzgl_fbrzxx"){
+                // rzgl.getrzgl_enum("2");
             }
 
 

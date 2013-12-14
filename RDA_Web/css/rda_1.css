@@ -53,6 +53,9 @@
     color: #333;
     font-size: 12px;
 }
+.content  .contentform .inputline .divparent .qm_input_p40{
+    padding-right: 40px;
+}
 .content  .contentform .inputline .divparent .qm_input:focus{
     outline: none;
     border: 1px solid rgb(29,151,222);
@@ -584,4 +587,101 @@ input::-webkit-input-placeholder{
     background-color: #f1f1f1;
     color: #d2d2d2;
 } 
+/*input下方的下拉列表样式*/
+.content  .contentform .inputline .ul_select{
+    width: 100%;
+    position: absolute;
+    height: auto;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+
+}
+.content  .contentform .inputline .ul_select li{
+    background-color: #ddd;
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+}
+.content  .contentform .inputline .ul_select li:first-child{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.content  .contentform .inputline .ul_select li:last-child{
+    border-bottom: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.content  .contentform .inputline .ul_select li:active,.content  .contentform .inputline .ul_select li:focus,
+.content  .contentform .inputline .ul_select li:hover{
+    background-color: #21a9f8;
+    color: white;
+}
+.content #rzgl_rzxx_sub.content_list{
+    text-align: left;
+}
+.content  .contentform .content_list .enum_item{
+    float: left;
+    width: 50%;
+    height: 32px;
+    white-space:nowrap;
+    
+}
+.content  .contentform .content_list .enum_item.enum_item80{
+    width: 80%;
+}
+.content  .contentform .content_list .enum_item .divwhite{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;
+}
+.content  .contentform .content_list .enum_item .divwhite img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.content  .contentform .content_list .enum_item p.p_item{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    padding: 0;
+    text-overflow:ellipsis;
+    width: 80%;
+    overflow: hidden;
+}
+.wrapper .content .content_list .subli_desc a{
+    padding-left: 0;
+}
+.wrapper .content .content_list li.li_noborder{
+    border-bottom:none;
+}
+.a_button{
+    display:inline-block;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 40%;
+    color: #333;
+    font-size: 20px;
+    line-height: 50px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 5%; 
+}
+.a_button:active,.a_button:focus{
+    background-color: #21a9f8;
+    color: white;
+}
 

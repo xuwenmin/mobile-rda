@@ -110,5 +110,14 @@ namespace RDA_Web.dal
         public static string Trading_List(string json) {
             return _rda.Trading_List(json);
         }
+
+        /// <summary>
+        /// 获取融资类型相关枚举信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Trading_Enum_Data(string json) {
+            return _rda.Trading_Enum_Data(json);
+        }
     }
 }

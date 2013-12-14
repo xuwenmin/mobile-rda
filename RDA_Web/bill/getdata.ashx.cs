@@ -62,6 +62,10 @@ namespace RDA_Web.bill
                 case "Trading_List":
                     Trading_List(context);
                     break;
+                //获取融资枚举相关信息
+                case "Trading_Enum_Data":
+                    Trading_Enum_Data(context);
+                    break;
             }
             context.Response.Write("");
         }
@@ -214,6 +218,20 @@ namespace RDA_Web.bill
             string result = string.Empty;
             string json = "{\"GroupID\":\"IBD153\"}";
             result = rdaws.Trading_List(json);
+            context.Response.Write(result);
+        }
+
+        /// <summary>
+        /// 获取融资类型相关枚举信息.by xuwm
+        /// {\"Type\":\"1\"}
+        /// 【"1"= 融资类型,"2"=所属行业，"3"=融资时长，"4"=币种，"5" =企业性质，"6"=企业规模，"7"=所属行业，"8"=企业发展所处阶段】
+        /// </summary>
+        /// <param name="context"></param>
+        public void Trading_Enum_Data(HttpContext context) {
+            string result = string.Empty;
+            string typeid = context.Request["typeid"];
+            string json = "{\"Type\":\""+typeid+"\"}";
+            result = rdaws.Trading_Enum_Data(json);
             context.Response.Write(result);
         }
 
