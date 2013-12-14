@@ -1,9 +1,9 @@
-define(["util","index","fxyj","cwzb","cwbb","rzgl"], function(util,index,fxyj,cwzb,cwbb,rzgl) {
+define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, fxyj, cwzb, cwbb, rzgl) {
     var _init = function() {
         console.log("if have some problem,please call me 151481184@qq.com,tks!")
         var $target = $(".main1");
         var curx = 0;
-        var curwidth, touchevent, curmodel, isgo,oldhash;
+        var curwidth, touchevent, curmodel, isgo, oldhash;
         var hashobj = {}; //hash对象,保存hash和传的参数信息
         //iscroll滚动条初始化
         var myScroll;
@@ -34,7 +34,7 @@ define(["util","index","fxyj","cwzb","cwbb","rzgl"], function(util,index,fxyj,cw
         }
         //路由事件
         $(window).on("hashchange", function(event) {
-           
+
             if (isgo) return;
             var hash = window.location.hash;
 
@@ -72,34 +72,38 @@ define(["util","index","fxyj","cwzb","cwbb","rzgl"], function(util,index,fxyj,cw
                 },
                 success: function(msg) {
                     var dotobj = doT.template(msg);
-                    
-                    if(hashobj.hash=="fxyj_tb"){
-                        _obj=(_.where(JSON.parse(localStorage["fxyj_tb"]),{id:parseInt(_obj.code)}))[0];
-                        _obj.oldhash=oldhash;
+
+                    if (hashobj.hash == "fxyj_tb") {
+                        _obj = (_.where(JSON.parse(localStorage["fxyj_tb"]), {
+                            id: parseInt(_obj.code)
+                        }))[0];
+                        _obj.oldhash = oldhash;
                     }
-                    if (hashobj.hash=="fxyj"){
+                    if (hashobj.hash == "fxyj") {
                         fxyj.get_fxyj_tjinfo();
-                        _obj=JSON.parse(localStorage["fxyj_index"]);
+                        _obj = JSON.parse(localStorage["fxyj_index"]);
                     }
-                    if(hashobj.hash=="zcfz"){
+                    if (hashobj.hash == "zcfz") {
                         cwbb.getcwbb_zcfz_infex();
-                        _obj=JSON.parse(localStorage["cwbb_index"]);
+                        _obj = JSON.parse(localStorage["cwbb_index"]);
                     }
-                    if(hashobj.hash=="zcfz_sub"){
-                        var __arg=JSON.parse(localStorage["cwbb_index"]);
+                    if (hashobj.hash == "zcfz_sub") {
+                        var __arg = JSON.parse(localStorage["cwbb_index"]);
                         // console.log(__arg);
-                        _obj=(_.where(__arg,{ "typeid":parseInt(hashobj.para.fid) }))[0];
+                        _obj = (_.where(__arg, {
+                            "typeid": parseInt(hashobj.para.fid)
+                        }))[0];
                     }
 
-                    hashobj.para=_obj;
+                    hashobj.para = _obj;
                     $(".gonext").html(dotobj(_obj)).addClass("gopre").removeClass("gonext");
                     $target[0].style.webkitTransition = "-webkit-transform .3s linear 0s";
                     $target[0].style.webkitTransform = 'translateX(' + -curwidth + 'px)';
-                    isend = true; 
-                    oldhash=hashobj.hash;
+                    isend = true;
+                    oldhash = hashobj.hash;
                 },
                 error: function() {
-                     util.loadtip.hide();
+                    util.loadtip.hide();
                 }
             });
         });
@@ -108,28 +112,28 @@ define(["util","index","fxyj","cwzb","cwbb","rzgl"], function(util,index,fxyj,cw
         window.location.hash = "bj";
         if (util._platform.android || util._platform.iPhone) {
             //动态绑定跳转下一页的事件
-                $target.delegate("[to]", touchevent, function(event) {
-                    event.stopPropagation();
-                    event.preventDefault();
-                    isgo=false;
-                });
-                //按下滑动事件
-                 $target.delegate("[to]", "touchmove", function(event) {
-                            // event.stopPropagation();
-                    event.preventDefault();
-                    isgo=true;
-                });
-                //按下弹起事件
-                $target.delegate("[to]", "touchend", function(event) {
-                            // event.stopPropagation();
-                    event.preventDefault();
-                    if(!isgo){
-                        window.location.hash = $(this).attr("to");
-                    }
-                    isgo=false;
-                 });
-        }else{
-             //动态绑定跳转下一页的事件
+            $target.delegate("[to]", touchevent, function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+                isgo = false;
+            });
+            //按下滑动事件
+            $target.delegate("[to]", "touchmove", function(event) {
+                // event.stopPropagation();
+                event.preventDefault();
+                isgo = true;
+            });
+            //按下弹起事件
+            $target.delegate("[to]", "touchend", function(event) {
+                // event.stopPropagation();
+                event.preventDefault();
+                if (!isgo) {
+                    window.location.hash = $(this).attr("to");
+                }
+                isgo = false;
+            });
+        } else {
+            //动态绑定跳转下一页的事件
             $target.delegate("[to]", touchevent, function(event) {
                 event.stopPropagation();
                 event.preventDefault();
@@ -165,19 +169,19 @@ define(["util","index","fxyj","cwzb","cwbb","rzgl"], function(util,index,fxyj,cw
         });
 
         //动态的加载父级下面的子级内容.by xuwm 
-        $target.delegate(".hasloadsub",touchevent,function(){
+        $target.delegate(".hasloadsub", touchevent, function() {
             if ($(this).hasClass("active")) {
-                var code=$(this).attr("data-code");
-                if(hashobj.hash=="fxyj_cwbb"){
-                    fxyj.get_fxyj_cwbb(code,$(this));  
-                }else if(hashobj.hash=="xjll"){
-                    cwbb.getcwbb_sub_byfid(code,$(this),"Report_CashFlow_Data");
-                }else if(hashobj.hash=="ly"){
-                    cwbb.getcwbb_sub_byfid(code,$(this),"Report_Profit_Data");
-                }else if(hashobj.hash=="zcfz_sub"){
-                    cwbb.getcwbb_zcfz_sub(code,$(this));
-                }else{
-                    fxyj.getsubitembycode(code,$(this)); 
+                var code = $(this).attr("data-code");
+                if (hashobj.hash == "fxyj_cwbb") {
+                    fxyj.get_fxyj_cwbb(code, $(this));
+                } else if (hashobj.hash == "xjll") {
+                    cwbb.getcwbb_sub_byfid(code, $(this), "Report_CashFlow_Data");
+                } else if (hashobj.hash == "ly") {
+                    cwbb.getcwbb_sub_byfid(code, $(this), "Report_Profit_Data");
+                } else if (hashobj.hash == "zcfz_sub") {
+                    cwbb.getcwbb_zcfz_sub(code, $(this));
+                } else {
+                    fxyj.getsubitembycode(code, $(this));
                 }
             }
         });
@@ -410,19 +414,19 @@ define(["util","index","fxyj","cwzb","cwbb","rzgl"], function(util,index,fxyj,cw
             isgo = false;
             //效果做玩之后,再执行下面的check
 
-            if (hashobj.hash=="xjll"){
+            if (hashobj.hash == "xjll") {
                 //开始获取现金流量信息
-                cwbb.getcwbb_byfid(0,$("#ul_cwbb"),"Report_CashFlow_Data");
+                cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_CashFlow_Data");
             };
-            if (hashobj.hash=="ly"){
+            if (hashobj.hash == "ly") {
                 //开始获取现金流量信息
-                cwbb.getcwbb_byfid(0,$("#ul_cwbb"),"Report_Profit_Data");
+                cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_Profit_Data");
             };
-            if(hashobj.hash=="zcfz_sub"){
-                 //开始获取财务报表-资产负债相关信息
-                cwbb.getcwbb_zcfz(hashobj.para.typeid,$("#ul_zcfz"));
+            if (hashobj.hash == "zcfz_sub") {
+                //开始获取财务报表-资产负债相关信息
+                cwbb.getcwbb_zcfz(hashobj.para.typeid, $("#ul_zcfz"));
             };
-            if(hashobj.hash=="rzgl_list"){
+            if (hashobj.hash == "rzgl_list") {
                 //开始获取融资项目列表信息
                 rzgl.getrzgl_list($("#ul_rzgl_list"));
             }

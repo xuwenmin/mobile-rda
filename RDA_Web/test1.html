@@ -14,18 +14,18 @@
             display: box;
             -webkit-box-orient:vertical;
             box-orient:vertical;*/
-            background-color: #eee;
-            width: 500px;
-            height: 500px;
+            /*background-color: #eee;*/
+            border: 1px solid #ccc;
+            width: 400px;
+            height: 400px;
+            background: rgba(120,10,10,.1) url("images/200.png") no-repeat center center;
         }
      
     </style>
 </head>
 <body>
 <div class="main" id="cwzb_hbzj">
-   <button onclick="alert(this.tagName.toLowerCase());">Show this</button>
-The above alert shows button. Note however that only the outer code has its this set this way:
-<button onclick="alert(this.tagName.toLowerCase()+(function(){return this}()));">Show inner this</button>
+
 
 </div>
 <script src="js/zepto.min.js"></script>
