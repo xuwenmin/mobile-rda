@@ -367,7 +367,7 @@
         .wrapper .head h1{
             display: inline-block;
             vertical-align: middle;
-            width: 83%;
+            width: 69%;
             font-size: 25px;
         }
         .wrapper .head h1.only{
@@ -378,11 +378,15 @@
             vertical-align: middle;
             width: 6%;
             max-width: 100%;
+            padding-right: 5%;
+            padding-left:2%;
         }
         .wrapper .head .next{
             display: inline-block;
             vertical-align: middle;
             width: 6%;
+            padding-right: 5%;
+            padding-left:2%;
         }
         /*内容页，尾部样式*/
         .wrapper .footer{

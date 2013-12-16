@@ -685,3 +685,17 @@ input::-webkit-input-placeholder{
     color: white;
 }
 
+/*还原首页头部样式,其余跳转页面增加了返回按钮的点击宽度*/
+.wrapper .head .pre_index{
+    width: 6%;
+    padding-right: 0;
+    padding-left: 0;
+}
+.wrapper .head .next_index{
+    width: 6%;
+    padding-left: 0;padding-right: 0;
+}
+.wrapper .head .h1_index{
+    width: 83%;
+}
+

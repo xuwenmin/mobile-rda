@@ -102,7 +102,7 @@
                 touchTimeout = null
                 touch.el.trigger('singleTap')
                 touch = {}
-              }, 250)
+              }, 100)
             }
 
           }, 0)

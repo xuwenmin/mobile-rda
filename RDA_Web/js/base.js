@@ -23,7 +23,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         if (util._platform.android || util._platform.iPhone) {
             curwidth = parseFloat($("body").offset().width); //获取当前设备的width
             // touchevent = "touchstart";
-            touchevent="tap";
+            touchevent="singleTap";
             // touchevent = "click";
             //开始加载cordova.js
             util.loadJs("js/cordova.js", function() {
@@ -38,7 +38,6 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
 
             if (isgo) return;
             var hash = window.location.hash;
-
             if (!hash) return;
 
             isgo = true;
@@ -111,39 +110,14 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         isgo = false;
         curmodel = "page1";
         window.location.hash = "bj";
-/*        if (util._platform.android || util._platform.iPhone) {
-            //动态绑定跳转下一页的事件
-            $target.delegate("[to]", "touchstart", function(event) {
-                event.stopPropagation();
-                event.preventDefault();
-                isgo = false;
-            });
-            //按下滑动事件
-            $target.delegate("[to]", "touchmove", function(event) {
-                // event.stopPropagation();
-                event.preventDefault();
-                isgo = true;
-            });
-            //按下弹起事件
-            $target.delegate("[to]", "touchend", function(event) {
-                // event.stopPropagation();
-                event.preventDefault();
-                if (!isgo) {
-                    window.location.hash = $(this).attr("to");
-                }
-                isgo = false;
-            });
-        } else {*/
-            //动态绑定跳转下一页的事件
-            $target.delegate("[to]", touchevent, function(event) {
-                event.stopPropagation();
-                event.preventDefault();
-                // isgo=false;
-                if (!isgo) {
-                    window.location.hash = $(this).attr("to");
-                }
-            });
-        // }
+        //动态绑定跳转下一页的事件
+        $target.delegate("[to]", touchevent, function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            if (!isgo) {
+                window.location.hash = $(this).attr("to");
+            }
+        });
         //动态绑定返回上一页的事件
         $target.delegate(".pre[from]", touchevent, function(event) {
             event.stopPropagation();

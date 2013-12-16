@@ -145,7 +145,7 @@ define(["zepto","util","underscore"],function($,util,_){
 					$this.html(dotobj(result));
 				};
 				util.loadtip.hide();
-				//console.log(result);
+				console.log(result);
 				//开始拼html
 
 			},error:function(){

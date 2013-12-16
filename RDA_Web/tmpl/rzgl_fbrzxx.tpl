@@ -105,7 +105,7 @@
                               </div>
                               <ul class="content_list hide" id="rzgl_rzxx_sub">
                              </ul>
-                             <a href="#" class="a_button hide" id="sel_rzsshy">确定</a>
+                             <a href="#" class="a_button" style="display:none" id="sel_rzsshy">确定</a>
                         </div>
                      </div>
 
