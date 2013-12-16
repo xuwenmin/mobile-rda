@@ -934,10 +934,10 @@
   </wsdl:binding>
   <wsdl:service name="RDAWebService">
     <wsdl:port name="RDAWebServiceSoap" binding="tns:RDAWebServiceSoap">
-      <soap:address location="http://192.168.1.9:6100/RDAWebService.asmx" />
+      <soap:address location="http://114.112.90.40:9010/RDAWebService.asmx" />
     </wsdl:port>
     <wsdl:port name="RDAWebServiceSoap12" binding="tns:RDAWebServiceSoap12">
-      <soap12:address location="http://192.168.1.9:6100/RDAWebService.asmx" />
+      <soap12:address location="http://114.112.90.40:9010/RDAWebService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

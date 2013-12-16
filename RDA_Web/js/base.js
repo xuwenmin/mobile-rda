@@ -181,7 +181,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         $target.delegate("#rzgl_sshy",touchevent,function(){
             $("#rzgl_rzxx_main").hide();
             $("#rzgl_rzxx_sub").show();
-            $("#sel_rzsshy").show();
+            
              rzgl.getrzgl_enum("2",$("#rzgl_rzxx_sub"));
         });
         //动态绑定融资时长,融资金额的事件
@@ -199,7 +199,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         $target.delegate(".ul_select li",touchevent,function(){
             var val=$(this).html();
             var _for=$(this).parent().attr("for");
-            $("#"+_for).val(val);
+            $("#"+_for).val(val).attr("data-val",$(this).attr("data-eid"));
             $(this).parent().addClass("hide");
         });
 
@@ -213,19 +213,64 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             }
         });
 
-        //动态的勾选赋值
+        //动态的勾选赋值,适合没有下级的单选enum  以hascheckbox为标识
         $target.delegate(".hascheckbox", touchevent, function() {
             var sto=$(this).attr("toid");
             //获取所有相同目标选中的状态
             var arg=[];
+            var arg_val=[];
             $("[toid="+sto+"]").each(function(){
                 var _for=$(this).attr("for");
                 if(!$(this).find("img").first().hasClass("hide")){
                     arg.push($("[name="+_for+"]").html());
+                    arg_val.push($("[name="+_for+"]").attr("data-eid"));
                 }
             });
-            $("#"+sto).val(arg.join(','));
+            $("#"+sto).val(arg.join(',')).attr("data-val",arg_val.join(';'));
         });
+
+        //动态的勾选,适合多级的多选enum  以hascheckbox1为标识
+        $target.delegate(".hascheckbox1", touchevent, function() {
+            // 设置一个本地存储放已经选中的多选值
+            var rz_sslx1=window.localStorage["rz_sslx1"] ? JSON.parse(window.localStorage["rz_sslx1"]) :[];
+            var _for=$(this).attr("for");
+            var data_fid=$("[name="+_for+"]").attr("data-fid");//父ID
+            var data_eid=$("[name="+_for+"]").attr("data-eid");//当前ID
+            var newval=data_fid+"_"+data_eid;//当前要插件的新值
+            var $obj = $(this).find("img");
+            
+            if(rz_sslx1.length){
+                if(!$obj.hasClass("hide")){
+                        var existarg=_.filter(rz_sslx1, function(v){ return v.indexOf(data_fid+"_")>-1; });
+                        if(existarg.length){
+                            //假如是同一种类型，则检查是否超过5个
+                            if(rz_sslx1.length>=5){
+                                alert("亲,同一种行业，不能选择超过5个值!");
+                                //然后去掉此项的勾
+                                $obj.addClass("hide");
+                            }else{
+                                //不超过5个，则插入到数组中
+                                if(!_.contains(existarg,newval)){
+                                    rz_sslx1.push(newval);
+                                }               
+                            }
+                        }else{
+                            alert("亲,已经选了一个行业了，不能再选别的行业!");
+                            $obj.addClass("hide");
+                        } 
+                }else{
+                    //删除此项
+                    rz_sslx1=_.filter(rz_sslx1,function(v){ return v!=newval;});
+                }
+               
+            }else{ 
+                rz_sslx1.push(data_fid+"_"+data_eid);
+            }
+            //保存数据到localstorage
+            window.localStorage["rz_sslx1"]=JSON.stringify(rz_sslx1);
+            console.log(rz_sslx1);
+        });
+
 
 
         //动态绑定动画单击事件
@@ -289,6 +334,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     },
                     success: function(msg) {
                         util.loadtip.hide();
+                        console.log(msg);
                         if (msg.Result) {
                             if (msg.Data.table0.length) {
                                 if (msg.Data.table0[0].Flag == "2") {
@@ -303,6 +349,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                                         // console.log(window.localStorage["userinfo"]);
                                     }
                                     window.location.hash = "index";
+                                }else{
+                                    alert("亲,登录失败啦!");
                                 }
                             }
                         } else {
@@ -454,6 +502,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             };
             if(hashobj.hash=="rzgl_fbrzxx"){
                 // rzgl.getrzgl_enum("2");
+                //初始化发布信息融资第一步的enum信息
+                rzgl.initenum1();
             }
 
 

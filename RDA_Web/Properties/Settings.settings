@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="RDA_Web_RDA_RDAWebService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://192.168.1.9:6100/RDAWebService.asmx</Value>
+      <Value Profile="(Default)">http://114.112.90.40:9010/RDAWebService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

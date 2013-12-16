@@ -116,7 +116,7 @@ define(["zepto", "util"], function($, util) {
 				hollow_inside: false, //设置一个点的亮色在外环的效果
 				point_size: 10,
 				hollow: false,
-				smooth: true,
+				smooth: false,//true为曲线
 				label: {
 					color: "white",
 					fontsize: 0

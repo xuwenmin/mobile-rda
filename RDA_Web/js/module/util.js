@@ -88,6 +88,7 @@ define(["zepto","underscore"],function($,_){
 	            if (confirm("是否退出系统?")) {
 	                //移除存储的用户信息.by xuwm 
 	                window.localStorage.removeItem("userinfo");
+	                window.localStorage.removeItem("rz_sslx1");
 	                navigator.app.exitApp();
 	            }
 	        }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using RDA_Web.RDA;
+using System.Configuration;
 namespace RDA_Web.dal
 {
     /// <summary>
@@ -12,6 +13,7 @@ namespace RDA_Web.dal
         private static RDAWebService _rda;
         static rdaws(){
             _rda = new RDAWebService();
+            _rda.Url = ConfigurationManager.AppSettings["rdaservice"];
             SOAPHeaderHandle soap = new SOAPHeaderHandle();
             soap.CurName = "ServiceUser@1120";
             soap.CurPwd = "ServicePassword@1120";

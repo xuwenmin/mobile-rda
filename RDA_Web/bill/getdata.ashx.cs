@@ -77,7 +77,7 @@ namespace RDA_Web.bill
         {
             string result = string.Empty;
             string code = context.Request["code"];
-            result=RDA_Web.dal.rdaws.Index_KeyFinancial_Data("{\"GroupID\":\"IBD162\",\"Year\":2011,\"Code\":" + code + "}");
+            result=RDA_Web.dal.rdaws.Index_KeyFinancial_Data("{\"GroupID\":\"IBD116\",\"Year\":2011,\"Code\":" + code + "}");
             context.Response.Write(result);
         }
         /// <summary>
@@ -112,7 +112,7 @@ namespace RDA_Web.bill
         }
         /// <summary>
         /// 获取风险预警数据.by xuwm on 20131210
-        ///  //{\"GroupID\":\"IBD162\",\"Code\":\"1\"}
+        ///  //{\"GroupID\":\"IBD116\",\"Code\":\"1\"}
         /// </summary>
         /// <param name="context"></param>
         public void Index_OtherFinancial_Data(HttpContext context) {
@@ -123,7 +123,7 @@ namespace RDA_Web.bill
             string codenumber=string.Empty;//父类下面子项的所有参考值
 
             string code = context.Request["code"];
-            string json = "{\"GroupID\":\"IBD162\",\"Code\":" + code + "}";
+            string json = "{\"GroupID\":\"IBD116\",\"Code\":" + code + "}";
 
             string jsoncode="{\"Code\":\""+code+"\",\"Flag\":\"1\"}";
 
@@ -136,19 +136,19 @@ namespace RDA_Web.bill
         }
         /// <summary>
         /// 获取风险预警,首页相关图标统计数据.by xuwm on 20131211
-        ///   //{\"GroupID\":\"IBD162\"}
+        ///   //{\"GroupID\":\"IBD116\"}
         /// </summary>
         /// <param name="context"></param>
         public void Risk_Count_Data(HttpContext context) {
           
             string result = string.Empty;
-            string json = "{\"GroupID\":\"IBD162\"}";
+            string json = "{\"GroupID\":\"IBD116\"}";
             result = rdaws.Risk_Count_Data(json);
             context.Response.Write(result);
         }
         /// <summary>
         /// 获取风险预警,财务报表相关的信息
-        ///{\"GroupID\":\"IBD162\",\"Flag\":\"0\"}
+        ///{\"GroupID\":\"IBD116\",\"Flag\":\"0\"}
         ///GroupID：企业Id,Flag：0 - 资产负债 1 - 现金流量 2 - 利润
         /// </summary>
         /// <param name="context"></param>
@@ -156,44 +156,44 @@ namespace RDA_Web.bill
           
             string result = string.Empty;
             string flag = context.Request["flag"];
-            string json = "{\"GroupID\":\"IBD162\",\"Flag\":\""+flag+"\"}";
+            string json = "{\"GroupID\":\"IBD116\",\"Flag\":\""+flag+"\"}";
             result = rdaws.Risk_Report_Data(json);
             context.Response.Write(result);
         }
 
         /// <summary>
         /// 获取企业月份利润表数据
-        /// {\"GroupID\":\"IBD162\",\"Year\":2011,\"Month\":1,\"PLevel\":0}
+        /// {\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":0}
         /// </summary>
         /// <param name="context"></param>
         public void Report_Profit_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
-            string json = "{\"GroupID\":\"IBD162\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
+            string json = "{\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
             result = rdaws.Report_Profit_Data(json);
             context.Response.Write(result);
         }
         /// <summary>
         /// 获取企业月份现金流量表数据.by xuwm
-        /// {\"GroupID\":\"IBD162\",\"Year\":2011,\"Month\":1,\"PLevel\":0}
+        /// {\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":0}
         /// </summary>
         /// <param name="context"></param>
         public void Report_CashFlow_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
-            string json = "{\"GroupID\":\"IBD162\",\"Year\":2011,\"Month\":1,\"PLevel\":"+id+"}";
+            string json = "{\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":"+id+"}";
             result = rdaws.Report_CashFlow_Data(json);
             context.Response.Write(result);
         }
         /// <summary>
         /// 获取财务报表--资产负债相关信息
-        /// {\"GroupID\":\"IBD162\",\"Year\":2011,\"Month\":1,\"PLevel\":64}
+        /// {\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":64}
         /// </summary>
         /// <param name="context"></param>
         public void Report_Assets_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
-            string json = "{\"GroupID\":\"IBD162\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
+            string json = "{\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
             result = rdaws.Report_Assets_Data(json);
             context.Response.Write(result);   
         }
@@ -211,12 +211,12 @@ namespace RDA_Web.bill
         }
         /// <summary>
         /// 查看融资列表信息
-        /// {\"GroupID\":\"IBD162\"}
+        /// {\"GroupID\":\"IBD116\"}
         /// </summary>
         /// <param name="context"></param>
         public void Trading_List(HttpContext context) {
             string result = string.Empty;
-            string json = "{\"GroupID\":\"IBD162\"}";
+            string json = "{\"GroupID\":\"IBD116\"}";
             result = rdaws.Trading_List(json);
             context.Response.Write(result);
         }

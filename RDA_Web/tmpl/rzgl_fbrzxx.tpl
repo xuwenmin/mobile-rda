@@ -25,27 +25,26 @@
                                      <div class="divparent sjinputlinebottom ver_top">
                                          <input class="qm_input qm_input_p40" readonly="true"  id="rzgl_rzlx" type="input"/>
                                          <!--融资类型选项-->
-                                         <div class="extend hide" rel="rzgl_rzlx" >
-                                              <div class="ex_f">
-                                                  <div for="r_t1" toid="rzgl_rzlx" class="divwhite hascheckbox">
-                                                      <img class="hide" src="images/select.png" alt=""/>
-                                                  </div>
-                                                  <p name="r_t1">股权融资</p>
-                                                  <div for="r_t2" toid="rzgl_rzlx" class="divwhite hascheckbox">
-                                                      <img class="hide" src="images/select.png" alt=""/>
-                                                  </div>
-                                                  <p name="r_t2">项目融资</p>
-                                              </div>
-                                              <div class="ex_r">
-                                                  <div for="r_t3" toid="rzgl_rzlx" class="divwhite hascheckbox">
-                                                      <img class="hide" src="images/select.png" alt=""/>
-                                                  </div>
-                                                  <p name="r_t3">股权融资</p>
-                                                  <div for="r_t4" toid="rzgl_rzlx" class="divwhite hascheckbox">
-                                                      <img class="hide" src="images/select.png" alt=""/>
-                                                  </div>
-                                                  <p name="r_t4">项目融资</p>
-                                              </div>
+                                         <div class="extend hide" rel="rzgl_rzlx" id="rzgl_rzlx_item" >
+                                           <!--  <div class="enum_item">
+                                             <div class="divwhite hascheckbox" for="r_t1" toid="rzgl_rzlx" >
+                                               <img class="hide" src="images/select.png" alt="">
+                                             </div>
+                                             <p name="r_t1" class="p_item">软件</p>
+                                           </div>
+                                           <div class="enum_item">
+                                             <div class="divwhite hascheckbox" for="r_t2" toid="rzgl_rzlx">
+                                               <img class="hide" src="images/select.png" alt="">
+                                             </div>
+                                             <p name="r_t2" class="p_item">微电子技术</p>
+                                           </div>
+                                           <div class="enum_item">
+                                             <div class="divwhite hascheckbox" for="r_t3" toid="rzgl_rzlx">
+                                               <img class="hide" src="images/select.png" alt="">
+                                             </div>
+                                             <p name="r_t3" class="p_item">计算机及网络技术</p>
+                                           </div> -->
+                                           
                                          </div>
                                      </div>
                                  </div>
@@ -59,10 +58,10 @@
                                      <label>融资时长:</label>
                                      <div class="divparent sjinputlinebottom divshort50">
                                          <input id="rzgl_sc" class="qm_input qm_input_p40" value="长期" readonly="true" type="input"/>
-                                         <ul for="rzgl_sc" class="ul_select hide">
-                                           <li>长期</li>
-                                           <li>短期</li>
-                                           <li>其它</li>
+                                         <ul id="rzgl_rzsc_item" for="rzgl_sc" class="ul_select hide">
+                                          <!--  <li>长期</li>
+                                          <li>短期</li>
+                                          <li>其它</li> -->
                                          </ul>
                                      </div>
                                  </div>
@@ -70,10 +69,10 @@
                                      <label>融资金额:</label>
                                      <div class="divparent sjinputlinebottom divshort24">
                                          <input id="rzgl_rmb" class="qm_input qm_input_p40" readonly="true" type="input" value="人民币"/>
-                                         <ul for="rzgl_rmb" class="ul_select hide">
-                                           <li>人民币</li>
-                                           <li>美元</li>
-                                           <li>其它</li>
+                                         <ul id="rzgl_rzbz_item" for="rzgl_rmb" class="ul_select hide">
+                                         <!--   <li>人民币</li>
+                                         <li>美元</li>
+                                         <li>其它</li> -->
                                          </ul>
                                      </div>
                                      <div class="divparent divshort19">

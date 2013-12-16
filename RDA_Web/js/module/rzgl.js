@@ -1,5 +1,6 @@
 define(["zepto","util","underscore"],function($,util,_){
 
+	// 查看融资信息enum模板
 	var $template='{{ for(var i=0;i<it.length;i++) { }}'+
 	 '<li rel="li{{=i}}"  class="hassub">'+
                             '<a href="#" class="desc">'+
@@ -23,15 +24,17 @@ define(["zepto","util","underscore"],function($,util,_){
                             '</a>'+
                         '</li>'+
                          '{{ } }}';
+
+    //所属行业enum模板 
     var $template_enum='<li><a href="#" class="desc">所属行业</a></li>'+
     '{{ for(var i=0;i<it.length;i++) { }}'+
     ' <li rel="li{{=it[i].EnumID}}"  class="hassub">'+
                                     '<a href="#" class="desc">'+
                                       '<div class="enum_item enum_item80">'+
-                                           '<div class="divwhite">'+
+                                           '<div for="r_t{{=it[i].EnumID}}" class="divwhite hascheckbox1">'+
                                             '<img class="hide" src="images/select.png" alt=""/>'+
                                          '</div>'+
-                                         '<p class="p_item">{{=it[i].EnumName}}</p>'+
+                                         '<p data-fid="{{=it[i].EnumID}}" name="r_t{{=it[i].EnumID}}" class="p_item" data-eid="{{=it[i].EnumID}}">{{=it[i].EnumName}}</p>'+
                                       '</div>'+
                                       '{{ if(it[i].ischild) { }}'+
                                       '<div class="list_next list_topright">'+
@@ -45,17 +48,31 @@ define(["zepto","util","underscore"],function($,util,_){
                                  '<li name="li{{=it[i].EnumID}}" class="subli subli_desc">'+
                                     '<a href="#" class="desc">'+
                                      '{{ for(var j=0;j<it[i].childs.length;j++) { }}'+
-                                        '<div class="enum_item">'+
-                                             '<div class="divwhite">'+
+                                        '<div  class="enum_item">'+
+                                             '<div for="r_t{{=it[i].childs[j].EnumID}}" class="divwhite hascheckbox1">'+
                                               '<img class="hide" src="images/select.png" alt=""/>'+
                                            '</div>'+
-                                           '<p class="p_item">{{=it[i].childs[j].EnumName}}</p>'+
+                                           '<p name="r_t{{=it[i].childs[j].EnumID}}" class="p_item" data-fid="{{=it[i].EnumID}}" data-eid="{{=it[i].childs[j].EnumID}}">{{=it[i].childs[j].EnumName}}</p>'+
                                        '</div>' +
                                         '{{ } }}'+
                                     '</a>'+
                                 '</li>'+
                                  '{{  } }}'+
                                  '{{ } }}';
+
+    //融资类型enum模板
+    var $template_rzlx_enum='{{ for(var i=0;i<it.length;i++) { }}'+
+     '<div class="enum_item">'+
+          '<div class="divwhite hascheckbox" for="r_t{{=it[i].EnumID}}" toid="rzgl_rzlx" >'+
+           '<img class="hide" src="images/select.png" alt="">'+
+          '</div>'+
+          '<p name="r_t{{=it[i].EnumID}}" data-eid="{{=it[i].EnumID}}" class="p_item">{{=it[i].EnumName}}</p>'+
+        '</div>'+
+     '{{ } }}';
+     // 项是li组成的通用enum模板
+     var $template_rzli_enum='{{ for(var i=0;i<it.length;i++) { }}'+
+			     '<li data-eid="{{=it[i].EnumID}}">{{=it[i].EnumName}}</li>'+
+		     '{{ } }}';
 	//查询融资详细信息
 	var _getrzgl_desc=function(projectid){
 		$.ajax({
@@ -108,8 +125,8 @@ define(["zepto","util","underscore"],function($,util,_){
 			}
 		});
 	};
-
-	var _getrzgl_enum=function(typeid,$this){
+	//通用的获取enum的ajax请求
+	var _geteunmajax=function(typeid,fn){
 		var result=[];
 		$.ajax({
 			url:"getdata.aspx",
@@ -120,11 +137,6 @@ define(["zepto","util","underscore"],function($,util,_){
 				util.loadtip.show();
 			},
 			success:function(msg){
-				// console.log(msg);
-				//对这些enum信息进行按父子进行分组行成这样的结构
-				/*
-				**{ id,childs:[{id,info....}]}
-				*/
 				result=msg.Data["table0"] || msg.Data["Table1"] ;
 				//深度depth:2相对于typeid来说是子级，但是在结果里是父级
 				var parenarg=_.where(result,{Depth:2});
@@ -139,19 +151,57 @@ define(["zepto","util","underscore"],function($,util,_){
 					}
 					return v;
 				});
-				if(result.length){
-					//开始拼html
-					var dotobj=doT.template($template_enum);
-					$this.html(dotobj(result));
-				};
-				util.loadtip.hide();
-				console.log(result);
-				//开始拼html
-
+				if(fn && _.isFunction(fn)){
+					fn(result);
+					setTimeout(function(){
+						util.loadtip.hide();
+					},0);
+				}	
+				
 			},error:function(){
 				util.loadtip.hide();
 			}
 		});
+	}
+	//获取所属行业enum
+	var _getrzgl_enum=function(typeid,$this){
+		_geteunmajax(typeid,function(result){
+			if(result.length){
+				//开始拼html
+				var dotobj=doT.template($template_enum);
+				$this.html(dotobj(result));
+				$("#sel_rzsshy").show();
+			};
+		});
+	};
+	//获取融资类型enum
+	var _getrzgl_rzlx=function(typeid,$this){
+		_geteunmajax(typeid,function(result){
+			if(result.length){
+				//开始拼html
+				var dotobj=doT.template($template_rzlx_enum);
+				$this.html(dotobj(result));
+			};
+		});
+	}
+	//获取融资enum项是li组成的
+	var _getrzgl_rzli=function(typeid,$this){
+		_geteunmajax(typeid,function(result){
+			if(result.length){
+				//开始拼html
+				var dotobj=doT.template($template_rzli_enum);
+				$this.html(dotobj(result));
+			};
+		});
+	}
+	//初始化enum信息
+	var _initrzgl_enum=function(){
+		//融资类型
+		_getrzgl_rzlx("1",$("#rzgl_rzlx_item"));
+		//融资时长
+		_getrzgl_rzli("3",$("#rzgl_rzsc_item"));
+		//融资币种
+		_getrzgl_rzli("4",$("#rzgl_rzbz_item"));
 	};
 	return {
 		//查看融资详细信息
@@ -159,6 +209,8 @@ define(["zepto","util","underscore"],function($,util,_){
 		//查看融资列表信息
 		getrzgl_list:_getrzgl_list,
 		//获取融资enum信息
-		getrzgl_enum:_getrzgl_enum
+		getrzgl_enum:_getrzgl_enum,
+		//初始化发布融资第一步的enum信息
+		initenum1:_initrzgl_enum
 	}
 });

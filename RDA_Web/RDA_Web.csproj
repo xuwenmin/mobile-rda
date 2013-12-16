@@ -726,10 +726,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.1.9:6100/RDAWebService.asmx">
+    <WebReferenceUrl Include="http://114.112.90.40:9010/RDAWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\RDA\</RelPath>
-      <UpdateFromURL>http://192.168.1.9:6100/RDAWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://114.112.90.40:9010/RDAWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

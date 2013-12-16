@@ -9,24 +9,29 @@
             padding: 0;margin: 0;
         }
       
-        .main{
-           /* display: -webkit-box;
-            display: box;
-            -webkit-box-orient:vertical;
-            box-orient:vertical;*/
-            /*background-color: #eee;*/
-            border: 1px solid #ccc;
-            width: 400px;
-            height: 400px;
-            background: rgba(120,10,10,.1) url("images/200.png") no-repeat center center;
-        }
+       .main{
+            position: relative;
+            /*overflow: hidden;*/
+            height: 50px;
+            width: 200px;
+            background-color: #eee;
+       }
+       .inner{
+            position: absolute;
+            top: 60px;
+            background-color: green;
+            color: white;
+       }
      
     </style>
 </head>
 <body>
-<div class="main" id="cwzb_hbzj">
-
-
+<div class="main" >
+    
+    <p>this is a test!</p>
+    <div class="inner">
+        <p>this is a admin!</p>
+    </div>
 </div>
 <script src="js/zepto.min.js"></script>
 <script src="js/extend/offset.js"></script>
