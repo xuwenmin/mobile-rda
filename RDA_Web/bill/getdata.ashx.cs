@@ -77,7 +77,8 @@ namespace RDA_Web.bill
         {
             string result = string.Empty;
             string code = context.Request["code"];
-            result=RDA_Web.dal.rdaws.Index_KeyFinancial_Data("{\"GroupID\":\"IBD116\",\"Year\":2011,\"Code\":" + code + "}");
+            string ibdid = context.Request["ibdid"];
+            result=RDA_Web.dal.rdaws.Index_KeyFinancial_Data("{\"GroupID\":\""+ibdid+"\",\"Year\":2011,\"Code\":" + code + "}");
             context.Response.Write(result);
         }
         /// <summary>
@@ -123,7 +124,8 @@ namespace RDA_Web.bill
             string codenumber=string.Empty;//父类下面子项的所有参考值
 
             string code = context.Request["code"];
-            string json = "{\"GroupID\":\"IBD116\",\"Code\":" + code + "}";
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"Code\":" + code + "}";
 
             string jsoncode="{\"Code\":\""+code+"\",\"Flag\":\"1\"}";
 
@@ -142,7 +144,8 @@ namespace RDA_Web.bill
         public void Risk_Count_Data(HttpContext context) {
           
             string result = string.Empty;
-            string json = "{\"GroupID\":\"IBD116\"}";
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\""+ibdid+"\"}";
             result = rdaws.Risk_Count_Data(json);
             context.Response.Write(result);
         }
@@ -156,7 +159,8 @@ namespace RDA_Web.bill
           
             string result = string.Empty;
             string flag = context.Request["flag"];
-            string json = "{\"GroupID\":\"IBD116\",\"Flag\":\""+flag+"\"}";
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\""+ibdid+"\",\"Flag\":\""+flag+"\"}";
             result = rdaws.Risk_Report_Data(json);
             context.Response.Write(result);
         }
@@ -169,7 +173,8 @@ namespace RDA_Web.bill
         public void Report_Profit_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
-            string json = "{\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\""+ibdid+"\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
             result = rdaws.Report_Profit_Data(json);
             context.Response.Write(result);
         }
@@ -181,7 +186,8 @@ namespace RDA_Web.bill
         public void Report_CashFlow_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
-            string json = "{\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":"+id+"}";
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
             result = rdaws.Report_CashFlow_Data(json);
             context.Response.Write(result);
         }
@@ -193,7 +199,8 @@ namespace RDA_Web.bill
         public void Report_Assets_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
-            string json = "{\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
             result = rdaws.Report_Assets_Data(json);
             context.Response.Write(result);   
         }
@@ -216,7 +223,8 @@ namespace RDA_Web.bill
         /// <param name="context"></param>
         public void Trading_List(HttpContext context) {
             string result = string.Empty;
-            string json = "{\"GroupID\":\"IBD116\"}";
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\""+ibdid+"\"}";
             result = rdaws.Trading_List(json);
             context.Response.Write(result);
         }

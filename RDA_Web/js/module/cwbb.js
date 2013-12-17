@@ -34,7 +34,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:typename,fid:fid},
+			data:{action:typename,fid:fid,ibdid:util.getsysinfo().GroupID},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -66,7 +66,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:typename,fid:fid},
+			data:{action:typename,fid:fid,ibdid:util.getsysinfo().GroupID},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -102,7 +102,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Report_Assets_Data",fid:fid},
+			data:{action:"Report_Assets_Data",fid:fid,ibdid:util.getsysinfo().GroupID},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -134,7 +134,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Report_Assets_Data",fid:fid},
+			data:{action:"Report_Assets_Data",fid:fid,ibdid:util.getsysinfo().GroupID},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -170,7 +170,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Report_Assets_Data",fid:0},
+			data:{action:"Report_Assets_Data",fid:0,ibdid:util.getsysinfo().GroupID},
 			async:false,
 			success:function(msg){
 				if(msg.Result){

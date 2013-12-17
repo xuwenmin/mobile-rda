@@ -79,7 +79,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Trading_Get",projectid:projectid},
+			data:{action:"Trading_Get",projectid:projectid,ibdid:util.getsysinfo().GroupID},
 			success:function(msg){
 				console.log(msg);
 			},
@@ -96,7 +96,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Trading_List"},
+			data:{action:"Trading_List",ibdid:util.getsysinfo().GroupID},
 			async:false,
 			success:function(msg){
 				console.log(msg);
@@ -131,7 +131,7 @@ define(["zepto","util","underscore"],function($,util,_){
 		$.ajax({
 			url:"getdata.aspx",
 			type:"get",
-			data:{action:"Trading_Enum_Data",typeid:typeid},
+			data:{action:"Trading_Enum_Data",typeid:typeid,ibdid:util.getsysinfo().GroupID},
 			dataType:"json",
 			beforeSend:function(){
 				util.loadtip.show();

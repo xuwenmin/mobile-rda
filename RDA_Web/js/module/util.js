@@ -155,6 +155,13 @@ define(["zepto","underscore"],function($,_){
 	})();
 	var _isscroll=function(s){
 		return _.contains(_scrollload,s);
+	};
+	//获取当前登录信息
+	var _getsysinfo=function(){
+		var result={};
+		result=JSON.parse(window.localStorage["userinfo"]);
+		result.GroupID=result.groupid;
+		return result;
 	}
 	return {
 		//当前浏览器信息
@@ -170,6 +177,9 @@ define(["zepto","underscore"],function($,_){
 		loadtip:_loadtip,
 		isscroll:function(s){
 			return _isscroll(s);
+		},
+		getsysinfo:function(){
+			return _getsysinfo();
 		}
 	}
 });

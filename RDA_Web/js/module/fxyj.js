@@ -148,7 +148,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Index_OtherFinancial_Data",code:code},
+			data:{action:"Index_OtherFinancial_Data",code:code,ibdid:util.getsysinfo().GroupID},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -224,7 +224,7 @@ define(["zepto","util","underscore"],function($,util,_){
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Risk_Report_Data",flag:code},
+			data:{action:"Risk_Report_Data",flag:code,ibdid:util.getsysinfo().GroupID},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -261,7 +261,7 @@ define(["zepto","util","underscore"],function($,util,_){
 	var _get_fxyj_tjinfo=function(){
 		$.ajax({
 			url:"getdata.aspx",
-			data:{action:"Risk_Count_Data"},
+			data:{action:"Risk_Count_Data",ibdid:util.getsysinfo().GroupID},
 			type:"get",
 			dataType:"json",
 			async:false,
