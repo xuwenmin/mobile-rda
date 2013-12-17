@@ -3,7 +3,7 @@ define(["zepto","underscore"],function($,_){
 	var _scrollload=["rzgl_fbrzxx","rzgl_fbrzxx_2","cwzb",
 	"fxyj_zhsl","fxyj_xjll","fxyj_zczl","fxyj_cwbb","xjll","zcfz_sub"];
 
-	var _autoupdate=["cwzb_hbzj","zcfz","zcfz_sub"];
+	var _autoupdate=["cwzb_hbzj","zcfz","zcfz_sub","xjll","ly"];
 	 //检测平台
     var versions=function() {
             var  u  =  navigator.userAgent,

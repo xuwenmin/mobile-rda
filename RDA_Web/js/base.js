@@ -611,6 +611,14 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 if (hashobj.hash == "zcfz_sub") {
                     cwbb.getcwbb_zcfz_upsub(hashobj, $("#ul_zcfz"));
                 }
+                if (hashobj.hash == "xjll") {
+                //开始获取现金流量信息
+                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_CashFlow_Data");
+                };
+                if (hashobj.hash == "ly") {
+                    //开始获取现金流量信息
+                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_Profit_Data");
+                };
 
             }
         });
@@ -629,6 +637,14 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 if (hashobj.hash == "zcfz_sub") {
                     cwbb.getcwbb_zcfz_upsub(hashobj, $("#ul_zcfz"));
                 }
+                if (hashobj.hash == "xjll") {
+                //开始获取现金流量信息
+                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_CashFlow_Data");
+                };
+                if (hashobj.hash == "ly") {
+                    //开始获取现金流量信息
+                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_Profit_Data");
+                };
             }
 
         });

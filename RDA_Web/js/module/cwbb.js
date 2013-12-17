@@ -90,7 +90,7 @@ define(["zepto","util","underscore"],function($,util,_){
 							v.HaveNext=v.HaveNext ? true:false;
 							return v;
 						});
-						$this.append(dotobj(result));
+						$this.html(dotobj(result));
 						// console.log(msg);
 					}
 				}			
