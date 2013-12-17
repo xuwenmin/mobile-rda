@@ -44,7 +44,6 @@ define(["zepto", "util"], function($, util) {
 	};
 	//财务指标--货币资金 图表
 	var createchart_cwzb = function(_data, hash) {
-		console.log(_data);
 		//如果数据为空，则退出
 		if (!_data.Result) return;
 		if (_data.Data.table0.length < 12) {
@@ -127,20 +126,54 @@ define(["zepto", "util"], function($, util) {
 
 		//本期结余=当月数值,本年累计=当年12月数值,年度期初=当年1月数值
 		//赋值当前图表类型
-		var curmonth = parseInt((new Date()).getMonth());
+		// var curmonth = parseInt((new Date()).getMonth());
+		var __result=localStorage["dateinfo"] ? JSON.parse(localStorage["dateinfo"]):{};
+		var curmonth=parseInt(__result.month); //当前月为选择的月份
+		console.log(curmonth);
 		$("#cwzb_hbzj_type").html(codeinfo.desc);
-		if (codeinfo.type == "normal") {
+		try
+		{
+			if (codeinfo.type == "normal") {
 			$("#cwzb_hbzj_m1").html(util.getFloat2(_data.Data.table0[curmonth].MonthEnd));
 			$("#cwzb_hbzj_m2").html(util.getFloat2(_data.Data.table0[11].MonthEnd));
 			$("#cwzb_hbzj_m3").html(util.getFloat2(_data.Data.table0[0].MonthBegin));
-		} else {
-			$("#cwzb_hbzj_m1").html(util.getFloat2(_data.Data.table0[curmonth].money));
-			$("#cwzb_hbzj_m2").html(util.getFloat2(_data.Data.table0[11].money));
-			$("#cwzb_hbzj_m3").html(util.getFloat2(_data.Data.table0[0].money));
-		}
+			} else {
+				$("#cwzb_hbzj_m1").html(util.getFloat2(_data.Data.table0[curmonth].money));
+				$("#cwzb_hbzj_m2").html(util.getFloat2(_data.Data.table0[11].money));
+				$("#cwzb_hbzj_m3").html(util.getFloat2(_data.Data.table0[0].money));
+			}
+		}catch(e){}
+		
 	};
+	var _getcwzbdata=function(hashobj){
+		var _result=localStorage["dateinfo"] ? JSON.parse(localStorage["dateinfo"]):{};
+        $.ajax({
+            url: "getdata.aspx",
+            type: "get",
+            dataType: "json",
+            data: {
+                action: "Index_KeyFinancial_Data",
+                code: hashobj.para.code,
+                ibdid:util.getsysinfo().GroupID,
+                year:_result.year,
+                month:_result.month
+            },
+            beforeSend:function(){
+            	util.loadtip.show();
+            },
+            success: function(msg) {
+                createchart_cwzb(msg, hashobj);
+                util.loadtip.hide();
+            },
+            error: function() {
+				util.loadtip.hide();
+                alert("亲，暂时无数据！");
+            }
+        });
+	}
 	return {
 		getDescByCode: getDescByCode,
-		createchart_cwzb: createchart_cwzb
+		createchart_cwzb: createchart_cwzb,
+		getcwzbdata:_getcwzbdata
 	}
 });

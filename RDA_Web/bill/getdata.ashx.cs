@@ -78,7 +78,8 @@ namespace RDA_Web.bill
             string result = string.Empty;
             string code = context.Request["code"];
             string ibdid = context.Request["ibdid"];
-            result=RDA_Web.dal.rdaws.Index_KeyFinancial_Data("{\"GroupID\":\""+ibdid+"\",\"Year\":2011,\"Code\":" + code + "}");
+            string year = context.Request["year"];
+            result = RDA_Web.dal.rdaws.Index_KeyFinancial_Data("{\"GroupID\":\"" + ibdid + "\",\"Year\":" + year + ",\"Code\":" + code + "}");
             context.Response.Write(result);
         }
         /// <summary>
@@ -167,40 +168,46 @@ namespace RDA_Web.bill
 
         /// <summary>
         /// 获取企业月份利润表数据
-        /// {\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":0}
+        /// {\"GroupID\":\"IBD116\",\"Year\":2013,\"Month\":1,\"PLevel\":0}
         /// </summary>
         /// <param name="context"></param>
         public void Report_Profit_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
             string ibdid = context.Request["ibdid"];
-            string json = "{\"GroupID\":\""+ibdid+"\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
+            string year = context.Request["year"];
+            string month = context.Request["month"];
+            string json = "{\"GroupID\":\""+ibdid+"\",\"Year\":"+year+",\"Month\":"+month+",\"PLevel\":" + id + "}";
             result = rdaws.Report_Profit_Data(json);
             context.Response.Write(result);
         }
         /// <summary>
         /// 获取企业月份现金流量表数据.by xuwm
-        /// {\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":0}
+        /// {\"GroupID\":\"IBD116\",\"Year\":2013,\"Month\":1,\"PLevel\":0}
         /// </summary>
         /// <param name="context"></param>
         public void Report_CashFlow_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
             string ibdid = context.Request["ibdid"];
-            string json = "{\"GroupID\":\"" + ibdid + "\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
+            string year = context.Request["year"];
+            string month = context.Request["month"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"Year\":" + year + ",\"Month\":" + month + ",\"PLevel\":" + id + "}";
             result = rdaws.Report_CashFlow_Data(json);
             context.Response.Write(result);
         }
         /// <summary>
         /// 获取财务报表--资产负债相关信息
-        /// {\"GroupID\":\"IBD116\",\"Year\":2011,\"Month\":1,\"PLevel\":64}
+        /// {\"GroupID\":\"IBD116\",\"Year\":2013,\"Month\":1,\"PLevel\":64}
         /// </summary>
         /// <param name="context"></param>
         public void Report_Assets_Data(HttpContext context) {
             string result = string.Empty;
             string id = context.Request["fid"];
             string ibdid = context.Request["ibdid"];
-            string json = "{\"GroupID\":\"" + ibdid + "\",\"Year\":2011,\"Month\":1,\"PLevel\":" + id + "}";
+            string year = context.Request["year"];
+            string month = context.Request["month"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"Year\":" + year + ",\"Month\":" + month + ",\"PLevel\":" + id + "}";
             result = rdaws.Report_Assets_Data(json);
             context.Response.Write(result);   
         }

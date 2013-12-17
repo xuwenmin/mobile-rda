@@ -2,6 +2,8 @@
 define(["zepto","underscore"],function($,_){
 	var _scrollload=["rzgl_fbrzxx","rzgl_fbrzxx_2","cwzb",
 	"fxyj_zhsl","fxyj_xjll","fxyj_zczl","fxyj_cwbb","xjll","zcfz_sub"];
+
+	var _autoupdate=["cwzb_hbzj","zcfz","zcfz_sub"];
 	 //检测平台
     var versions=function() {
             var  u  =  navigator.userAgent,
@@ -29,7 +31,7 @@ define(["zepto","underscore"],function($,_){
             };
      }();
      //遮盖层对象
-    var markobj = (function() {
+    var markobj = function() {
 	    var width = $("body").offset().width;
 	    var height = $("body").offset().height;
 	    var _show = function() {
@@ -49,7 +51,7 @@ define(["zepto","underscore"],function($,_){
 	            _hide();
 	        }
 	    }
-	})();
+	};
 	//弹出层管理对象
 	var popwindow = (function() {
 	    var html = "<div class=\"bgmark\" id=\"mark\"></div>";
@@ -57,7 +59,7 @@ define(["zepto","underscore"],function($,_){
 	        if (!$("#mark").length) {
 	            $("#" + id).parent().append(html);
 	        }
-	        markobj.show();
+	        markobj().show();
 	        $("#" + id).position({
 	            my: 'center center',
 	            at: 'center',
@@ -65,7 +67,7 @@ define(["zepto","underscore"],function($,_){
 	        }).css("visibility", "visible");
 	    };
 	    var _hide = function(id) {
-	        markobj.hide();
+	        markobj().hide();
 	        $("#" + id).css("visibility", "hidden");
 	    };
 	    return {
@@ -156,6 +158,9 @@ define(["zepto","underscore"],function($,_){
 	var _isscroll=function(s){
 		return _.contains(_scrollload,s);
 	};
+	var _isautoupdate=function(s){
+		return _.contains(_autoupdate,s);
+	}
 	//获取当前登录信息
 	var _getsysinfo=function(){
 		var result={};
@@ -180,6 +185,9 @@ define(["zepto","underscore"],function($,_){
 		},
 		getsysinfo:function(){
 			return _getsysinfo();
+		},
+		isautoupdate:function(s){
+			return _isautoupdate(s);
 		}
 	}
 });

@@ -11,12 +11,12 @@ define(["zepto","util","underscore"],function($,util,_){
 	        if (!$("#mark").length) {
 	            $("#" + id).parent().append(html);
 	        }
-	        util.markobj.show();
+	        util.markobj().show();
 	        var _width = width * 0.7;
 	        $("#" + id).css("width", _width + "px");
 	    };
 	    var _hide = function(id) {
-	        util.markobj.hide();
+	        util.markobj().hide();
 	        $("#" + id)[0].style.webkitTransition = "width .1s linear 0s";
 	        $("#" + id).css("width", "0px");
 	        _.delay(function() {

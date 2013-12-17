@@ -700,4 +700,10 @@ input::-webkit-input-placeholder{
 .wrapper .head .h1_index{
     width: 83%;
 }
+/*消息正文样式*/
+.wrapper .content .content_list .msgdesc{
+    vertical-align: middle;
+    width: 97%;
+    position: relative;
+}
 

@@ -50,12 +50,15 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     hashobj.hash = result[2];
                     var _para = result[3];
                     var _obj = {};
+                    var _oldobj = {};
                     var _args = _para.split('&');
                     for (var i = 0; i < _args.length; i++) {
                         var ss = _args[i].split('=');
                         _obj[ss[0]] = ss[1];
+                        _oldobj[ss[0]] = ss[1];
                     }
                     hashobj.para = _obj;
+                    hashobj._para = _oldobj;
                 } else if (result[5]) {
                     hashobj.hash = result[5];
                 }
@@ -72,7 +75,6 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 },
                 success: function(msg) {
                     var dotobj = doT.template(msg);
-
                     if (hashobj.hash == "fxyj_tb") {
                         _obj = (_.where(JSON.parse(localStorage["fxyj_tb"]), {
                             id: parseInt(_obj.code)
@@ -84,7 +86,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                         _obj = JSON.parse(localStorage["fxyj_index"]);
                     }
                     if (hashobj.hash == "zcfz") {
-                        cwbb.getcwbb_zcfz_infex();
+                        cwbb.getcwbb_zcfz_index();
                         _obj = JSON.parse(localStorage["cwbb_index"]);
                     }
                     if (hashobj.hash == "zcfz_sub") {
@@ -114,16 +116,60 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         $target.delegate("[to]", touchevent, function(event) {
             event.stopPropagation();
             event.preventDefault();
+            var to = $(this).attr("to");
             if (!isgo) {
-                window.location.hash = $(this).attr("to");
+                var reg = /((.*)!\/(.*))|((.*))/;
+                var result = to.match(reg);
+                if (result) {
+                    if (result[2]) {
+                        if ($(".selyear").length) {
+                            to = to + "&year=" + $(".selyear").val() + "&month=" + $(".selmonth").val();
+                            localStorage["dateinfo"] = JSON.stringify({
+                                year: $(".selyear").val(),
+                                month: $(".selmonth").val()
+                            });
+                        }
+                    } else {
+                        if ($(".selyear").length) {
+                            to = to + "!/" + "year=" + $(".selyear").val() + "&month=" + $(".selmonth").val();
+                            localStorage["dateinfo"] = JSON.stringify({
+                                year: $(".selyear").val(),
+                                month: $(".selmonth").val()
+                            });
+                        }
+                    }
+                }
+                window.location.hash = to;
             }
         });
         //动态绑定返回上一页的事件
         $target.delegate(".pre[from]", touchevent, function(event) {
             event.stopPropagation();
             event.preventDefault();
+            var from = $(this).attr("from");
             if (!isgo) {
-                window.location.hash = $(this).attr("from");
+                var reg = /((.*)!\/(.*))|((.*))/;
+                var result = from.match(reg);
+                if (result) {
+                    if (result[2]) {
+                        if ($(".selyear").length) {
+                            from = from + "&year=" + $(".selyear").val() + "&month=" + $(".selmonth").val();
+                            localStorage["dateinfo"] = JSON.stringify({
+                                year: $(".selyear").val(),
+                                month: $(".selmonth").val()
+                            });
+                        }
+                    } else {
+                        if ($(".selyear").length) {
+                            from = from + "!/" + "year=" + $(".selyear").val() + "&month=" + $(".selmonth").val();
+                            localStorage["dateinfo"] = JSON.stringify({
+                                year: $(".selyear").val(),
+                                month: $(".selmonth").val()
+                            });
+                        }
+                    }
+                }
+                window.location.hash = from;
             }
         });
         //动态绑定收起和展开事件
@@ -513,22 +559,9 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
 
             if (hashobj.hash == "cwzb_hbzj") {
                 //财务指表的数据报表页
-                $.ajax({
-                    url: "getdata.aspx",
-                    type: "get",
-                    dataType: "json",
-                    data: {
-                        action: "Index_KeyFinancial_Data",
-                        code: hashobj.para.code,
-                        ibdid:util.getsysinfo().GroupID
-                    },
-                    success: function(msg) {
-                        cwzb.createchart_cwzb(msg, hashobj);
-                    },
-                    error: function() {
-                        alert("亲，暂时无数据！");
-                    }
-                });
+                _.delay(function() {
+                    cwzb.getcwzbdata(hashobj);
+                }, 0);
             } else if (hashobj.hash == "fxyj_tb") {
                 _.delay(function() {
                     fxyj.createchart_fxyj_tb(hashobj);
@@ -550,6 +583,54 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             util.loadtip.hide();
 
             isend = false;
+
+            //更新年份和月份的数据
+            if (hashobj._para) {
+                if (hashobj._para.year) {
+                    $(".selyear").val(hashobj._para.year);
+                    $(".selmonth").val(hashobj._para.month);
+                }
+            }
+
+
+        });
+
+        //绑定当前选择的年和月
+        $target.delegate(".selyear", "change", function(event) {
+            var dateinfo = localStorage["dateinfo"] ? JSON.parse(localStorage["dateinfo"]) : {};
+            dateinfo.year = $(this).val();
+            localStorage["dateinfo"] = JSON.stringify(dateinfo);
+            //此处检查是否触动自动更新
+            if (util.isautoupdate(hashobj.hash)) {
+                if (hashobj.hash == "cwzb_hbzj") {
+                    cwzb.getcwzbdata(hashobj);
+                }
+                if (hashobj.hash == "zcfz") {
+                    cwbb.getcwbb_zcfz_upindex($("#container_tmpl"));
+                }
+                if (hashobj.hash == "zcfz_sub") {
+                    cwbb.getcwbb_zcfz_upsub(hashobj, $("#ul_zcfz"));
+                }
+
+            }
+        });
+        $target.delegate(".selmonth", "change", function(event) {
+            var dateinfo = localStorage["dateinfo"] ? JSON.parse(localStorage["dateinfo"]) : {};
+            dateinfo.month = $(this).val();
+            localStorage["dateinfo"] = JSON.stringify(dateinfo);
+            //此处检查是否触动自动更新
+            if (util.isautoupdate(hashobj.hash)) {
+                if (hashobj.hash == "cwzb_hbzj") {
+                    cwzb.getcwzbdata(hashobj);
+                }
+                if (hashobj.hash == "zcfz") {
+                    cwbb.getcwbb_zcfz_upindex($("#container_tmpl"));
+                }
+                if (hashobj.hash == "zcfz_sub") {
+                    cwbb.getcwbb_zcfz_upsub(hashobj, $("#ul_zcfz"));
+                }
+            }
+
         });
     };
     return {
