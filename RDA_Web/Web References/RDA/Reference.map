@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://114.112.90.40:9010/RDAWebService.asmx?wsdl" filename="RDAWebService.wsdl" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://114.112.90.40:9010/RDAWebService.asmx?disco" filename="RDAWebService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://192.168.1.9:6100/RDAWebService.asmx?disco" filename="RDAWebService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://192.168.1.9:6100/RDAWebService.asmx?wsdl" filename="RDAWebService.wsdl" />
   </Results>
 </DiscoveryClientResultsFile>

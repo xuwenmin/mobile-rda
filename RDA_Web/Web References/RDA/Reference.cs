@@ -65,6 +65,8 @@ namespace RDA_Web.RDA {
         
         private System.Threading.SendOrPostCallback Trading_GetOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Trading_EditOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Trading_EditStepOneOperationCompleted;
         
         private System.Threading.SendOrPostCallback Trading_EditStepTwoOperationCompleted;
@@ -166,6 +168,9 @@ namespace RDA_Web.RDA {
         
         /// <remarks/>
         public event Trading_GetCompletedEventHandler Trading_GetCompleted;
+        
+        /// <remarks/>
+        public event Trading_EditCompletedEventHandler Trading_EditCompleted;
         
         /// <remarks/>
         public event Trading_EditStepOneCompletedEventHandler Trading_EditStepOneCompleted;
@@ -680,6 +685,36 @@ namespace RDA_Web.RDA {
             if ((this.Trading_GetCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Trading_GetCompleted(this, new Trading_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleValue")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("RDAWebServiceSpace/Trading_Edit", RequestNamespace="RDAWebServiceSpace", ResponseNamespace="RDAWebServiceSpace", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string Trading_Edit(string param) {
+            object[] results = this.Invoke("Trading_Edit", new object[] {
+                        param});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Trading_EditAsync(string param) {
+            this.Trading_EditAsync(param, null);
+        }
+        
+        /// <remarks/>
+        public void Trading_EditAsync(string param, object userState) {
+            if ((this.Trading_EditOperationCompleted == null)) {
+                this.Trading_EditOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTrading_EditOperationCompleted);
+            }
+            this.InvokeAsync("Trading_Edit", new object[] {
+                        param}, this.Trading_EditOperationCompleted, userState);
+        }
+        
+        private void OnTrading_EditOperationCompleted(object arg) {
+            if ((this.Trading_EditCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Trading_EditCompleted(this, new Trading_EditCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1238,6 +1273,32 @@ namespace RDA_Web.RDA {
         private object[] results;
         
         internal Trading_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void Trading_EditCompletedEventHandler(object sender, Trading_EditCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Trading_EditCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Trading_EditCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

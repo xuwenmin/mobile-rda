@@ -75,6 +75,13 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 },
                 success: function(msg) {
                     var dotobj = doT.template(msg);
+
+                    //除掉第一步和第二步的本地存储
+                    if(hashobj.hash.indexOf("rzgl_fbrzxx")<0){
+                        window.localStorage.removeItem("rzgl_1");
+                        window.localStorage.removeItem("rzgl_2");
+                    }
+
                     if (hashobj.hash == "fxyj_tb") {
                         _obj = (_.where(JSON.parse(localStorage["fxyj_tb"]), {
                             id: parseInt(_obj.code)
@@ -146,6 +153,14 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         $target.delegate(".pre[from]", touchevent, function(event) {
             event.stopPropagation();
             event.preventDefault();
+            // 此处检查假如是发布获取所属行业时，不应该返回到上一页，只用切换显示隐藏即可
+            if(hashobj.hash.indexOf("rzgl_fbrzxx")>-1){
+                if($("#rzgl_rzxx_sub")[0].style.display=="block"){
+                    $("#sel_rzsshy").trigger(touchevent);
+                    return false;
+                }
+            }
+
             var from = $(this).attr("from");
             if (!isgo) {
                 var reg = /((.*)!\/(.*))|((.*))/;
@@ -222,16 +237,34 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             $("#rzgl_rzxx_main").show();
             $("#rzgl_rzxx_sub").hide();
             $("#sel_rzsshy").hide();
+            var data=window.localStorage["rz_sslx1"] ? JSON.parse(window.localStorage["rz_sslx1"]):{};
+            //此处开始给所属行业赋值
+            var data_val=_.map(data,function(v){
+                v=v.split('_')[1];
+                return v;
+            });
+            var data_desc=_.map(data,function(v){
+                v=v.split('_')[2];
+                return v;
+            });
+            if(data_val.length || data_desc.length){
+                $("#rzgl_sshy").val(data_desc.join('/'));
+                $("#rzgl_sshy").attr("data-val",data_val.join(','));
+            }else{
+                $("#rzgl_sshy").val("");
+                $("#rzgl_sshy").attr("data-val","");
+            }
         });
         //动态绑定所属行业 事件
         $target.delegate("#rzgl_sshy", touchevent, function() {
             $("#rzgl_rzxx_main").hide();
             $("#rzgl_rzxx_sub").show();
-
+            //清空所属行来的本地存储
+            window.localStorage.removeItem("rz_sslx1");
             rzgl.getrzgl_enum("2", $("#rzgl_rzxx_sub"));
         });
         //动态绑定融资时长,融资金额的事件
-        $target.delegate("#rzgl_sc,#rzgl_rmb", touchevent, function() {
+        $target.delegate("#rzgl_sc,#rzgl_rmb,#rzgl_qyxz,#rzgl_qyrmb", touchevent, function() {
             var groupname = $(this).attr("id");
             var $obj = $("[for=" + groupname + "]");
             if ($obj.hasClass("hide")) {
@@ -272,7 +305,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     arg_val.push($("[name=" + _for + "]").attr("data-eid"));
                 }
             });
-            $("#" + sto).val(arg.join(',')).attr("data-val", arg_val.join(';'));
+            $("#" + sto).val(arg.join('/')).attr("data-val", arg_val.join(','));
         });
 
         //动态的勾选,适合多级的多选enum  以hascheckbox1为标识
@@ -282,7 +315,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             var _for = $(this).attr("for");
             var data_fid = $("[name=" + _for + "]").attr("data-fid"); //父ID
             var data_eid = $("[name=" + _for + "]").attr("data-eid"); //当前ID
-            var newval = data_fid + "_" + data_eid; //当前要插件的新值
+            var data_desc=$("[name=" + _for + "]").html();//当前选中的值
+            var newval = data_fid + "_" + data_eid+"_"+data_desc; //当前要插件的新值
             var $obj = $(this).find("img");
 
             if (rz_sslx1.length) {
@@ -314,7 +348,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 }
 
             } else {
-                rz_sslx1.push(data_fid + "_" + data_eid);
+                rz_sslx1.push(newval);
             }
             //保存数据到localstorage
             window.localStorage["rz_sslx1"] = JSON.stringify(rz_sslx1);
@@ -333,18 +367,30 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             event.preventDefault();
             var id = $(this).parent().attr("id");
             util.popwindow.hide(id);
-        })
-        //绑定下一页事件
+        });
+        //绑定上一步事件
+        $target.delegate("#rzgl_pre", touchevent, function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            //开始保存这一步的数据
+            if(rzgl.saverzgl_2()){
+               window.location.hash = "rzgl_fbrzxx"; 
+            }               
+        });
+        //绑定下一步事件
         $target.delegate("#rzgl_next", touchevent, function(event) {
             event.stopPropagation();
             event.preventDefault();
             var val = $("#rzgl_pinfo").val();
             if (val) {
-                window.location.hash = "rzgl_fbrzxx_2";
+                //开始保存这一步的数据
+                if(rzgl.saverzgl_1()){
+                   window.location.hash = "rzgl_fbrzxx_2"; 
+                }               
             } else {
                 util.popwindow.show("pop1");
             }
-        })
+        });
         //绑定首页设置事件
         $target.delegate("#img_setting", touchevent, function(event) {
             event.stopPropagation();
@@ -532,8 +578,18 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             $target[0].style.webkitTransform = 'translateX(' + 0 + 'px)';
             $target.append(html);
             isgo = false;
-            //效果做玩之后,再执行下面的check
 
+            //效果做玩之后,再执行下面的check
+            if(hashobj.hash=="index"){
+                //开始获取企业基本信息
+                util.getbaseinfo(function(msg){
+                    console.log(msg);
+                });
+            }
+            if(hashobj.hash=="rzgl"){
+                //清空所属行业的本地存储
+                window.localStorage.removeItem("rz_sslx1");
+            }
             if (hashobj.hash == "xjll") {
                 //开始获取现金流量信息
                 cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_CashFlow_Data");
@@ -554,6 +610,9 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 // rzgl.getrzgl_enum("2");
                 //初始化发布信息融资第一步的enum信息
                 rzgl.initenum1();
+            }
+            if(hashobj.hash=="rzgl_fbrzxx_2"){
+                rzgl.initenum2();
             }
 
 

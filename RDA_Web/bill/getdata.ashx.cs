@@ -66,6 +66,14 @@ namespace RDA_Web.bill
                 case "Trading_Enum_Data":
                     Trading_Enum_Data(context);
                     break;
+                //发布融资一步提交接口
+                case "Trading_Edit":
+                    Trading_Edit(context);
+                    break;
+                //获取企业基本信息
+                case "Enterprise_BasicData":
+                    Enterprise_BasicData(context);
+                    break;
             }
             context.Response.Write("");
         }
@@ -249,7 +257,59 @@ namespace RDA_Web.bill
             result = rdaws.Trading_Enum_Data(json);
             context.Response.Write(result);
         }
+        /// <summary>
+        /// 发布融资管理一步保存数据.by xuwm
+        /// {"GroupID":"IBD188","UserID":"1099","ProjectName":"数据风险管理项目","Category":4901,"Trade":497,
+        /// "MoneyBegin":300,"MoneyEnd":400,"Currency":140,"RZSC":4888,
+        ///"LXR":"张三","MPhone":"13613373301","PhoneArea":"010","Phone":"12345678","PhoneFJ":"321",
+        ///"Email":"z1@123.com","EType":61,"Industry":504,"Sales":200,"SalesCurrency":140,"Park":"中关村园区"} 
+        /// </summary>
+        /// <param name="context"></param>
+        public void Trading_Edit(HttpContext context) {
+            string result = string.Empty;
 
+            string GroupID = context.Request["GroupID"];
+            string UserID = context.Request["UserID"];
+            string ProjectName = context.Request["ProjectName"];
+            string Category = context.Request["Category"];
+            string Trade = context.Request["Trade"];
+            string MoneyBegin = context.Request["MoneyBegin"];
+            string MoneyEnd = context.Request["MoneyEnd"];
+            string Currency = context.Request["Currency"];
+            string RZSC = context.Request["RZSC"];
+            string LXR = context.Request["LXR"];
+            string MPhone = context.Request["MPhone"];
+            string PhoneArea = context.Request["PhoneArea"];
+            string Phone = context.Request["Phone"];
+            string PhoneFJ = context.Request["PhoneFJ"];
+            string Email = context.Request["Email"];
+            string EType = context.Request["EType"];
+            string Industry = context.Request["Industry"];
+            string Sales = context.Request["Sales"];
+            string SalesCurrency = context.Request["SalesCurrency"];
+            string Park = context.Request["Park"];
+            string json = "{\"GroupID\":\""+GroupID+"\",\"UserID\":\""+UserID+"\",\"ProjectName\":\""+ProjectName+"\",\"Category\":"+Category+",\"Trade\":"+Trade+","+
+         "\"MoneyBegin\":"+MoneyBegin+",\"MoneyEnd\":"+MoneyEnd+",\"Currency\":"+Currency+",\"RZSC\":"+RZSC+","+
+        "\"LXR\":\""+LXR+"\",\"MPhone\":\""+MPhone+"\",\"PhoneArea\":\""+PhoneArea+"\",\"Phone\":\""+Phone+"\",\"PhoneFJ\":\""+PhoneFJ+"\","+
+        "\"Email\":\""+Email+"\",\"EType\":"+EType+",\"Industry\":"+Industry+",\"Sales\":"+Sales+",\"SalesCurrency\":"+SalesCurrency+",\"Park\":\""+Park+"\"} ";
+
+            result = rdaws.Trading_Edit(json);
+
+            context.Response.Write(result);
+        }
+
+        /// <summary>
+        /// 获取企业基本信息.by xuwm
+        /// {\"GroupID\":\"IBD101\"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void Enterprise_BasicData(HttpContext context) {
+            string result = string.Empty;
+            string ibdid = context.Request["ibdid"];
+            string json ="{\"GroupID\":\""+ibdid+"\"}";
+            result = rdaws.Enterprise_BasicData(json);
+            context.Response.Write(result);
+        }
         /// <summary>
         /// md5相关加密方法
         /// </summary>

@@ -121,5 +121,21 @@ namespace RDA_Web.dal
         public static string Trading_Enum_Data(string json) {
             return _rda.Trading_Enum_Data(json);
         }
+        /// <summary>
+        /// 发布融资一步提交数据
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Trading_Edit(string json) {
+            return _rda.Trading_Edit(json);
+        }
+        /// <summary>
+        /// 获取企业基本信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Enterprise_BasicData(string json) {
+            return _rda.Enterprise_BasicData(json);
+        }
     }
 }

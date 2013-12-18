@@ -707,3 +707,23 @@ input::-webkit-input-placeholder{
     position: relative;
 }
 
+.wrapper .content .content_list li.subli {
+    border: 1px solid #eee;
+}
+.wrapper .content .content_list li.subli a,
+.wrapper .content .content_list li.subli p{
+    color: #333;
+}
+.content .contentform .inputline .divparent .qm_input.inputmoney{
+    text-align: right;
+}
+.content .contentform.nopdform{
+    padding: 0 20px 20px 20px;
+}
+.content #qm_wrapper.contentform.nopdform{
+    top: 60px;
+}
+.content #qm_wrapper #rzgl_rzxx_main{
+    margin-top: 10px;
+}
+

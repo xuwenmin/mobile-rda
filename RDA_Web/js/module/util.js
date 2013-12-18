@@ -160,14 +160,39 @@ define(["zepto","underscore"],function($,_){
 	};
 	var _isautoupdate=function(s){
 		return _.contains(_autoupdate,s);
-	}
+	};
 	//获取当前登录信息
 	var _getsysinfo=function(){
 		var result={};
 		result=JSON.parse(window.localStorage["userinfo"]);
 		result.GroupID=result.groupid;
 		return result;
-	}
+	};
+		//获取企业基本信息
+	var _get_e_baseinfo=function(fn){
+		$.ajax({
+			url:"getdata.aspx",
+			type:"get",
+			dataType:"json",
+			data:{
+				action:"Enterprise_BasicData",
+				ibdid:_getsysinfo().GroupID
+			},
+			success:function(msg){
+				if(msg.Result){
+					if(msg.Data.table0){
+						if(msg.Data.table0.length){
+							//放到本地存储中，以方便各个页面调用
+							window.localStorage["e_baseinfo"]=JSON.stringify(msg.Data.table0[0]);
+							if(fn && _.isFunction(fn)){
+								fn(msg.Data.table0[0]);
+							}
+						}
+					}
+				}
+			}
+		});
+	};
 	return {
 		//当前浏览器信息
 		_platform:versions,
@@ -188,6 +213,10 @@ define(["zepto","underscore"],function($,_){
 		},
 		isautoupdate:function(s){
 			return _isautoupdate(s);
+		},
+		//获取系统基本信息
+		getbaseinfo:function(fn){
+			_get_e_baseinfo(fn);
 		}
 	}
 });

@@ -26,7 +26,7 @@ namespace RDA_Web.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://114.112.90.40:9010/RDAWebService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.1.9:6100/RDAWebService.asmx")]
         public string RDA_Web_RDA_RDAWebService {
             get {
                 return ((string)(this["RDA_Web_RDA_RDAWebService"]));
