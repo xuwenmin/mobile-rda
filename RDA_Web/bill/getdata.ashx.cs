@@ -288,10 +288,10 @@ namespace RDA_Web.bill
             string Sales = context.Request["Sales"];
             string SalesCurrency = context.Request["SalesCurrency"];
             string Park = context.Request["Park"];
-            string json = "{\"GroupID\":\""+GroupID+"\",\"UserID\":\""+UserID+"\",\"ProjectName\":\""+ProjectName+"\",\"Category\":"+Category+",\"Trade\":"+Trade+","+
+            string json = "{\"GroupID\":\""+GroupID+"\",\"UserID\":\""+UserID+"\",\"ProjectName\":\""+ProjectName+"\",\"Category\":\""+Category+"\",\"Trade\":\""+Trade+"\","+
          "\"MoneyBegin\":"+MoneyBegin+",\"MoneyEnd\":"+MoneyEnd+",\"Currency\":"+Currency+",\"RZSC\":"+RZSC+","+
         "\"LXR\":\""+LXR+"\",\"MPhone\":\""+MPhone+"\",\"PhoneArea\":\""+PhoneArea+"\",\"Phone\":\""+Phone+"\",\"PhoneFJ\":\""+PhoneFJ+"\","+
-        "\"Email\":\""+Email+"\",\"EType\":"+EType+",\"Industry\":"+Industry+",\"Sales\":"+Sales+",\"SalesCurrency\":"+SalesCurrency+",\"Park\":\""+Park+"\"} ";
+        "\"Email\":\""+Email+"\",\"EType\":"+EType+",\"Industry\":\""+Industry+"\",\"Sales\":"+Sales+",\"SalesCurrency\":"+SalesCurrency+",\"Park\":\""+Park+"\"} ";
 
             result = rdaws.Trading_Edit(json);
 

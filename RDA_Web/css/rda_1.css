@@ -727,3 +727,22 @@ input::-webkit-input-placeholder{
     margin-top: 10px;
 }
 
+.content .contentform .inputline .divparent p{
+    color: #333;
+    font-size: 15px;
+    text-align: left;
+}
+.content #qm_wrapper.contentform.notopform{
+    top: 0;
+}
+.content .contentform.notopform .inputline .divparent{
+    width: 63%;
+}
+.content .contentform.notopform .inputline label{
+    width: 26%;
+}
+.content .contentform .inputline .divshort39{
+    margin: 0 1%;
+    width: 39%;
+}
+

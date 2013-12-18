@@ -35,13 +35,13 @@
                                  <div class="inputline txtlign_left">
                                      <label>年销售额:</label>
                                      <div class="divparent sjinputlinebottom divshort24">
-                                         <input id="rzgl_qyrmb" class="qm_input qm_input_p40" type="input" value="人民币"/>
+                                         <input id="rzgl_qyrmb" readonly="true"  class="qm_input qm_input_p40" type="input" />
                                           <ul id="rzgl_qyrmb_item" for="rzgl_qyrmb" class="ul_select hide">
                                            </ul>
                                      </div>
 
                                      <div class="divparent divshort30">
-                                         <input class="qm_input inputmoney" type="input" value="128200"/>
+                                         <input id="r_Sales" class="qm_input inputmoney" type="input" />
                                      </div>
                                  </div>
                                  <div class="inputline">
@@ -58,9 +58,22 @@
                                 </div>
                                  <div class="inputline">
                                      <label>联系电话:</label>
+                                     <div class="divparent divshort19">
+                                         <input id="r_phonearea" class="qm_input" type="input" placeholder="区号"  />
+                                     </div>
+                                      <div class="divparent divshort39">
+                                         <input id="r_phone" class="qm_input inputmoney" type="input" placeholder="电话号码"  />
+                                     </div>
+                                   <div class="divparent divshort19">
+                                         <input id="r_phonebranch" class="qm_input inputmoney" placeholder="分机号"  type="input"/>
+                                     </div>
+                                 </div>
+                                 <div class="inputline">
+                                     <label>手机号:</label>
                                      <div class="divparent">
                                          <input id="r_MPhone" class="qm_input" />
                                      </div>
+
                                  </div>
                                  <div class="inputline">
                                      <label>公司邮箱:</label>

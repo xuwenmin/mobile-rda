@@ -17,8 +17,8 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 		'</p>' +
 		'<div class="list_next list_topright list_right_content">' +
 		'<p class="pred">' +
-		'<button class="rzbutton normal">查看</button>' +
-		'<button class="rzbutton disable">编辑</button>' +
+		'<button to="rzgl_view!/id={{=it[i].id}}" data-type="view" class="rzbutton normal">查看</button>' +
+		'<button data-id="{{=it[i].id}}" data-type="edit" class="rzbutton disable">编辑</button>' +
 		'</p>' +
 		'</div>' +
 		'</a>' +
@@ -75,6 +75,7 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 		'{{ } }}';
 	//查询融资详细信息
 	var _getrzgl_desc = function(projectid) {
+		var result={};
 		$.ajax({
 			url: "getdata.aspx",
 			type: "get",
@@ -84,13 +85,36 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 				projectid: projectid,
 				ibdid: util.getsysinfo().GroupID
 			},
+			async:false,
 			success: function(msg) {
-				console.log(msg);
-			},
-			error: function() {
-
+				// console.log(msg);
+				if(msg.Result){
+					msg.Data && msg.Data.table0 && msg.Data.table0.length 
+					&& (function(){ 
+						result=(_.map(msg.Data.table0,function(v){
+							v.name=v["项目信息__标题"];
+							v.time=v["项目信息__发布时间"];
+							v.busybook=v["项目信息__商业计划书"];
+							v.sshy=v["项目信息__所属行业"];
+							v.mobile=v["项目信息__手机号"];
+							v.phonearea=v["项目信息__电话区号"];
+							v.phone=v["项目信息__电话号码"];
+							v.phonebranch=v["项目信息__电话号码分机"];
+							v.rzrmb=v["项目信息__融资币种"];
+							v.rzsc=v["项目信息__融资时长"];
+							v.rzlx=v["项目信息__融资类型"];
+							v.moneybegin=v["项目信息__融资金额始"];
+							v.moneyend=v["项目信息__融资金额起"];
+							v.email=v["项目信息__邮箱"];
+							v.lxy=v["项目信息__项目联系人"];
+							return v;
+						}))[0];
+					}());
+				};
+				return result;
 			}
 		});
+		return result;
 	};
 
 	//查询融资列表信息
@@ -106,7 +130,7 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 			},
 			async: false,
 			success: function(msg) {
-				console.log(msg);
+				// console.log(msg);
 				if (msg.Result) {
 					if (msg.Data.table0.length) {
 						//开始过滤不符合条件的项
@@ -120,7 +144,7 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 						});
 					}
 				};
-				console.log(result);
+				// console.log(result);
 				if (result.length) {
 					//开始拼html
 					var dotobj = doT.template($template);
@@ -128,7 +152,7 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 				};
 			},
 			error: function(msg) {
-				console.log(msg);
+				// console.log(msg);
 			}
 		});
 	};
@@ -256,6 +280,11 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 			$("#r_LXR").val(result["LXR"]); //联系人
 			$("#r_MPhone").val(result["MPhone"]);//联系电话
 			$("#r_Email").val(result["Email"]);//邮箱
+			//联系电话信息
+			$("#r_phonearea").val(result["PhoneArea"]);
+			$("#r_phone").val(result["Phone"]);
+			$("#r_phonebranch").val(result["PhoneFJ"]);
+
 		}else{
 			//则从企业基本信息中获取信息
 			_displaybaseinfo();
@@ -346,7 +375,10 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 		var SalesCurrency_desc=$("#rzgl_qyrmb").val();
 		var Park = $("#r_Park").val(); //所属园区
 		var Sales = $("#r_Sales").val(); //年销售额
-		var PhoneArea="",Phone="",PhoneFJ="";
+		var PhoneArea= $("#r_phonearea").val(),
+		Phone= $("#r_phone").val(),
+		PhoneFJ= $("#r_phonebranch").val();
+
 		var LXR=$("#r_LXR").val(); //联系人
 		var MPhone=$("#r_MPhone").val();//联系电话
 		var Email=$("#r_Email").val();//邮箱
@@ -364,18 +396,30 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 				k:SalesCurrency,
 				v:SalesCurrency_desc
 			},
-			"Ename":Ename,"Park":Park,"Sales":Sales,"PhoneArea":"","Phone":"","PhoneFJ":"",
+			"Ename":Ename,"Park":Park,"Sales":Sales,"PhoneArea":PhoneArea,"Phone":Phone,"PhoneFJ":PhoneFJ,
 			"LXR":LXR,"MPhone":MPhone,"Email":Email
 		}
 		window.localStorage["rzgl_2"]=JSON.stringify(data);
 		return true;
 	}
+	//保存发布信息
 	var _save=function(){
 		//先从本地取第一步保存的信息
 		//获取第二步要写的信息
+		_saverzgl_2();
+		var onedata=window.localStorage["rzgl_1"] ? JSON.parse(window.localStorage["rzgl_1"]):{};
+		var twodata=window.localStorage["rzgl_2"] ? JSON.parse(window.localStorage["rzgl_2"]):{};
 		var data={
 			action:"Trading_Edit",
 		};
+		data=_.extend(data,onedata,twodata);
+		//去掉里面enum的描述，只要enum id信息
+		for(var i in data){
+			if(data[i].k){
+				data[i]=data[i].k;
+			}
+		}
+		// console.log(data);
 		$.ajax({
 			url: "getdata.aspx",
 			type: "get",
@@ -385,7 +429,19 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 				util.loadtip.show();
 			},
 			success: function(msg) {
-				console.log(msg);
+				//Flag ProjectID
+				// console.log(msg);
+				if(msg.Result){
+					if(msg.Data.table0){
+						if(msg.Data.table0.length){
+							if(msg.Data.table0[0].Flag=="2"){
+								alert("亲，发布融资项目成功!");
+								window.location.hash="rzgl";
+							}
+						}
+					}
+				}
+				util.loadtip.hide();
 			},
 			error: function() {
 				util.loadtip.hide();
@@ -406,6 +462,8 @@ define(["zepto", "util", "underscore"], function($, util, _) {
 		//保存第一步信息
 		saverzgl_1:_saverzgl_1,
 		//保存第二步信息
-		saverzgl_2:_saverzgl_2
+		saverzgl_2:_saverzgl_2,
+		//保存融资基本信息
+		save:_save
 	}
 });

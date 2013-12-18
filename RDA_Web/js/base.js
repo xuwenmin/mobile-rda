@@ -98,10 +98,13 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     }
                     if (hashobj.hash == "zcfz_sub") {
                         var __arg = JSON.parse(localStorage["cwbb_index"]);
-                        // console.log(__arg);
                         _obj = (_.where(__arg, {
                             "typeid": parseInt(hashobj.para.fid)
                         }))[0];
+                    }
+                    if(hashobj.hash=="rzgl_view"){
+                        _obj=rzgl.getrzgl_desc(hashobj._para.id);
+                        console.log(_obj);
                     }
 
                     hashobj.para = _obj;
@@ -352,7 +355,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             }
             //保存数据到localstorage
             window.localStorage["rz_sslx1"] = JSON.stringify(rz_sslx1);
-            console.log(rz_sslx1);
+            // console.log(rz_sslx1);
         });
 
 
@@ -430,7 +433,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     },
                     success: function(msg) {
                         util.loadtip.hide();
-                        console.log(msg);
+                        // console.log(msg);
                         if (msg.Result) {
                             if (msg.Data.table0.length) {
                                 if (msg.Data.table0[0].Flag == "2") {
@@ -583,7 +586,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             if(hashobj.hash=="index"){
                 //开始获取企业基本信息
                 util.getbaseinfo(function(msg){
-                    console.log(msg);
+                    // console.log(msg);
                 });
             }
             if(hashobj.hash=="rzgl"){
@@ -706,6 +709,13 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 };
             }
 
+        });
+        
+        //保存融资发布信息
+        $target.delegate("#rzgl_save",touchevent,function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            rzgl.save();
         });
     };
     return {

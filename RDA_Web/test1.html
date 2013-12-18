@@ -34,14 +34,21 @@
 <div class="main1">
     
 </div>
-<script src="js/zepto.min.js"></script>
-<script src="js/extend/offset.js"></script>
-<script src="js/extend/position.js"></script>
+
 <script src="js/underscore.min.js"></script>
-<script src="js/doT.min.js"></script>
-<script type="text/javascript" src="js/ichart.1.2.min.js"></script>
+
 <script>
     
+    var abc={
+        abc:"123",name:"admin"
+    };
+
+    var _a=_.map(abc,function(v,k){
+        console.log("%s,%s",v,k);
+        k="1";
+    });
+
+    console.log(_a);
    
 </script>
 </body>
