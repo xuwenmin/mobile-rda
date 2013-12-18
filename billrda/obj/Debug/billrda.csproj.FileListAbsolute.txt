@@ -1,0 +1,6 @@
+C:\git\mobile-rda\billrda\obj\Debug\ResolveAssemblyReference.cache
+C:\git\mobile-rda\billrda\bin\Debug\billrda.dll.config
+C:\git\mobile-rda\billrda\bin\Debug\billrda.dll
+C:\git\mobile-rda\billrda\bin\Debug\billrda.pdb
+C:\git\mobile-rda\billrda\obj\Debug\billrda.dll
+C:\git\mobile-rda\billrda\obj\Debug\billrda.pdb

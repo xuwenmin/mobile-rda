@@ -1,0 +1,7 @@
+C:\git\mobile-rda\RDA_Web_TH\bin\RDA_Web_TH.dll
+C:\git\mobile-rda\RDA_Web_TH\bin\RDA_Web_TH.pdb
+C:\git\mobile-rda\RDA_Web_TH\bin\billrda.dll
+C:\git\mobile-rda\RDA_Web_TH\bin\billrda.pdb
+C:\git\mobile-rda\RDA_Web_TH\obj\Debug\ResolveAssemblyReference.cache
+C:\git\mobile-rda\RDA_Web_TH\obj\Debug\RDA_Web_TH.dll
+C:\git\mobile-rda\RDA_Web_TH\obj\Debug\RDA_Web_TH.pdb

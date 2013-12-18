@@ -438,7 +438,6 @@
     <Content Include="test\js\test2.js" />
     <Content Include="test\main.js" />
     <Content Include="test\require.js" />
-    <Content Include="bill\getdata.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -450,7 +449,6 @@
     <None Include="tmpl\fxyj.tpl" />
     <None Include="tmpl\fxyj_xjll.tpl" />
     <None Include="tmpl\fxyj_zczl.tpl" />
-    <None Include="Web References\RDA\RDAWebService.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -476,17 +474,8 @@
     <None Include="tmpl\xypg_xybg_nd.tpl" />
     <None Include="tmpl\xypg_zxpg.tpl" />
     <None Include="tmpl\zcfz.tpl" />
-    <None Include="Web References\RDA\RDAWebService.wsdl" />
-    <None Include="Web References\RDA\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bill\getdata.ashx.cs">
-      <DependentUpon>getdata.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="dal\rdaws.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -496,19 +485,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\RDA\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="php\data.json" />
-    <None Include="php\getdata.php" />
-    <None Include="php\model.php" />
     <None Include="test\js\node_modules\socket.io\.npmignore" />
     <None Include="test\js\node_modules\socket.io\.travis.yml" />
     <None Include="test\js\node_modules\socket.io\History.md" />
@@ -726,17 +707,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.1.9:6100/RDAWebService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\RDA\</RelPath>
-      <UpdateFromURL>http://192.168.1.9:6100/RDAWebService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>RDA_Web_RDA_RDAWebService</CachedSettingsPropName>
-    </WebReferenceUrl>
+    <ProjectReference Include="..\billrda\billrda.csproj">
+      <Project>{C57E7C26-D96C-4FEC-B4DF-F3678952A4AA}</Project>
+      <Name>billrda</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

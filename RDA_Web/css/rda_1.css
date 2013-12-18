@@ -745,4 +745,7 @@ input::-webkit-input-placeholder{
     margin: 0 1%;
     width: 39%;
 }
+.content .loginfrm .a_login.a_login_red{
+    background-color: #e04d4d;
+}
 

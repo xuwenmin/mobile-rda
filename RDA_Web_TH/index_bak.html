@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+    <title>测试滑动</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <style type="text/css">
+     
+        *{
+            padding: 0;margin: 0;
+        }
+        html{
+            overflow: hidden;
+            height: 100%;
+        }
+        body{
+            overflow: hidden;
+            height: 100%;
+            background-color: #e3e3e3;
+        }
+        
+        ._wrapper{
+            display: -webkit-box;
+            display: box;
+            height: 100%;
+            -webkit-box-orient:horizontal;
+            box-orient:horizontal;
+        }
+        .main1{
+            -webkit-box-flex:1;
+            box-flex:1;
+            display: -webkit-box;
+            display: box;
+            height: 100%;
+            -webkit-box-orient:horizontal;
+            box-orient:horizontal;
+        }
+        .main1.animal{
+            -webkit-transition-property:-webkit-transform ;
+            -webkit-transition-duration:.2s;
+            -webkit-transition-timing-function:linear;
+            -webkit-transition-delay:0s;
+        }
+        .wrapper{
+            display: -webkit-box;
+            display: box;
+            height: 100%;
+            -webkit-box-orient:vertical;
+            box-orient:vertical;
+            text-align:center;
+            /*width: 480px;*/
+        }
+        .content{
+            -webkit-box-flex:1;
+            box-flex:1;
+            position: relative;
+            overflow: hidden;
+            background-color: #e3e3e3;
+            /*display: inline-block;*/
+            padding: 25px 0;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient:vertical;
+            box-orient:vertical;
+
+        }
+        .main{
+            -webkit-box-flex:1;
+            box-flex:1;
+            /*white-space:nowrap;*/
+            /*font-size: 0;*/
+             display: -webkit-box;
+             display: box;
+             -webkit-box-orient:horizontal;
+             box-orient:horizontal;
+            /*height: 100%;*/
+            
+        }
+
+        .main.animal{
+            -webkit-transition-property:-webkit-transform ;
+            -webkit-transition-duration:.2s;
+            -webkit-transition-timing-function:linear;
+            -webkit-transition-delay:0s;
+        }
+        .divmain{
+            /*width: 480px;*/
+            -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+            /*font-size:12px;*/
+            /*vertical-align: top;*/
+            position: relative;
+        }
+        .divmain p{
+           word-wrap:break-word;
+           /*text-indent: 2em;*/
+        }
+
+        .div1{
+            background-color: mediumvioletred;
+        }
+        .div2{
+            background-color: green;
+        }
+        .div3{
+            background-color: #00415e;
+        }
+        .div4{
+            background-color: #ffefaa;
+        }
+        
+        .load{
+            display: none;
+            z-index: 999;
+            position: absolute;
+        }
+        .load img{
+            border: 0;
+        }
+        .head{
+            height: 100px;
+            background-color: blue;
+            line-height: 100px;
+        }
+        .footer{
+            height: 100px;         
+            background-color: blue;
+            line-height: 100px;
+        }
+        .wrapper h1{
+            font-size: 20px;
+            
+            color:white;
+        }
+        @media screen and (max-width: 480px){
+             .deviceselction{
+                width: 480px;
+             }
+        }
+        @media screen and (max-width: 320px){
+             .deviceselction{
+                width: 320px
+             }
+        }
+        @media screen and (min-width: 500px){
+             .deviceselction{
+                width: 500px;
+             }
+        }
+    </style>
+</head>
+<body>
+    <div class="_wrapper">
+        <div class="main1">
+           <div class="wrapper deviceselction">
+                <div class="head">
+                    <h1>第一页</h1>
+                </div>
+                <div class="content">
+                    <div class="main animal">
+                       <div class="divmain div1 deviceselction">
+                           <p>this is a test!my home is nearly so my come shortle!</p>
+                           <p>sfsdf</p>
+                       </div>
+                       <div class="divmain div2 deviceselction">
+                           <p>this is a test2!</p>
+                       </div>
+                       <div class="divmain div3 deviceselction">
+                           <p>this is a test3!</p>
+                       </div>
+                       <div class="divmain div4 deviceselction">
+                           <p>this is a test4!</p>
+                       </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <h1>
+                        此为第一页尾
+                    </h1>
+                </div>
+             </div>
+           <div class="wrapper deviceselction">
+                <div class="head">
+                    <h1>第二页</h1>
+                </div>
+                <div class="content">
+                    <div class="main animal">
+                       <div class="divmain div1 deviceselction">
+                           <p>this is a test!my home is nearly so my come shortle!</p>
+                           <p>sfsdf</p>
+                       </div>
+                       <div class="divmain div2 deviceselction">
+                           <p>this is a test2!</p>
+                       </div>
+                       <div class="divmain div3 deviceselction">
+                           <p>this is a test3!</p>
+                       </div>
+                       <div class="divmain div4 deviceselction">
+                           <p>this is a test4!</p>
+                       </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <h1>第二页尾</h1>
+                </div>
+           </div> 
+        </div>
+      
+    </div>
+   
+<div class="load" id="loaddiv">
+    <img src="images/loading.gif" alt="">
+</div>
+<script type="text/template" id="abc">
+    <p>{{=it.username}}</p>
+    <p>{{=it.userpwd}}</p>
+</script>
+
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/extend/touch.js"></script>
+    <script src="js/extend/offset.js"></script>
+    <script src="js/extend/position.js"></script>
+    <script src="js/doT.min.js"></script>
+    <!-- // <script type="text/javascript" src="js/cordova.js"></script> -->
+    <script src="js/base.js"></script>
+</body>
+</html>

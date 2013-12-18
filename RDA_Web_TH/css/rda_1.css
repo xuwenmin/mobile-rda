@@ -1,0 +1,666 @@
+/*
+-webkit-backface-visibility: hidden;解决页面跳转间的闪屏
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);解决点击a标签或者input的高亮边框
+::-webkit-input-placeholder ;双伪类，定义系统默认的占位符的样式placeholder
+*/
+/*融资管理输入页面样式*/
+.content  .contentform{
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    z-index: 9;
+}
+.content  .contentform .inputline{
+    width: 100%;
+    font-size: 0px;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 5px;
+}
+.content  .contentform .demoinputline{
+    font-size: 15px;
+}
+.content  .contentform .inputline label{
+   display: inline-block;
+   width: 20%;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   vertical-align:middle;
+   font-size: 16px;
+   color: #333;
+   text-align: left;
+}
+.content  .contentform .inputline .divparent{
+    display: inline-block;
+    width: 79%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align:middle;
+    position: relative;
+}
+.content  .contentform .inputline .divparent .qm_input{
+    display: inline-block;
+    height:40px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /*padding-left: 5px;*/
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 12px;
+}
+.content  .contentform .inputline .divparent .qm_input:focus{
+    outline: none;
+    border: 1px solid rgb(29,151,222);
+    transition:border linear .2s;
+}
+.content  .contentform .inputline .sjinputlinebottom:after{
+    content:"\00a0";width:0;height:0;
+    position: absolute;
+    border-style:solid;
+    border-width:10px;
+    border-color:#ddd transparent transparent transparent ;
+    top: 15px;
+    right: 15px;
+}
+.content  .contentform .inputline .sjinputlineright:after{
+    content:"\00a0";width:0;height:0;
+    position: absolute;
+    border-style:solid;
+    border-width:10px;
+    border-color:transparent transparent transparent #ddd  ;
+    top: 10px;
+    right: 5px;
+}
+.content  .contentform .inputline .divshort50{
+    width: 50%;
+}
+.content  .contentform .inputline .divshort24{
+    width:24%;
+    margin-right: 1%;
+}
+.content  .contentform .inputline .divshort19{
+    width:19%;
+}
+.content  .contentform .inputline .divshort5{
+    width:5%;
+    color: #333;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+}
+.content  .contentform .inputline .divshort30{
+    width:30%;
+}
+
+/*文本域高度80px*/
+.content  .contentform .inputline .divparent .qm_input80h{
+    height: 80px;
+}
+/*顶部对齐*/
+.content  .contentform .inputline .ver_top{
+    vertical-align: top;
+}
+.content  .contentform .txtlign_left{
+    text-align: left;
+}
+.content  .contentform .inputline .divparent  .extend{
+   width: 100%;
+   height: 80px;
+   position: relative;
+}
+.content  .contentform .inputline .divparent  .extend .ex_f{
+    float: left;
+    width: 50%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.content  .contentform .inputline .divparent  .extend .divwhite{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;
+}
+.content  .contentform .inputline .divparent  .extend .divwhite img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.content  .contentform .inputline .divparent  .extend p{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.content  .contentform .inputline .divparent  .extend .ex_r{
+    float: right;
+    width: 50%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.content  .contentform .inputline .button{
+    display:inline-block;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 40%;
+    color: #333;
+    font-size: 20px;
+    line-height: 50px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 5%;
+}
+.content  .contentform .inputline .button:last-child{
+    margin-left: 5%;
+}
+.content #qm_wrapper{
+    /*height:490px;*/
+    position: absolute;
+    bottom: 20px;
+    top:70px;
+    width: 100%;
+    /*top: 150px;*/
+}
+.content #qm_wrapper.scroll_ul{
+    top:60px;
+    bottom: 0;
+} 
+.content #qm_wrapper.scroll_ul0{
+    top: 0;
+}
+.content .qm_scroll{
+    /*margin-bottom: 20px;*/
+    padding-bottom: 20px;
+}
+
+/*弹出窗口样式*/
+.bgmark{
+    z-index: 888;
+    position: absolute;
+    background-color: rgba(0,0,0,.3);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+.setting{
+    position: absolute;
+    /*border: 1px solid #ddd;*/
+    box-shadow: 0px 0px 10px #333;
+    background-color: #494949;
+    z-index: 1000;
+    text-align: center;
+    overflow:hidden;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    -webkit-transition-property:width ;
+    -webkit-transition-duration:.3s;
+    -webkit-transition-timing-function:linear;
+    -webkit-transition-delay:0s;
+}
+.popwin{
+    position: absolute;
+    border-radius: 5px;
+    /*border: 1px solid #ddd;*/
+    box-shadow: 0px 0px 10px 5px #333;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+    text-align: center;
+    visibility: hidden;
+    max-width: 80%;
+}
+.popwin p{
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+}
+.popwin .pop_red{
+    color: red;
+}
+.popwin .pop_button{
+    margin-top: 20px;
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.popwin .pop_button:active,.popwin .pop_button:focus{
+    background-color: #21a9f8;
+    color: white;
+}
+.content  .contentform .inputline .button:active,.content  .contentform .inputline .button:focus{
+    background-color: #21a9f8;
+    color: white;
+}
+/*侧边栏的头背景色*/
+.wrapper .headset{
+    background-color: #494949;
+    text-align: left;
+}
+.wrapper .headset .pre{
+    width: 10%;
+    margin-left: 10px;
+}
+.ulset li{
+    height: 60px;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background-color: #565656;
+    border-bottom: 1px solid #494949;
+    padding-left: 20px;
+    color: #ccc;
+    font-size: 18px;
+    line-height: 60px;
+    text-align: left;
+}
+.ulset li:hover,.ulset li:active{
+    background-color: #21a9f8;
+    color: white;
+}
+/*评分页分按钮样式*/
+.list_next .pfbutton{
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f1f1f1;
+}
+.list_next .pfbutton:active,.list_next .pfbutton:focus{
+    background-color: #21a9f8;
+    color: white;
+    outline: none;
+    border: 0;
+}
+.list_next .pfbutton.pfbutton_sq:active,.list_next .pfbutton.pfbutton_sq:focus{
+    background-color: #5ea000;
+    color: white;
+    outline: none;
+}
+.wrapper .content .content_main_title .m_pingfen.m1_pingfen{
+    float: left;
+    margin-right: 20px;
+    margin-top: 0;
+}
+.wrapper .content .content_main_title .m_pingfen.m1_pingfen  .pf_front  {
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+}
+.content hr{
+    border:none;
+    border-bottom: 1px solid #ccc;
+    clear: both;
+    font-weight: normal;
+}
+.wrapper .content .content_main_title .m_desc1{
+    float: left;
+    padding-top: 40px;
+    height: 150px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+.wrapper .content .content_main_title .m_desc1 p{
+    color: #1d97de;
+    font-size: 2em;
+}
+.wrapper .content .content_main_title .m_desc1 img{
+    display: inline-block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: 2px;
+}
+.wrapper .content .content_main_title .m_desc1 img.msg{
+     right: 75px;
+}
+.wrapper .content .content_main_title .m_desc1 img.phone{
+    right: 5px;
+}
+.content .loginfrm{
+    margin: 20px;
+    position: relative;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.content .div_register{
+    overflow:hidden;
+}
+.content .div_login{
+    overflow:hidden;
+}
+.content .logintab{
+    margin-bottom: 0;
+}
+.content .loginfrm .tabdiv{
+    display: inline-block;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    border: 1px solid rgb(29,151,222);
+    /*margin-bottom: 1em;*/
+    /*font-size: 0;*/
+}
+.content .loginfrm .tabdiv a{
+    display: inline-block;
+    width: 120px;
+    height: 35px;
+    font-size: 1.8em;
+    color: #333;
+    line-height: 35px;
+}
+.content .loginfrm .tabdiv a.active{
+    background-color:rgb(29,151,222) ;
+    color: white;
+}
+.content .login_inputline{
+    text-align: left;
+    width: 100%;
+    overflow:hidden;
+}
+.content .login_inputline label{
+    display: block;
+    color: #333;
+    font-size: 1.8em;
+    margin-top: 0.5em;
+}
+.content .login_inputline p{
+    display: inline-block;
+    color: #333;
+    font-size: 1.8em;
+}
+.content .login_inputline input{
+    margin-top: 0.5em;
+    display: block;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /*borer:1px solid #ccc;*/
+}
+.content .login_inputline input:focus{
+    border: 1px solid rgb(29,151,222);
+    transition:border linear .2s;
+    outline: none;
+}
+.content .loginfrm .a_login{
+    margin-top: 0.5em;
+    display: block;
+    outline: none;
+    width: 100%;
+    height: 3em;
+    line-height: 3em;
+    border-radius: 5px;
+    background-color:rgb(29,151,222) ;
+    font-size: 1.5em;
+    color: white;
+}
+.content .loginfrm .a_register{
+    margin-top: 1em;
+    display: block;
+    outline: none;
+    width: 100%;
+    height: 3em;
+    line-height: 3em;
+    border-radius: 5px;
+    background-color:#8ecf12 ;
+    font-size: 1.5em;
+    color: white;
+}
+.content .loginfrm .a_login_other{
+    margin-top: 1.5em;
+    background-color: #ff9400;
+}
+.login_f1 .divwhite{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;
+}
+.login_f1 .divwhite img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.content .loginfrm .login_f1{
+    float: left;
+    margin-top: 0.5em;
+}
+.content .loginfrm .login_r1{
+    float: right;
+    margin-top: 0.5em;
+}
+.content .loginfrm hr{
+    margin-top: 1em;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.content .loginfrm .tabtype{
+
+    width: 100%;
+    font-size: 0px;
+    background-color: #f1f1f1;
+    /*border: 1px solid #ddd;*/
+    border-radius: 5px;
+    margin-top: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.content .loginfrm .tabtype a{
+    display: inline-block;
+    width:49.5%;
+    height: 35px;
+    font-size:18px;
+    color: #333;
+    line-height: 35px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.content .loginfrm .tabtype a:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right:0;
+}
+.content .loginfrm .tabtype a:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left:0;
+}
+.content .loginfrm .tabtype a.active{
+    background-color:#999 ;
+    color: white;
+}
+/*设置系统默认的占位符文字大小*/
+input::-webkit-input-placeholder{
+     font-size: 15px;
+}
+
+.wrapper .content .content_list li a .list_right_content{
+    height: 30px;
+}
+.wrapper .content .content_list li a .list_right_content p{
+    display: block;
+    text-align: right;
+    padding: 0;
+}
+.wrapper .content  .content_list li a .list_right_content p.pred{
+    color: red;
+}
+.wrapper .content  .content_list li a .list_right_content p.p12{
+    font-size: 12px;
+    color: #333;
+}
+.wrapper .content .content_list .subli a p.pleft{
+    float: left;
+    padding: 0;
+    width: 40%;
+}
+/* 2013-12-12 新添加样式 */
+/* .wrapper .bgRed{background: #c00;}
+.content .loginfrm .RedL{background-color: #f1f1f1;border: 1px solid rgb(175,0,0);}
+.content .loginfrm .RedL a.active {background-color:rgb(175,0,0)}
+.content .loginfrm .Cred{ background-color:rgb(175,0,0) ; background-color: #ad0000;}
+.content .lred input:focus{border: 1px solid rgb(175,0,0);}
+
+.wrapper .content .e-mt80 {margin-top: 60px;margin-bottom: 90px;}
+.wrapper .content .content_main_title .e-plogo{margin:0 auto 30px;display:block;width: 134px;height: 134px;vertical-align: middle}
+.wrapper .content .content_main_title .e-title{font-size:2.8em; text-align: center;margin-bottom: 12px; }
+.wrapper .content .content_main_title .e-user{text-align: center;font-size: 2.2em;}
+.wrapper .content .content_main_item .item .e-cR {background: #c00;}
+.wrapper .content .content_main_item .item .e-cB {background: #07449e;}
+.wrapper .content .content_main_item .item .e-cY{background: #de9c0f}
+.wrapper .content .content_main_item .item .e-cG{background: #69b50f}
+.wrapper .content .content_main_item .item .e-cBG{background: #63889b}
+
+.wrapper .content .e-contentList{height: 60px;-webkit-box-sizing:border-box;box-sizing:border-box;background-color: #ddd;border-bottom: 1px solid #ccc;font-size:1.8em;font-weight: normal;line-height: 60px;text-indent: 0.4em;color: #333}
+
+.wrapper .content .content_list .e-showC{text-align:center;width:100%;background: #fff;border-bottom: 1px solid #ccc;height: 100%;padding-bottom: 10px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.wrapper .content .content_list .e-showC p{font-size: 1.8em;line-height: 2.4em;width: 97%;text-align: left;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left: 22%}
+.wrapper .content .content_list .e-showC p .e-type{width: 25%;float: left;color: #999;margin-left: -25%;text-align: right;}
+.wrapper .content .content_list .e-showC p .e-date{float: right}
+.wrapper .content .content_list .e-showC p .e-cg {color: #333;}
+.wrapper .content .content_list .e-showC p .e-c3 {color: #666}
+.wrapper .content .content_list .e-showC p.e-tl{position: relative;height: 60px;}
+.wrapper .content .content_list .e-showC p a.e-sqwt{width: 118px;height: 40px;border:1px solid #ccc;border-radius: 5px;line-height: 40px;font-size: 18px;text-align: center;color: #666;position: absolute;right: 0;top: 10px;padding-left: 0}
+
+.wrapper .content .content_list li a .divwhite, .wrapper .content .content_list .e-showC label .divwhite{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;
+}
+.wrapper .content .content_list li a .divwhite img, .wrapper .content .content_list .e-showC label .divwhite img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.wrapper .content .content_list .e-pl10 {padding-left: 8%; text-align: left}
+.wrapper .content .content_list .e-showC label{width: 45%;font-size: 1.8em;color: #666;height: 50px;line-height: 50px;display: inline-block;}
+.wrapper .content .content_list .e-showC label .divwhite{ margin-right: 8px;}
+.wrapper .content .e-tijiao{text-align: center;padding-top: 6em;}
+.wrapper .content .e-tijiao a.e-tj{border:1px solid #ccc;border-radius: 5px;line-height: 40px;font-size: 18px;text-align: center;color: #666;padding:0.5em 3em}
+.wrapper .content .content_list li a .e-wtjg{position: absolute;top:0;right: 38px;}
+.wrapper .content .content_list li a .e-suc{color: #59ae0b}
+.wrapper .content .content_list li a .e-fail{color: #ed0606}
+.wrapper .content .content_list li a .e-being{color: #ffa200}
+.wrapper .content .content_list .e-wp p{font-size: 1.8em;line-height: 2.4em;width: 97%;text-align: left;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left: 30%}
+.wrapper .content .content_list .e-wp p .e-type{width: 40%;float: left;color: #999;margin-left: -40%;text-align: right;}
+.popwin p.e-pgreen{color: #59af0c}
+.wrapper .content .content_list li a  .e-tip{float: right;padding-right: 10px;color: #ff3000;font-size: 16px;}
+.wrapper .content .content_list li a  .e-num{position: absolute;width: 20px;height: 20px;background-color: #ff3000;border-radius: 10px;border: 1px solid #fff;font-size: 12px;line-height:20px;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;color: #fff;font-style: normal;top: -5px;}
+.wrapper .content .content_list li.e-bgray{background: #f7f7f7}
+.wrapper .content .content_list li a  .e-yjtip{display:inline-block;vertical-align: middle;width: 12px;height: 12px;}
+
+.wrapper .content .content_list li a  .e-cwbb-t{position: absolute;right: 5px;color: #c00;font-size: 18px;}
+.wrapper .content .content_list li.e-h80{height: 80px;}
+.wrapper .content .content_list li a.e-mt20{margin-top: -20px;}
+.wrapper .content .content_list li a.e-cwTime{text-align: right;padding-right: 10px;font-size: 16px;color: #666;margin-top: -45px;}
+
+.wrapper .content .e-pt2em {text-indent: 2em;padding: 10px 10px 0;line-height: 1.8em;font-size: 1.6em;}
+.wrapper .content .e-txxm-btn{width: 100%;font-size: 0px;margin-bottom: 10px;position: absolute;padding: 5px;bottom: 60px;}
+.wrapper .content .e-txxm-btn a{display: inline-block;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 40%;
+    color: #333;
+    font-size: 20px;
+    line-height: 50px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 5%;}
+.wrapper .content .e-txxm-btn a:first-child {margin-left: 5%;}
+
+.e-xmxx, .e-qyxx {margin: 20px 20px 20px 0;text-align: center;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-xmxx p, .wrapper .content .e-qyxx p{text-align: left;font-size: 1.6em;line-height: 2em;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left: 30%;position: relative; }
+.wrapper .content .e-xmxx p .e-xmt, .wrapper .content .e-qyxx p .e-xmt{width: 40%;float: left;color: #999;margin-left: -40%;text-align: right}
+.wrapper .content .e-qyxx p .e-xmtT{position: absolute;right: 0;}
+.wrapper .content .e-qyxx p .e-xmtT em{font-style: normal;color: #999}
+.wrapper .content .e-txxm-btn a.bgRed{background: #c00;color: #fff}
+
+.wrapper .content .e-txList{border-bottom: 1px solid #ccc;padding:10px 15px;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-txList li{-webkit-box-sizing: border-box;box-sizing: border-box;height: 35px;line-height: 35px;text-align: left}
+.wrapper .content .e-txList h2{font-size: 2em;color: #333;text-align: left;font-weight: normal;margin-bottom: 10px;}
+.wrapper .content .e-txList li label.e-w50b{display:inline-block;float:left;font-size:2em;color: #666;width: 50%;text-align: left}
+.wrapper .content .e-txList li label .divwhite{width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;margin-right: 8px;}
+.wrapper .content .e-txList li label .divwhite img{width: 20px;height: 20px;vertical-align: middle;}
+.wrapper .content .e-txList li label.e-txlae {display:inline-block;float:left;font-size:2em;color: #666;padding-right:10px;text-align: left }
+.wrapper .content .e-tlc{text-align: center;bottom: 20px;}
+.wrapper .content .e-txhang{border-bottom:1px solid #ccc;background: #fff;padding:10px 15px;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-txhang li{-webkit-box-sizing: border-box;box-sizing: border-box;height: 60px;text-align: left;position: relative;}
+.wrapper .content .e-txhang li a{display:block;font-size: 2em;color: #333;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-txhang li .e-adji{position: absolute;right: 0;width: 35px;height: 25px;top: 20px;}
+.wrapper .content .content_list .e-whbg{background: #fff;}
+.wrapper .content .content_list .e-pl18{padding-left: 25px;}
+
+.wrapper .content .e-zwwtjk {padding:20px;background:#fff;text-align:center;margin:60px;border: 1px solid #ccc;border-radius: 5px;}
+.wrapper .content .e-zwwtjk p{font-size: 1.8em;color: #666;line-height: 2em;}
+
+
+.popwin .e-acBG:active,.popwin .e-acBG:focus{
+    background-color: #c00;
+    color: white;
+} */
+
+

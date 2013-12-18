@@ -1,0 +1,153 @@
+/* 2013-12-12 新添加样式 */
+.wrapper .bgRed{background: #c00;}
+.content .loginfrm .RedL{background-color: #f1f1f1;border: 1px solid rgb(175,0,0);}
+.content .loginfrm .RedL a.active {background-color:rgb(175,0,0)}
+.content .loginfrm .Cred{ background-color:rgb(175,0,0) ; background-color: #ad0000;}
+.content .lred input:focus{border: 1px solid rgb(175,0,0);}
+
+.wrapper .content .e-mt80 {margin-top: 60px;margin-bottom: 90px;}
+.wrapper .content .content_main_title .e-plogo{margin:0 auto 30px;display:block;width: 134px;height: 134px;vertical-align: middle}
+.wrapper .content .content_main_title .e-title{font-size:2.8em; text-align: center;margin-bottom: 12px; }
+.wrapper .content .content_main_title .e-user{text-align: center;font-size: 2.2em;}
+.wrapper .content .content_main_item .item .e-cR {background: #c00;}
+.wrapper .content .content_main_item .item .e-cB {background: #07449e;}
+.wrapper .content .content_main_item .item .e-cY{background: #de9c0f}
+.wrapper .content .content_main_item .item .e-cG{background: #69b50f}
+.wrapper .content .content_main_item .item .e-cBG{background: #63889b}
+
+.wrapper .content .e-contentList{height: 60px;-webkit-box-sizing:border-box;box-sizing:border-box;background-color: #ddd;border-bottom: 1px solid #ccc;font-size:1.8em;font-weight: normal;line-height: 60px;text-indent: 0.4em;color: #333}
+
+.wrapper .content .content_list .e-showC{text-align:center;width:100%;background: #fff;border-bottom: 1px solid #ccc;height: 100%;padding-bottom: 10px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.wrapper .content .content_list .e-showC p{font-size: 1.8em;line-height: 2.4em;width: 97%;text-align: left;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left: 22%}
+.wrapper .content .content_list .e-showC p .e-type{width: 25%;float: left;color: #999;margin-left: -25%;text-align: right;}
+.wrapper .content .content_list .e-showC p .e-date{float: right}
+.wrapper .content .content_list .e-showC p .e-cg {color: #333;}
+.wrapper .content .content_list .e-showC p .e-c3 {color: #666}
+.wrapper .content .content_list .e-showC p.e-tl{position: relative;height: 60px;}
+.wrapper .content .content_list .e-showC p a.e-sqwt{width: 118px;height: 40px;border:1px solid #ccc;border-radius: 5px;line-height: 40px;font-size: 18px;text-align: center;color: #666;position: absolute;right: 0;top: 10px;padding-left: 0}
+
+.wrapper .content .content_list li a .divwhite, .wrapper .content .content_list .e-showC label .divwhite{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;
+}
+.wrapper .content .content_list li a .divwhite img, .wrapper .content .content_list .e-showC label .divwhite img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.wrapper .content .content_list .e-pl10 {padding-left: 8%; text-align: left}
+.wrapper .content .content_list .e-showC label{width: 45%;font-size: 1.8em;color: #666;height: 50px;line-height: 50px;display: inline-block;}
+.wrapper .content .content_list .e-showC label .divwhite{ margin-right: 8px;}
+.wrapper .content .e-tijiao{text-align: center;padding-top: 6em;}
+.wrapper .content .e-tijiao a.e-tj{border:1px solid #ccc;border-radius: 5px;line-height: 40px;font-size: 18px;text-align: center;color: #666;padding:0.5em 3em}
+.wrapper .content .content_list li a .e-wtjg{position: absolute;top:0;right: 38px;}
+.wrapper .content .content_list li a .e-suc{color: #59ae0b}
+.wrapper .content .content_list li a .e-fail{color: #ed0606}
+.wrapper .content .content_list li a .e-being{color: #ffa200}
+.wrapper .content .content_list .e-wp p{font-size: 1.8em;line-height: 2.4em;width: 97%;text-align: left;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left: 30%}
+.wrapper .content .content_list .e-wp p .e-type{width: 40%;float: left;color: #999;margin-left: -40%;text-align: right;}
+.popwin p.e-pgreen{color: #59af0c}
+.wrapper .content .content_list li a  .e-tip{float: right;padding-right: 10px;color: #ff3000;font-size: 16px;}
+.wrapper .content .content_list li a  .e-num{position: absolute;width: 20px;height: 20px;background-color: #ff3000;border-radius: 10px;border: 1px solid #fff;font-size: 12px;line-height:20px;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;color: #fff;font-style: normal;top: -5px;}
+.wrapper .content .content_list li.e-bgray{background: #f7f7f7}
+.wrapper .content .content_list li a  .e-yjtip{/*display:inline-block;vertical-align:*/ middle;width: 12px;height: 12px;}
+
+.wrapper .content .content_list li a  .e-cwbb-t{position: absolute;right: 5px;color: #c00;font-size: 18px;}
+.wrapper .content .content_list li.e-h80{height: 80px;}
+.wrapper .content .content_list li a.e-mt20{margin-top: -20px;}
+.wrapper .content .content_list li a.e-cwTime{text-align: right;padding-right: 10px;font-size: 16px;color: #666;margin-top: -45px;}
+
+.wrapper .content .e-pt2em {text-indent: 2em;padding: 10px 10px 0;line-height: 1.8em;font-size: 1.6em;}
+.wrapper .content .e-txxm-btn{width: 100%;font-size: 0px;margin-bottom: 10px;position: absolute;padding: 5px;bottom: 60px;}
+.wrapper .content .e-txxm-btn a{display: inline-block;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 40%;
+    color: #333;
+    font-size: 20px;
+    line-height: 50px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 5%;}
+.wrapper .content .e-txxm-btn a:first-child {margin-left: 5%;}
+
+.e-xmxx, .e-qyxx {margin: 20px 20px 20px 0;text-align: center;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-xmxx p, .wrapper .content .e-qyxx p{text-align: left;font-size: 1.6em;line-height: 2em;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left: 30%;position: relative; }
+.wrapper .content .e-xmxx p .e-xmt, .wrapper .content .e-qyxx p .e-xmt{width: 40%;float: left;color: #999;margin-left: -40%;text-align: right}
+.wrapper .content .e-qyxx p .e-xmtT{position: absolute;right: 0;}
+.wrapper .content .e-qyxx p .e-xmtT em{font-style: normal;color: #999}
+.wrapper .content .e-txxm-btn a.bgRed{background: #c00;color: #fff}
+
+.wrapper .content .e-txList{border-bottom: 1px solid #ccc;padding:10px 15px;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-txList li{-webkit-box-sizing: border-box;box-sizing: border-box;height: 35px;line-height: 35px;text-align: left}
+.wrapper .content .e-txList h2{font-size: 2em;color: #333;text-align: left;font-weight: normal;margin-bottom: 10px;}
+.wrapper .content .e-txList li label.e-w50b{display:inline-block;float:left;font-size:2em;color: #666;width: 50%;text-align: left}
+.wrapper .content .e-txList li label .divwhite{width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    line-height: 25px;
+    text-align: center;margin-right: 8px;}
+.wrapper .content .e-txList li label .divwhite img{width: 20px;height: 20px;vertical-align: middle;}
+.wrapper .content .e-txList li label.e-txlae {display:inline-block;float:left;font-size:2em;color: #666;padding-right:10px;text-align: left }
+.wrapper .content .e-tlc{text-align: center;bottom: 20px;}
+.wrapper .content .e-txhang{border-bottom:1px solid #ccc;background: #fff;padding:10px 15px;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-txhang li{-webkit-box-sizing: border-box;box-sizing: border-box;height: 60px;text-align: left;position: relative;}
+.wrapper .content .e-txhang li a{display:block;font-size: 2em;color: #333;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.wrapper .content .e-txhang li .e-adji{position: absolute;right: 0;width: 35px;height: 25px;top: 20px;}
+.wrapper .content .content_list .e-whbg{background: #fff;}
+.wrapper .content .content_list .e-pl18{padding-left: 25px;}
+
+.wrapper .content .e-zwwtjk {padding:20px;background:#fff;text-align:center;margin:60px;border: 1px solid #ccc;border-radius: 5px;}
+.wrapper .content .e-zwwtjk p{font-size: 1.8em;color: #666;line-height: 2em;}
+
+
+.popwin .e-acBG:active,.popwin .e-acBG:focus{
+    background-color: #c00;
+    color: white;
+}
+
+
+/* 以下 是在原来的rda.css  下面添加的 */
+/* 2013-12-12 新加 */
+.wrapper .content .content_main_item .item .e-w{
+    -webkit-box-flex:1;
+    box-flex:1;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /*下面是不同宽度的不同值，需要做适配*/
+    /*480,20%*/
+    /*400,17*/
+    height:20%;
+    line-height: 20%;
+    text-align: center;
+    border-right: 0;
+    border-bottom: 10px solid #fff;
+}
+
+.wrapper .content .content_main_item .item .e-br10{
+    border-right:  10px solid #fff;
+    border-bottom: 10px solid #fff;
+}
+.wrapper .content .content_main_item .item .e-br0{
+    border-right:  0;
+    border-bottom: 10px solid #fff;
+}
+.wrapper .content .content_main_item .item .e-bm10{
+    border-bottom: 10px solid #fff;
+}
+

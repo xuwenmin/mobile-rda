@@ -62,7 +62,7 @@
                                             <a href="#">信用评估</a>
                                             <img src="images/xybg_icon.png" alt=""/>
                                         </div>
-                                        <div class="item_module co9">
+                                        <div to="sz" class="item_module co9">
                                             <a href="#">设置</a>
                                             <img src="images/sz_icon.png" alt=""/>
                                         </div>

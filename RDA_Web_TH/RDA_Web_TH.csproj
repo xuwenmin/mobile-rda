@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{31834753-341F-4C85-BD58-B3BE5BDBAC4D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RDA_Web_TH</RootNamespace>
+    <AssemblyName>RDA_Web_TH</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="build.js" />
+    <Content Include="css\images\ajax-loader.gif" />
+    <Content Include="css\images\icons-18-black.png" />
+    <Content Include="css\images\icons-18-white.png" />
+    <Content Include="css\images\icons-36-black.png" />
+    <Content Include="css\images\icons-36-white.png" />
+    <Content Include="css\images\test.jpg" />
+    <Content Include="css\rda.css" />
+    <Content Include="css\rda_1.css" />
+    <Content Include="css\xff-1.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="images\200.png" />
+    <Content Include="images\200a.png" />
+    <Content Include="images\a_down.png" />
+    <Content Include="images\a_right.png" />
+    <Content Include="images\a_top.png" />
+    <Content Include="images\bj.png" />
+    <Content Include="images\cwbb_icon.png" />
+    <Content Include="images\cwssjk.png" />
+    <Content Include="images\cwssjk_bak.png" />
+    <Content Include="images\cwzb.png" />
+    <Content Include="images\cwzb_bak.png" />
+    <Content Include="images\cwzb_icon.png" />
+    <Content Include="images\dkgl_icon.png" />
+    <Content Include="images\e-r.png" />
+    <Content Include="images\e-rh.png" />
+    <Content Include="images\e-sz-icon.png" />
+    <Content Include="images\e-tipRed.png" />
+    <Content Include="images\e-tipYw.png" />
+    <Content Include="images\e-txxm-icon.png" />
+    <Content Include="images\e-wdxm-icon.png" />
+    <Content Include="images\e-wtjk-icon.png" />
+    <Content Include="images\e-yjzx-icon.png" />
+    <Content Include="images\fxyj_icon.png" />
+    <Content Include="images\fzicon.png" />
+    <Content Include="images\icon1.png" />
+    <Content Include="images\icon2.png" />
+    <Content Include="images\index_1.png" />
+    <Content Include="images\index_set.png" />
+    <Content Include="images\index_set_bak.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\loading.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo11.png" />
+    <Content Include="images\lyb.png" />
+    <Content Include="images\lyb_bak.png" />
+    <Content Include="images\msg.png" />
+    <Content Include="images\mymsg.png" />
+    <Content Include="images\phone.png" />
+    <Content Include="images\pre.png" />
+    <Content Include="images\rzgl_icon.png" />
+    <Content Include="images\select.png" />
+    <Content Include="images\sqdk_icon.png" />
+    <Content Include="images\syzqyicon.png" />
+    <Content Include="images\sz_icon.png" />
+    <Content Include="images\sz_icon1.png" />
+    <Content Include="images\sz_icon2.png" />
+    <Content Include="images\sz_icon3.png" />
+    <Content Include="images\sz_icon4.png" />
+    <Content Include="images\sz_icon5.png" />
+    <Content Include="images\sz_icon6.png" />
+    <Content Include="images\sz_icon7.png" />
+    <Content Include="images\top_menu.png" />
+    <Content Include="images\top_msg.png" />
+    <Content Include="images\txxm_list_icon.png" />
+    <Content Include="images\wdxm_list_icon.png" />
+    <Content Include="images\wlxj.png" />
+    <Content Include="images\wlxj_bak.png" />
+    <Content Include="images\wrong.png" />
+    <Content Include="images\wtjk_list_icon.png" />
+    <Content Include="images\xjllb.png" />
+    <Content Include="images\xjllb_bak.png" />
+    <Content Include="images\xtyx.png" />
+    <Content Include="images\xtyx_bak.png" />
+    <Content Include="images\xybg_icon.png" />
+    <Content Include="images\zcfzb.png" />
+    <Content Include="images\zcfzb_bak.png" />
+    <Content Include="images\zcicon.png" />
+    <Content Include="images\zxpg.png" />
+    <Content Include="index.html" />
+    <Content Include="index_bak.html" />
+    <Content Include="js\base.js" />
+    <Content Include="js\cordova.js" />
+    <Content Include="js\doT.min.js" />
+    <Content Include="js\extend\detect.js" />
+    <Content Include="js\extend\event.ortchange.js" />
+    <Content Include="js\extend\event.scrollStop.js" />
+    <Content Include="js\extend\fix.js" />
+    <Content Include="js\extend\highlight.js" />
+    <Content Include="js\extend\imglazyload.js" />
+    <Content Include="js\extend\iscroll.js" />
+    <Content Include="js\extend\matchMedia.js" />
+    <Content Include="js\extend\offset.js" />
+    <Content Include="js\extend\parseTpl.js" />
+    <Content Include="js\extend\position.js" />
+    <Content Include="js\extend\support.js" />
+    <Content Include="js\extend\throttle.js" />
+    <Content Include="js\extend\touch.js" />
+    <Content Include="js\ichart.1.2.min.js" />
+    <Content Include="js\iscroll.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\module\cwzb.js" />
+    <Content Include="js\module\fxyj.js" />
+    <Content Include="js\module\index.js" />
+    <Content Include="js\module\util.js" />
+    <Content Include="js\require.min.js" />
+    <Content Include="js\underscore.min.js" />
+    <Content Include="js\zepto.min.js" />
+    <Content Include="main_bak.html" />
+    <Content Include="r.js" />
+    <Content Include="test1.html" />
+    <Content Include="test3.html" />
+    <Content Include="test\demo.html" />
+    <Content Include="test\js\jquery-1.9.1.min.js" />
+    <Content Include="test\js\node.js" />
+    <Content Include="test\js\node_modules\socket.io\benchmarks\decode.bench.js" />
+    <Content Include="test\js\node_modules\socket.io\benchmarks\encode.bench.js" />
+    <Content Include="test\js\node_modules\socket.io\benchmarks\runner.js" />
+    <Content Include="test\js\node_modules\socket.io\index.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\logger.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\manager.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\namespace.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\parser.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\socket.io.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\socket.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\static.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\store.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\stores\memory.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\stores\redis.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transport.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\flashsocket.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\htmlfile.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\http-polling.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\http.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\index.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\jsonp-polling.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\websocket.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\websocket\default.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\websocket\hybi-07-12.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\websocket\hybi-16.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\websocket\index.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\transports\xhr-polling.js" />
+    <Content Include="test\js\node_modules\socket.io\lib\util.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\base64id\lib\base64id.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\policyfile\doc\index.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\policyfile\examples\basic.fallback.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\policyfile\examples\basic.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\policyfile\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\policyfile\lib\server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\policyfile\tests\unit.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\buffer_bench.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\hiredis_parser.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\reconnect_test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\re_sub_test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\codec.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\pubsub\pub.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\pubsub\server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\rpushblpop\pub.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\rpushblpop\server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\speed\size-rate.png" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\speed\speed.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\benches\sub_quit_test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\diff_multi_bench_output.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\auth.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\backpressure_drain.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\eval.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\extend.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\file.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\mget.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\monitor.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\multi.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\multi2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\psubscribe.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\pub_sub.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\simple.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\sort.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\subqueries.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\subquery.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\unix_socket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\examples\web_server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\generate_commands.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\lib\commands.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\lib\parser\hiredis.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\lib\parser\javascript.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\lib\queue.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\lib\to_array.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\lib\util.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\mem.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\multi_bench.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\redis\test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-bind\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-emitter\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-json-fallback\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-json\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\emitter.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\parser.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\socket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\transport.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\transports\flashsocket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\transports\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\transports\polling-jsonp.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\transports\polling-xhr.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\transports\polling.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\transports\websocket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\lib\util.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-socket.io-protocol\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\timoxley-to-array\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\visionmedia-debug\debug.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\visionmedia-debug\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\dist\socket.io.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\dist\socket.io.min.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\dist\WebSocketMain.swf" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\dist\WebSocketMainInsecure.swf" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\events.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\io.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\json.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\namespace.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\parser.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\socket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\transport.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\transports\flashsocket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\transports\htmlfile.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\transports\jsonp-polling.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\transports\websocket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\transports\xhr-polling.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\transports\xhr.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\util.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\dump.txt" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\sample.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\swfobject.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\WebSocketMain.swf" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\web_socket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\benchmark.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\test-parser.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\test-tokenizer.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\tests.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\Tokenizer.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\unicodecategories.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\ZeParser.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\docstyle.css" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\lib\object-ast.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\lib\parse-js.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\lib\process.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\lib\squeeze-more.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\README.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\beautify.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\testparser.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\array1.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\array2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\array3.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\array4.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\assignment.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\concatstring.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\const.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\empty-blocks.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\forstatement.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\if.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\ifreturn.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\ifreturn2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue10.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue11.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue13.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue14.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue16.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue17.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue20.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue21.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue25.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue27.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue278.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue28.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue29.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue30.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue34.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue4.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue48.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue50.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue53.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue54.1.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue68.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue69.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\issue9.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\mangle.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\null_string.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\strict-equals.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\var.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\whitespace.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\expected\with.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\array1.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\array2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\array3.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\array4.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\assignment.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\concatstring.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\const.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\empty-blocks.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\forstatement.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\if.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\ifreturn.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\ifreturn2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue10.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue11.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue13.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue14.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue16.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue17.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue20.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue21.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue25.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue27.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue278.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue28.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue29.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue30.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue34.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue4.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue48.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue50.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue53.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue54.1.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue68.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue69.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\issue9.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\mangle.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\null_string.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\strict-equals.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\var.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\whitespace.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\compress\test\with.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\test\unit\scripts.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\269.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\app.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\embed-tokens.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\goto.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\goto2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\hoist.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\instrument.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\instrument2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\liftvars.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\uglify-hangs.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\tmp\uglify-hangs2.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\uglify-js.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\bench\parser.benchmark.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\bench\sender.benchmark.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\bench\speed.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\bench\util.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\fileapi\public\app.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\fileapi\public\index.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\fileapi\public\uploader.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\fileapi\server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\serverstats-express_3\public\index.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\serverstats-express_3\server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\serverstats\public\index.html" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\serverstats\server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\ssl.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\browser.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\BufferPool.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\BufferUtil.fallback.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\BufferUtil.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\ErrorCodes.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\Receiver.hixie.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\Receiver.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\Sender.hixie.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\Sender.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\Validation.fallback.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\Validation.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\WebSocket.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\lib\WebSocketServer.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\lib\commander.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\nan\.index.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\nan\nan.h" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\options\lib\options.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\options\test\options.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\tinycolor\example.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\tinycolor\tinycolor.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\src\bufferutil.cc" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\src\validation.cc" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\autobahn-server.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\autobahn.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\BufferPool.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\hybi-common.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\Receiver.hixie.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\Receiver.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\Sender.hixie.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\Sender.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\testserver.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\Validation.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\WebSocket.integration.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\WebSocket.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\WebSocketServer.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\example\demo.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\lib\XMLHttpRequest.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\tests\test-constants.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\tests\test-events.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\tests\test-exceptions.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\tests\test-headers.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\tests\test-request-methods.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\tests\test-request-protocols.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\tests\testdata.txt" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\events.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\io.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\node\builder.common.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\node\builder.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\parser.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\socket.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\util.test.js" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\test\worker.js" />
+    <Content Include="test\js\server.js" />
+    <Content Include="test\js\socket.io.js" />
+    <Content Include="test\js\test1.js" />
+    <Content Include="test\js\test2.js" />
+    <Content Include="test\main.js" />
+    <Content Include="test\require.js" />
+    <Content Include="tmpl\xff_1.css" />
+    <Content Include="tmpl\说明.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="run.cmd" />
+    <None Include="test\js\node_modules\socket.io\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\.travis.yml" />
+    <None Include="test\js\node_modules\socket.io\History.md" />
+    <None Include="test\js\node_modules\socket.io\LICENSE" />
+    <None Include="test\js\node_modules\socket.io\Makefile" />
+    <None Include="test\js\node_modules\socket.io\node_modules\base64id\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\base64id\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\base64id\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\policyfile\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\policyfile\LICENSE" />
+    <None Include="test\js\node_modules\socket.io\node_modules\policyfile\Makefile" />
+    <None Include="test\js\node_modules\socket.io\node_modules\policyfile\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\policyfile\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\policyfile\tests\ssl\ssl.crt" />
+    <None Include="test\js\node_modules\socket.io\node_modules\policyfile\tests\ssl\ssl.private.key" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\pubsub\run" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\rpushblpop\run" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\speed\00" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\benches\stress\speed\plot" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\changelog.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\redis\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-bind\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-emitter\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-json-fallback\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\component-json\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-engine.io-client\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\learnboost-socket.io-protocol\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\timoxley-to-array\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\components\visionmedia-debug\component.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\History.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\build.sh" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\adobe\net\proxies\RFC2817Socket.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\gsolo\encryption\MD5.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\cert\MozillaRootCertificates.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\cert\X509Certificate.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\cert\X509CertificateCollection.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\Crypto.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\HMAC.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\IHash.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\IHMAC.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\MAC.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\MD2.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\MD5.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\SHA1.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\SHA224.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\SHA256.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\hash\SHABase.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\prng\ARC4.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\prng\IPRNG.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\prng\Random.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\prng\TLSPRF.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\rsa\RSAKey.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\AESKey.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\aeskey.pl" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\BlowFishKey.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\CBCMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\CFB8Mode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\CFBMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\CTRMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\DESKey.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\ECBMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\ICipher.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\IMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\IPad.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\IStreamCipher.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\ISymmetricKey.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\IVMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\NullPad.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\OFBMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\PKCS5.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\SimpleIVMode.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\SSLPad.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\TLSPad.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\TripleDESKey.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\symmetric\XTeaKey.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\AESKeyTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\ARC4Test.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\BigIntegerTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\BlowFishKeyTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\CBCModeTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\CFB8ModeTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\CFBModeTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\CTRModeTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\DESKeyTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\ECBModeTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\HMACTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\ITestHarness.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\MD2Test.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\MD5Test.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\OFBModeTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\RSAKeyTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\SHA1Test.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\SHA224Test.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\SHA256Test.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\TestCase.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\TLSPRFTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\TripleDESKeyTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tests\XTeaKeyTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\BulkCiphers.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\CipherSuites.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\IConnectionState.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\ISecurityParameters.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\KeyExchanges.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\MACs.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\SSLConnectionState.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\SSLEvent.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\SSLSecurityParameters.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSConfig.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSConnectionState.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSEngine.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSError.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSEvent.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSSecurityParameters.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSSocket.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSSocketEvent.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\crypto\tls\TLSTest.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\math\BarrettReduction.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\math\BigInteger.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\math\bi_internal.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\math\ClassicReduction.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\math\IReduction.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\math\MontgomeryReduction.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\math\NullReduction.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\ArrayUtil.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\Base64.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\ByteString.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\DER.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\IAsn1Type.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\Integer.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\ObjectIdentifier.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\OID.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\PEM.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\PrintableString.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\Sequence.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\Set.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\Type.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\der\UTCTime.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\Hex.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\com\hurlant\util\Memory.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\IWebSocketLogger.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\WebSocket.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\WebSocketEvent.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\WebSocketMain.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\flash-src\WebSocketMainInsecure.as" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\README.md" />
+    <Content Include="test\js\node_modules\socket.io\node_modules\socket.io-client\lib\vendor\web-socket-js\WebSocketMainInsecure.zip" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\Makefile" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\.bin\uglifyjs" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\.bin\uglifyjs.cmd" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\.bin\wscat" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\.bin\wscat.cmd" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\LICENSE" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\node_modules\zeparser\README" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\active-x-obfuscator\Readme.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\package.json~" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\uglify-js\README.org" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\.travis.yml" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\binding.gyp" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\builderror.log" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\doc\ws.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\fileapi\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\fileapi\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\serverstats-express_3\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\examples\serverstats\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\History.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\Makefile" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\.travis.yml" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\History.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\Makefile" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\commander\Readme.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\nan\LICENSE" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\nan\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\nan\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\options\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\options\Makefile" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\options\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\options\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\options\test\fixtures\test.conf" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\tinycolor\.npmignore" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\tinycolor\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\node_modules\tinycolor\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\agent1-cert.pem" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\agent1-key.pem" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\ca1-cert.pem" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\ca1-key.pem" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\certificate.pem" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\key.pem" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\request.pem" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\ws\test\fixtures\textfile" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\autotest.watchr" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\node_modules\xmlhttprequest\README.md" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\package.json" />
+    <None Include="test\js\node_modules\socket.io\node_modules\socket.io-client\README.md" />
+    <None Include="test\js\node_modules\socket.io\package.json" />
+    <None Include="test\js\node_modules\socket.io\Readme.md" />
+    <None Include="test\js\run.cmd" />
+    <None Include="tmpl\bj.tpl" />
+    <None Include="tmpl\index.tpl" />
+    <None Include="tmpl\index1.tpl" />
+    <None Include="tmpl\login.tpl" />
+    <None Include="tmpl\mymsg.tpl" />
+    <None Include="tmpl\sz.tpl" />
+    <None Include="tmpl\sz_fontSize.tpl" />
+    <None Include="tmpl\sz_spsz.tpl" />
+    <None Include="tmpl\sz_yjfk.tpl" />
+    <None Include="tmpl\txxm.tpl" />
+    <None Include="tmpl\txxm_gzxm_ckxq.tpl" />
+    <None Include="tmpl\txxm_sqwt.tpl" />
+    <None Include="tmpl\txxm_txtj.tpl" />
+    <None Include="tmpl\txxm_txtj_ck.tpl" />
+    <None Include="tmpl\txxm_txtj_sslb.tpl" />
+    <None Include="tmpl\txxm_xmjj.tpl" />
+    <None Include="tmpl\txxm_xmxq.tpl" />
+    <None Include="tmpl\wdxm.tpl" />
+    <None Include="tmpl\wdxm_gzxm.tpl" />
+    <None Include="tmpl\wdxm_jkxm.tpl" />
+    <None Include="tmpl\wdxm_jxxm.tpl" />
+    <None Include="tmpl\wdxm_ztxm.tpl" />
+    <None Include="tmpl\wdxm_ztxm_sqwt.tpl" />
+    <None Include="tmpl\wdxm_ztxm_sqwt_jk.tpl" />
+    <None Include="tmpl\wdxm_ztxm_sqwt_tp1.tpl" />
+    <None Include="tmpl\wdxm_ztxm_sqwt_tp2.tpl" />
+    <None Include="tmpl\wtjk.tpl" />
+    <None Include="tmpl\wtjk_ckxq_sqwt.tpl" />
+    <None Include="tmpl\wtjk_ckxq_sqwt_tp1.tpl" />
+    <None Include="tmpl\wtjk_ckxq_sqwt_tp2.tpl" />
+    <None Include="tmpl\wtjk_sqwtjk.tpl" />
+    <None Include="tmpl\wtjk_sqwtjk_gzxm.tpl" />
+    <None Include="tmpl\wtjk_sqwtjk_ztxm.tpl" />
+    <None Include="tmpl\wtjk_ywtjk.tpl" />
+    <None Include="tmpl\wtjk_zwjkxm.tpl" />
+    <None Include="tmpl\yjzx.tpl" />
+    <None Include="tmpl\yjzx_cwbb.tpl" />
+    <None Include="tmpl\yjzx_cwzs.tpl" />
+    <None Include="tmpl\yjzx_jhsl.tpl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\billrda\billrda.csproj">
+      <Project>{C57E7C26-D96C-4FEC-B4DF-F3678952A4AA}</Project>
+      <Name>billrda</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4804</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

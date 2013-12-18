@@ -8,3 +8,5 @@ C:\git\mobile-rda\RDA_Web\bin\RDA_Web.pdb
 C:\git\mobile-rda\RDA_Web\obj\Debug\ResolveAssemblyReference.cache
 C:\git\mobile-rda\RDA_Web\obj\Debug\RDA_Web.dll
 C:\git\mobile-rda\RDA_Web\obj\Debug\RDA_Web.pdb
+C:\git\mobile-rda\RDA_Web\bin\billrda.dll
+C:\git\mobile-rda\RDA_Web\bin\billrda.pdb
