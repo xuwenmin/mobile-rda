@@ -1,4 +1,4 @@
-define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, fxyj, cwzb, cwbb, rzgl) {
+define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
     var _init = function() {
         console.log("if have some problem,please call me 151481184@qq.com,tks!")
         var $target = $(".main1");
@@ -41,7 +41,6 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             if (!hash) return;
 
             isgo = true;
-            index.animateindex.stop();
             var reg = /(#(.*)!\/(.*))|(#(.*))/;
             var result = hash.match(reg);
             hashobj = {}; //清空hash对象
@@ -75,38 +74,16 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 },
                 success: function(msg) {
                     var dotobj = doT.template(msg);
-
-                    //除掉第一步和第二步的本地存储
-                    if(hashobj.hash.indexOf("rzgl_fbrzxx")<0){
-                        window.localStorage.removeItem("rzgl_1");
-                        window.localStorage.removeItem("rzgl_2");
+                    if(hashobj.hash=="wdxm_ztxm_sqwt_tp1"){
+                        _obj.sqtypedesc= _obj.qf=="zt" ? "在投项目" :"关注项目";
+                        _obj.gohash=_obj.qf=="zt" ? "wdxm_ztxm" :"wdxm_gzxm";
                     }
-
-                    if (hashobj.hash == "fxyj_tb") {
+                    if (hashobj.hash == "yjzx_tb") {
                         _obj = (_.where(JSON.parse(localStorage["fxyj_tb"]), {
                             id: parseInt(_obj.code)
                         }))[0];
                         _obj.oldhash = oldhash;
                     }
-                    if (hashobj.hash == "fxyj") {
-                        fxyj.get_fxyj_tjinfo();
-                        _obj = JSON.parse(localStorage["fxyj_index"]);
-                    }
-                    if (hashobj.hash == "zcfz") {
-                        cwbb.getcwbb_zcfz_index();
-                        _obj = JSON.parse(localStorage["cwbb_index"]);
-                    }
-                    if (hashobj.hash == "zcfz_sub") {
-                        var __arg = JSON.parse(localStorage["cwbb_index"]);
-                        _obj = (_.where(__arg, {
-                            "typeid": parseInt(hashobj.para.fid)
-                        }))[0];
-                    }
-                    if(hashobj.hash=="rzgl_view"){
-                        _obj=rzgl.getrzgl_desc(hashobj._para.id);
-                        console.log(_obj);
-                    }
-
                     hashobj.para = _obj;
                     $(".gonext").html(dotobj(_obj)).addClass("gopre").removeClass("gonext");
                     $target[0].style.webkitTransition = "-webkit-transform .3s linear 0s";
@@ -211,16 +188,13 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         $target.delegate(".hasloadsub", touchevent, function() {
             if ($(this).hasClass("active")) {
                 var code = $(this).attr("data-code");
-                if (hashobj.hash == "fxyj_cwbb") {
-                    fxyj.get_fxyj_cwbb(code, $(this));
-                } else if (hashobj.hash == "xjll") {
-                    cwbb.getcwbb_sub_byfid(code, $(this), "Report_CashFlow_Data");
-                } else if (hashobj.hash == "ly") {
-                    cwbb.getcwbb_sub_byfid(code, $(this), "Report_Profit_Data");
-                } else if (hashobj.hash == "zcfz_sub") {
-                    cwbb.getcwbb_zcfz_sub(code, $(this));
-                } else {
-                    fxyj.getsubitembycode(code, $(this));
+                if (hashobj.hash == "yjzx_cwbb") {
+                    fxyj.get_fxyj_cwbb(code, $(this),hashobj);
+                }else if (hashobj.hash == "yjzx_jhsl") {
+                    fxyj.getsubitembycode(code, $(this),hashobj);
+                }
+                else if (hashobj.hash == "yjzx_zczl") {
+                    fxyj.getsubitembycode(code, $(this),hashobj);
                 }
             }
         });
@@ -314,7 +288,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         //动态的勾选,适合多级的多选enum  以hascheckbox1为标识
         $target.delegate(".hascheckbox1", touchevent, function() {
             // 设置一个本地存储放已经选中的多选值
-            var rz_sslx1 = window.localStorage["rz_sslx1"] ? JSON.parse(window.localStorage["rz_sslx1"]) : [];
+
+            var rz_sslx1 =window.localStorage["sqwt_tp"] ? JSON.parse(window.localStorage["sqwt_tp"]):[];
             var _for = $(this).attr("for");
             var data_fid = $("[name=" + _for + "]").attr("data-fid"); //父ID
             var data_eid = $("[name=" + _for + "]").attr("data-eid"); //当前ID
@@ -329,8 +304,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     });
                     if (existarg.length) {
                         //假如是同一种类型，则检查是否超过5个
-                        if (rz_sslx1.length >= 5) {
-                            alert("亲,同一种行业，不能选择超过5个值!");
+                        if (rz_sslx1.length >= 3) {
+                            alert("亲,只能选择一个值!");
                             //然后去掉此项的勾
                             $obj.addClass("hide");
                         } else {
@@ -340,7 +315,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                             }
                         }
                     } else {
-                        alert("亲,已经选了一个行业了，不能再选别的行业!");
+                         alert("亲,只能选择一个值!");
                         $obj.addClass("hide");
                     }
                 } else {
@@ -354,44 +329,15 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 rz_sslx1.push(newval);
             }
             //保存数据到localstorage
-            window.localStorage["rz_sslx1"] = JSON.stringify(rz_sslx1);
-            // console.log(rz_sslx1);
+            window.localStorage["sqwt_tp"] = JSON.stringify(rz_sslx1);
         });
-
-
-
-        //动态绑定动画单击事件
-        $target.delegate(".m_pingfen .pf_display", touchevent, function() {
-            window.location.hash = "ssxyzhpf";
-        });
-        //动态绑定弹出层取消事件
-        $("body").delegate(".popwin .pop_return", touchevent, function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            var id = $(this).parent().attr("id");
-            util.popwindow.hide(id);
-        });
-        //绑定上一步事件
-        $target.delegate("#rzgl_pre", touchevent, function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            //开始保存这一步的数据
-            if(rzgl.saverzgl_2()){
-               window.location.hash = "rzgl_fbrzxx"; 
-            }               
-        });
-        //绑定下一步事件
-        $target.delegate("#rzgl_next", touchevent, function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            var val = $("#rzgl_pinfo").val();
-            if (val) {
-                //开始保存这一步的数据
-                if(rzgl.saverzgl_1()){
-                   window.location.hash = "rzgl_fbrzxx_2"; 
-                }               
-            } else {
-                util.popwindow.show("pop1");
+        
+        //提交申请委托操作
+        $target.delegate("#savesqwt",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            if(hashobj.hash=="wdxm_ztxm_sqwt_tp1"){
+                wdxm.action_sqwt(hashobj);
             }
         });
         //绑定首页设置事件
@@ -407,7 +353,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             window.location.hash = "mymsg";
         });
         //绑定登录事件
-        $target.delegate(".a_login", touchevent, function(event) {
+        $target.delegate("#but_login", touchevent, function(event) {
             event.stopPropagation();
             event.preventDefault();
 
@@ -443,7 +389,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                                     if ("localStorage" in window) {
                                         window.localStorage["userinfo"] = JSON.stringify({
                                             groupid: msg.Data.table0[0].InfoList[0].GroupID,
-                                            userid: msg.Data.table0[0].InfoList[0].UserID
+                                            userid: msg.Data.table0[0].InfoList[0].UserID,
+                                            autologin:!$("#div_autologin").find("img").hasClass("hide")
                                         });
                                         // console.log(window.localStorage["userinfo"]);
                                     }
@@ -469,7 +416,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             event.preventDefault();
 
             var etpname = $("#etpname").val();
-            var type = "1";
+            var type = "3";
             var username = $("#reg_username").val();
             var pwd = $("#reg_pwd").val();
             var rep_pwd = $("#reg_reppwd").val();
@@ -511,6 +458,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                                 alert("亲，企业名称被人抢了!");
                             } else if (msg.Data.table0[0].Flag == "10") {
                                 alert("亲，注册成功了");
+                            } else if(msg.Data.table0[0].Flag=="0"){
+                                alert("亲,用户名位数不能少于6位!")
                             } else {
                                 alert("亲，注册失败了!");
                             }
@@ -582,63 +531,63 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             $target.append(html);
             isgo = false;
 
+            if(hashobj.hash=="yjzx"){
+                //风险预警首页
+                _.delay(function(){
+                    fxyj.get_fxyj_inxex($("#ul_fxyj_index"));
+                },0);
+            }
+            if(hashobj.hash=="wdxm_ztxm"){
+                //在投项目列表
+                _.delay(function(){
+                    wdxm.get_wdxm_ztxm($("#ul_ztxm"));
+                },0);
+            }
+            if(hashobj.hash=="wdxm_jxxm"){
+                //结项目列表
+                _.delay(function(){
+                    wdxm.get_wdxm_jxxm($("#ul_jxxm"));
+                },0);
+            }
+            if(hashobj.hash=="wdxm_gzxm"){
+                 //已关注项目列表
+                 _.delay(function(){
+                    wdxm.get_wdxm_ygjxm($("#ul_gzxm"));
+                },0);
+            }
+            if(hashobj.hash=="wdxm_ztxm_sqwt_tp1"){
+                //申请委托页面选择监控类型初始化
+                 _.delay(function(){
+                    window.localStorage.removeItem("sqwt_tp");//先清空
+                    wdxm.get_sqwt_tp($("#sqwt_tp"));
+                },0);
+            }
+
+
             //效果做玩之后,再执行下面的check
             if(hashobj.hash=="index"){
-                //开始获取企业基本信息
-                util.getbaseinfo(function(msg){
-                    // console.log(msg);
-                });
-            }
-            if(hashobj.hash=="rzgl"){
-                //清空所属行业的本地存储
-                window.localStorage.removeItem("rz_sslx1");
-            }
-            if (hashobj.hash == "xjll") {
-                //开始获取现金流量信息
-                cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_CashFlow_Data");
-            };
-            if (hashobj.hash == "ly") {
-                //开始获取现金流量信息
-                cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_Profit_Data");
-            };
-            if (hashobj.hash == "zcfz_sub") {
-                //开始获取财务报表-资产负债相关信息
-                cwbb.getcwbb_zcfz(hashobj.para.typeid, $("#ul_zcfz"));
-            };
-            if (hashobj.hash == "rzgl_list") {
-                //开始获取融资项目列表信息
-                rzgl.getrzgl_list($("#ul_rzgl_list"));
-            };
-            if (hashobj.hash == "rzgl_fbrzxx") {
-                // rzgl.getrzgl_enum("2");
-                //初始化发布信息融资第一步的enum信息
-                rzgl.initenum1();
-            }
-            if(hashobj.hash=="rzgl_fbrzxx_2"){
-                rzgl.initenum2();
-            }
-
-
-            if (hashobj.hash == "cwzb_hbzj") {
-                //财务指表的数据报表页
-                _.delay(function() {
-                    cwzb.getcwzbdata(hashobj);
-                }, 0);
-            } else if (hashobj.hash == "fxyj_tb") {
+               
+            } else if (hashobj.hash == "yjzx_tb") {
                 _.delay(function() {
                     fxyj.createchart_fxyj_tb(hashobj);
                 }, 0);
-            } else if (hashobj.hash == "index" || hashobj.hash == "ssxyzhpf") {
-                _.delay(function() {
-                    index.animateindex.reload();
-                });
             } else if (util.isscroll(hashobj.hash)) {
                 _.delay(function() {
                     scroll_loaded();
                 }, 0)
             } else if (hashobj.hash == "bj") {
                 _.delay(function() {
-                    window.location.hash = "login";
+                    //此处检查是否自动登录
+                    var userinfo=window.localStorage["userinfo"] ? JSON.parse(localStorage["userinfo"]) : undefined;
+                    if(userinfo){
+                        if(userinfo.autologin){
+                            window.location.hash="index";
+                        }else{
+                            window.location.hash = "login";  
+                        }
+                    }else{
+                      window.location.hash = "login";  
+                    } 
                 }, 1000);
             }
 
@@ -716,6 +665,16 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             event.stopPropagation();
             event.preventDefault();
             rzgl.save();
+        });
+
+        //退出账户的时候，清除掉登录信息
+        $target.delegate("#but_cancellogin",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            if(confirm("是否退出当前登录?")){
+                window.localStorage.removeItem("userinfo");
+                window.location.hash="login";
+            }
         });
     };
     return {

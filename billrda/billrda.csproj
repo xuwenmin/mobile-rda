@@ -44,7 +44,11 @@
     <Compile Include="bill\getdata.ashx.cs">
       <DependentUpon>getdata.ashx</DependentUpon>
     </Compile>
+    <Compile Include="bill\getdata_th.ashx.cs">
+      <DependentUpon>getdata_th.ashx</DependentUpon>
+    </Compile>
     <Compile Include="dal\rdaws.cs" />
+    <Compile Include="dal\rdaws_th.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -56,10 +60,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\RDA_TH\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\RDA_TH\RDAIBService.disco" />
     <None Include="app.config" />
     <Content Include="bill\getdata.ashx" />
+    <Content Include="bill\getdata_th.ashx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,11 +80,27 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\RDA_TH\RDAIBService.wsdl" />
+    <None Include="Web References\RDA_TH\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.1.9:6100/RDAIBService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RDA_TH\</RelPath>
+      <UpdateFromURL>http://192.168.1.9:6100/RDAIBService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>billrda_RDA_TH_RDAIBService</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://192.168.1.9:6100/RDAWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\RDA\</RelPath>

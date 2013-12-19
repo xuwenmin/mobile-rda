@@ -1,7 +1,6 @@
 // 公共js功能模块.by xuwm
-define(["zepto","underscore"],function($,_){
-	var _scrollload=["rzgl_fbrzxx","rzgl_fbrzxx_2","cwzb",
-	"fxyj_zhsl","fxyj_xjll","fxyj_zczl","fxyj_cwbb","xjll","zcfz_sub","rzgl_view"];
+define(["underscore"],function(_){
+	var _scrollload=["wdxm_ztxm","wdxm_jxxm","wdxm_gzxm","wdxm_ztxm_sqwt_tp1","yjzx","yjzx_cwbb"];
 
 	var _autoupdate=["cwzb_hbzj","zcfz","zcfz_sub","xjll","ly"];
 	 //检测平台
@@ -89,7 +88,13 @@ define(["zepto","underscore"],function($,_){
 	        if (window.location.hash == "#index" || 1 == 1) {
 	            if (confirm("是否退出系统?")) {
 	                //移除存储的用户信息.by xuwm 
-	                window.localStorage.removeItem("userinfo");
+	                //检查，假如下次自动登录，则不清除当前登录信息.by xuwm
+	                var userinfo=window.localStorage["userinfo"] ? JSON.parse(window.localStorage["userinfo"]) :undefined;
+	                if(userinfo){
+	                	if(!userinfo.autologin){
+	                		window.localStorage.removeItem("userinfo");
+	                	}
+	                }
 	                window.localStorage.removeItem("rz_sslx1");
 	                navigator.app.exitApp();
 	            }

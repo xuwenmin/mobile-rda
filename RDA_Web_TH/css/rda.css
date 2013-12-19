@@ -367,7 +367,7 @@
         .wrapper .head h1{
             display: inline-block;
             vertical-align: middle;
-            width: 83%;
+            width: 69%;
             font-size: 25px;
         }
         .wrapper .head h1.only{
@@ -378,11 +378,15 @@
             vertical-align: middle;
             width: 6%;
             max-width: 100%;
+            padding-right: 5%;
+            padding-left:2%;
         }
         .wrapper .head .next{
             display: inline-block;
             vertical-align: middle;
             width: 6%;
+            padding-right: 5%;
+            padding-left:2%;
         }
         /*内容页，尾部样式*/
         .wrapper .footer{
@@ -731,34 +735,4 @@
                 box-flex:2.7;
                 border-right: 10px solid #fff;
             }
-
-         /*    2013-12-12 新加
-         .wrapper .content .content_main_item .item .e-w{
-             -webkit-box-flex:1;
-             box-flex:1;
-             position: relative;
-             -webkit-box-sizing: border-box;
-             box-sizing: border-box;
-             下面是不同宽度的不同值，需要做适配
-             480,20%
-             400,17
-             height:20%;
-             line-height: 20%;
-             text-align: center;
-             border-right: 0;
-             border-bottom: 10px solid #fff;
-         }
-         
-         .wrapper .content .content_main_item .item .e-br10{
-             border-right:  10px solid #fff;
-             border-bottom: 10px solid #fff;
-         }
-         .wrapper .content .content_main_item .item .e-br0{
-             border-right:  0;
-             border-bottom: 10px solid #fff;
-         }
-         .wrapper .content .content_main_item .item .e-bm10{
-             border-bottom: 10px solid #fff;
-         } */
-
         }

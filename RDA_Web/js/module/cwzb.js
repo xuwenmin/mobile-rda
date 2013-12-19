@@ -1,5 +1,5 @@
 //财务指标功能模块.by xuwm 
-define(["zepto", "util"], function($, util) {
+define(["util"], function(util) {
 	//根据财务指表code获取相关信息
 	var getDescByCode = function(code) {
 		var codedesc = {

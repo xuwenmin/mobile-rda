@@ -1,5 +1,5 @@
 <!-- 设置 锁屏设置 -->
- <div class="head bgRed">
+ <div class="head">
      <img from="sz" class="pre" src="images/pre.png" alt="" />
      <h1>锁屏设置</h1>
      <a href="#" class="next"></a>

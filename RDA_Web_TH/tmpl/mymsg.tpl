@@ -1,5 +1,5 @@
 <!-- 我的消息 -->
- <div class="head">
+ <div class="head bgRed">
                      <img from="index" class="pre" src="images/pre.png" alt="">
                      <h1>我的消息</h1>
                      <a href="#" class="next"></a>

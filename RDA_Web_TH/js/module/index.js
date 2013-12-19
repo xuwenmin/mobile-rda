@@ -1,5 +1,5 @@
 //应用首页功能模块.by xuwm 
-define(["zepto","util","underscore"],function($,util,_){
+define(["util","underscore"],function(util,_){
 	var indexsetting = (function() {
 	    var width = $("body").offset().width;
 	    var height = $("body").offset().height;

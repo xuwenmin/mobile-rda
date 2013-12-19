@@ -1,4 +1,4 @@
-define(["zepto", "util", "underscore"], function($, util, _) {
+define(["util", "underscore"], function(util, _) {
 
 	// 查看融资信息enum模板
 	var $template = '{{ for(var i=0;i<it.length;i++) { }}' +

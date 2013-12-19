@@ -17,7 +17,7 @@
                                  <label >企业名称:</label>
                                  <input type="text" placeholder="公司全称" id="etpname" />
                              </div>
-                             <div class="login_inputline lred ">
+                             <div class="login_inputline lred hide">
                                  <label >企业类型:</label>
                                  <div class="tabtype" id="registertype">
                                      <a href="#" data-type="1">企业</a>
@@ -36,7 +36,7 @@
                                  <label >确认密码:</label>
                                  <input type="password" id="reg_reppwd" placeholder="6-20个字符或字母组合"/>
                              </div>
-                             <a href="#" class="a_register">立即注册</a>
+                             <a href="#" class="a_register" >立即注册</a>
                      </div>
                      </div>
                      <div class="div_login">
@@ -52,7 +52,7 @@
                              </div>
                              <div class="login_inputline lred">
                                  <div class="login_f1">
-                                     <div class="divwhite">
+                                     <div class="divwhite" id="div_autologin">
                                          <img class="hide" src="images/select.png" alt=""/>
                                      </div>
                                      <p>下次自动登录</p>
@@ -62,7 +62,7 @@
                                  </div>
 
                              </div>
-                             <a href="#" class="a_login Cred">登录</a>
+                             <a href="#" class="a_login Cred" id="but_login">登录</a>
                          </div>
                          <hr class="hide">
                          <div class="loginfrm hide">

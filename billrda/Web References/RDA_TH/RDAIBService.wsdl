@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="RDAIBServiceSpace" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="RDAIBServiceSpace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="RDAIBServiceSpace">
+      <s:element name="USER_CheckLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_CheckLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_CheckLoginNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOAPHeaderHandleIB" type="tns:SOAPHeaderHandleIB" />
+      <s:complexType name="SOAPHeaderHandleIB">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CurName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurPwd" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="USER_CheckCompanyName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_CheckCompanyNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_CheckCompanyNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_Register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_RegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_RegisterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USER_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USER_LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_OtherFinancial_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_OtherFinancial_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Index_OtherFinancial_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_ReferenceValue_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Index_ReferenceValue_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Index_ReferenceValue_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Investmentbank_Index_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Investmentbank_Index_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Investmentbank_Index_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Investmentbank_CWBB_Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Investmentbank_CWBB_DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Investmentbank_CWBB_DataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZTProject_List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZTProject_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZTProject_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YIGZProject_List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YIGZProject_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YIGZProject_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SZWTInit">
+        <s:complexType />
+      </s:element>
+      <s:element name="SZWTInitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SZWTInitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JKSCInit">
+        <s:complexType />
+      </s:element>
+      <s:element name="JKSCInitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JKSCInitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="THGZ_Ope">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="THGZ_OpeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="THGZ_OpeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TXProCondiInit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TXProCondiInitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TXProCondiInitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TXProject_List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TXProject_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TXProject_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gettrading">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gettradingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gettradingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getenterprise">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getenterpriseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getenterpriseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FuFei">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FuFeiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FuFeiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="THGZ_Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="THGZ_AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="THGZ_AddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JXProject_List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JXProject_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JXProject_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFuFei">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFuFeiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsFuFeiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="USER_CheckLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_CheckLoginName" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_CheckLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckLoginNameSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckCompanyNameSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_CheckCompanyName" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckCompanyNameSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_CheckCompanyNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_CheckCompanyNameSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="USER_RegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_Register" />
+  </wsdl:message>
+  <wsdl:message name="USER_RegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_RegisterSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="USER_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:USER_Login" />
+  </wsdl:message>
+  <wsdl:message name="USER_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:USER_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="USER_LoginSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="Index_OtherFinancial_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Index_OtherFinancial_Data" />
+  </wsdl:message>
+  <wsdl:message name="Index_OtherFinancial_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Index_OtherFinancial_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Index_OtherFinancial_DataSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="Index_ReferenceValue_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Index_ReferenceValue_Data" />
+  </wsdl:message>
+  <wsdl:message name="Index_ReferenceValue_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Index_ReferenceValue_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Index_ReferenceValue_DataSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="Investmentbank_Index_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Investmentbank_Index_Data" />
+  </wsdl:message>
+  <wsdl:message name="Investmentbank_Index_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Investmentbank_Index_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Investmentbank_Index_DataSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="Investmentbank_CWBB_DataSoapIn">
+    <wsdl:part name="parameters" element="tns:Investmentbank_CWBB_Data" />
+  </wsdl:message>
+  <wsdl:message name="Investmentbank_CWBB_DataSoapOut">
+    <wsdl:part name="parameters" element="tns:Investmentbank_CWBB_DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Investmentbank_CWBB_DataSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="ZTProject_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:ZTProject_List" />
+  </wsdl:message>
+  <wsdl:message name="ZTProject_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:ZTProject_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZTProject_ListSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="YIGZProject_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:YIGZProject_List" />
+  </wsdl:message>
+  <wsdl:message name="YIGZProject_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:YIGZProject_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="YIGZProject_ListSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="SZWTInitSoapIn">
+    <wsdl:part name="parameters" element="tns:SZWTInit" />
+  </wsdl:message>
+  <wsdl:message name="SZWTInitSoapOut">
+    <wsdl:part name="parameters" element="tns:SZWTInitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SZWTInitSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="JKSCInitSoapIn">
+    <wsdl:part name="parameters" element="tns:JKSCInit" />
+  </wsdl:message>
+  <wsdl:message name="JKSCInitSoapOut">
+    <wsdl:part name="parameters" element="tns:JKSCInitResponse" />
+  </wsdl:message>
+  <wsdl:message name="JKSCInitSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="THGZ_OpeSoapIn">
+    <wsdl:part name="parameters" element="tns:THGZ_Ope" />
+  </wsdl:message>
+  <wsdl:message name="THGZ_OpeSoapOut">
+    <wsdl:part name="parameters" element="tns:THGZ_OpeResponse" />
+  </wsdl:message>
+  <wsdl:message name="THGZ_OpeSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="TXProCondiInitSoapIn">
+    <wsdl:part name="parameters" element="tns:TXProCondiInit" />
+  </wsdl:message>
+  <wsdl:message name="TXProCondiInitSoapOut">
+    <wsdl:part name="parameters" element="tns:TXProCondiInitResponse" />
+  </wsdl:message>
+  <wsdl:message name="TXProCondiInitSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="TXProject_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:TXProject_List" />
+  </wsdl:message>
+  <wsdl:message name="TXProject_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:TXProject_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="TXProject_ListSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="gettradingSoapIn">
+    <wsdl:part name="parameters" element="tns:gettrading" />
+  </wsdl:message>
+  <wsdl:message name="gettradingSoapOut">
+    <wsdl:part name="parameters" element="tns:gettradingResponse" />
+  </wsdl:message>
+  <wsdl:message name="gettradingSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="getenterpriseSoapIn">
+    <wsdl:part name="parameters" element="tns:getenterprise" />
+  </wsdl:message>
+  <wsdl:message name="getenterpriseSoapOut">
+    <wsdl:part name="parameters" element="tns:getenterpriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="getenterpriseSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="FuFeiSoapIn">
+    <wsdl:part name="parameters" element="tns:FuFei" />
+  </wsdl:message>
+  <wsdl:message name="FuFeiSoapOut">
+    <wsdl:part name="parameters" element="tns:FuFeiResponse" />
+  </wsdl:message>
+  <wsdl:message name="FuFeiSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="THGZ_AddSoapIn">
+    <wsdl:part name="parameters" element="tns:THGZ_Add" />
+  </wsdl:message>
+  <wsdl:message name="THGZ_AddSoapOut">
+    <wsdl:part name="parameters" element="tns:THGZ_AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="THGZ_AddSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="JXProject_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:JXProject_List" />
+  </wsdl:message>
+  <wsdl:message name="JXProject_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:JXProject_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="JXProject_ListSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:message name="IsFuFeiSoapIn">
+    <wsdl:part name="parameters" element="tns:IsFuFei" />
+  </wsdl:message>
+  <wsdl:message name="IsFuFeiSoapOut">
+    <wsdl:part name="parameters" element="tns:IsFuFeiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsFuFeiSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
+  <wsdl:portType name="RDAIBServiceSoap">
+    <wsdl:operation name="USER_CheckLoginName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证用户名是否已存在</wsdl:documentation>
+      <wsdl:input message="tns:USER_CheckLoginNameSoapIn" />
+      <wsdl:output message="tns:USER_CheckLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USER_CheckCompanyName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证企业是否已存在</wsdl:documentation>
+      <wsdl:input message="tns:USER_CheckCompanyNameSoapIn" />
+      <wsdl:output message="tns:USER_CheckCompanyNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USER_Register">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">注册用户</wsdl:documentation>
+      <wsdl:input message="tns:USER_RegisterSoapIn" />
+      <wsdl:output message="tns:USER_RegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USER_Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">用户登录</wsdl:documentation>
+      <wsdl:input message="tns:USER_LoginSoapIn" />
+      <wsdl:output message="tns:USER_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Index_OtherFinancial_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业 综合实力、资产质量、现金流量 指标数据</wsdl:documentation>
+      <wsdl:input message="tns:Index_OtherFinancial_DataSoapIn" />
+      <wsdl:output message="tns:Index_OtherFinancial_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Index_ReferenceValue_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业财务指标参考值数据</wsdl:documentation>
+      <wsdl:input message="tns:Index_ReferenceValue_DataSoapIn" />
+      <wsdl:output message="tns:Index_ReferenceValue_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Investmentbank_Index_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">投行预警中心首页</wsdl:documentation>
+      <wsdl:input message="tns:Investmentbank_Index_DataSoapIn" />
+      <wsdl:output message="tns:Investmentbank_Index_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Investmentbank_CWBB_Data">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取投行企业风险预警 - 财务报表</wsdl:documentation>
+      <wsdl:input message="tns:Investmentbank_CWBB_DataSoapIn" />
+      <wsdl:output message="tns:Investmentbank_CWBB_DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZTProject_List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">在投项目数据列表</wsdl:documentation>
+      <wsdl:input message="tns:ZTProject_ListSoapIn" />
+      <wsdl:output message="tns:ZTProject_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YIGZProject_List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">关注项目数据列表</wsdl:documentation>
+      <wsdl:input message="tns:YIGZProject_ListSoapIn" />
+      <wsdl:output message="tns:YIGZProject_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SZWTInit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">申请委托页面选择监控类型初始化</wsdl:documentation>
+      <wsdl:input message="tns:SZWTInitSoapIn" />
+      <wsdl:output message="tns:SZWTInitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JKSCInit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">申请委托页面选择监控时长初始化</wsdl:documentation>
+      <wsdl:input message="tns:JKSCInitSoapIn" />
+      <wsdl:output message="tns:JKSCInitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="THGZ_Ope">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">申请委托操作</wsdl:documentation>
+      <wsdl:input message="tns:THGZ_OpeSoapIn" />
+      <wsdl:output message="tns:THGZ_OpeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TXProCondiInit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">挑选项目页面挑选条件初始化</wsdl:documentation>
+      <wsdl:input message="tns:TXProCondiInitSoapIn" />
+      <wsdl:output message="tns:TXProCondiInitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TXProject_List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">挑选项目页面数据查询</wsdl:documentation>
+      <wsdl:input message="tns:TXProject_ListSoapIn" />
+      <wsdl:output message="tns:TXProject_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gettrading">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据项目编号获得项目信息</wsdl:documentation>
+      <wsdl:input message="tns:gettradingSoapIn" />
+      <wsdl:output message="tns:gettradingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getenterprise">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据企业编号获得企业信息</wsdl:documentation>
+      <wsdl:input message="tns:getenterpriseSoapIn" />
+      <wsdl:output message="tns:getenterpriseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FuFei">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">付费</wsdl:documentation>
+      <wsdl:input message="tns:FuFeiSoapIn" />
+      <wsdl:output message="tns:FuFeiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="THGZ_Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加到关注项目</wsdl:documentation>
+      <wsdl:input message="tns:THGZ_AddSoapIn" />
+      <wsdl:output message="tns:THGZ_AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JXProject_List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">结项目数据列表</wsdl:documentation>
+      <wsdl:input message="tns:JXProject_ListSoapIn" />
+      <wsdl:output message="tns:JXProject_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFuFei">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">是否付费</wsdl:documentation>
+      <wsdl:input message="tns:IsFuFeiSoapIn" />
+      <wsdl:output message="tns:IsFuFeiSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RDAIBServiceSoap" type="tns:RDAIBServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="USER_CheckLoginName">
+      <soap:operation soapAction="RDAIBServiceSpace/USER_CheckLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_CheckLoginNameSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_CheckCompanyName">
+      <soap:operation soapAction="RDAIBServiceSpace/USER_CheckCompanyName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_CheckCompanyNameSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Register">
+      <soap:operation soapAction="RDAIBServiceSpace/USER_Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_RegisterSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Login">
+      <soap:operation soapAction="RDAIBServiceSpace/USER_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:USER_LoginSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_OtherFinancial_Data">
+      <soap:operation soapAction="RDAIBServiceSpace/Index_OtherFinancial_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Index_OtherFinancial_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_ReferenceValue_Data">
+      <soap:operation soapAction="RDAIBServiceSpace/Index_ReferenceValue_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Index_ReferenceValue_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Investmentbank_Index_Data">
+      <soap:operation soapAction="RDAIBServiceSpace/Investmentbank_Index_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Investmentbank_Index_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Investmentbank_CWBB_Data">
+      <soap:operation soapAction="RDAIBServiceSpace/Investmentbank_CWBB_Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Investmentbank_CWBB_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZTProject_List">
+      <soap:operation soapAction="RDAIBServiceSpace/ZTProject_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ZTProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YIGZProject_List">
+      <soap:operation soapAction="RDAIBServiceSpace/YIGZProject_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YIGZProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SZWTInit">
+      <soap:operation soapAction="RDAIBServiceSpace/SZWTInit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SZWTInitSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JKSCInit">
+      <soap:operation soapAction="RDAIBServiceSpace/JKSCInit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:JKSCInitSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="THGZ_Ope">
+      <soap:operation soapAction="RDAIBServiceSpace/THGZ_Ope" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:THGZ_OpeSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TXProCondiInit">
+      <soap:operation soapAction="RDAIBServiceSpace/TXProCondiInit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TXProCondiInitSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TXProject_List">
+      <soap:operation soapAction="RDAIBServiceSpace/TXProject_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TXProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettrading">
+      <soap:operation soapAction="RDAIBServiceSpace/gettrading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:gettradingSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getenterprise">
+      <soap:operation soapAction="RDAIBServiceSpace/getenterprise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getenterpriseSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FuFei">
+      <soap:operation soapAction="RDAIBServiceSpace/FuFei" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FuFeiSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="THGZ_Add">
+      <soap:operation soapAction="RDAIBServiceSpace/THGZ_Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:THGZ_AddSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JXProject_List">
+      <soap:operation soapAction="RDAIBServiceSpace/JXProject_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:JXProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFuFei">
+      <soap:operation soapAction="RDAIBServiceSpace/IsFuFei" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:IsFuFeiSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RDAIBServiceSoap12" type="tns:RDAIBServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="USER_CheckLoginName">
+      <soap12:operation soapAction="RDAIBServiceSpace/USER_CheckLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_CheckLoginNameSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_CheckCompanyName">
+      <soap12:operation soapAction="RDAIBServiceSpace/USER_CheckCompanyName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_CheckCompanyNameSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Register">
+      <soap12:operation soapAction="RDAIBServiceSpace/USER_Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_RegisterSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USER_Login">
+      <soap12:operation soapAction="RDAIBServiceSpace/USER_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:USER_LoginSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_OtherFinancial_Data">
+      <soap12:operation soapAction="RDAIBServiceSpace/Index_OtherFinancial_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Index_OtherFinancial_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Index_ReferenceValue_Data">
+      <soap12:operation soapAction="RDAIBServiceSpace/Index_ReferenceValue_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Index_ReferenceValue_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Investmentbank_Index_Data">
+      <soap12:operation soapAction="RDAIBServiceSpace/Investmentbank_Index_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Investmentbank_Index_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Investmentbank_CWBB_Data">
+      <soap12:operation soapAction="RDAIBServiceSpace/Investmentbank_CWBB_Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Investmentbank_CWBB_DataSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZTProject_List">
+      <soap12:operation soapAction="RDAIBServiceSpace/ZTProject_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ZTProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YIGZProject_List">
+      <soap12:operation soapAction="RDAIBServiceSpace/YIGZProject_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:YIGZProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SZWTInit">
+      <soap12:operation soapAction="RDAIBServiceSpace/SZWTInit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SZWTInitSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JKSCInit">
+      <soap12:operation soapAction="RDAIBServiceSpace/JKSCInit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:JKSCInitSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="THGZ_Ope">
+      <soap12:operation soapAction="RDAIBServiceSpace/THGZ_Ope" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:THGZ_OpeSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TXProCondiInit">
+      <soap12:operation soapAction="RDAIBServiceSpace/TXProCondiInit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TXProCondiInitSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TXProject_List">
+      <soap12:operation soapAction="RDAIBServiceSpace/TXProject_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TXProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettrading">
+      <soap12:operation soapAction="RDAIBServiceSpace/gettrading" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:gettradingSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getenterprise">
+      <soap12:operation soapAction="RDAIBServiceSpace/getenterprise" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getenterpriseSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FuFei">
+      <soap12:operation soapAction="RDAIBServiceSpace/FuFei" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:FuFeiSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="THGZ_Add">
+      <soap12:operation soapAction="RDAIBServiceSpace/THGZ_Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:THGZ_AddSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JXProject_List">
+      <soap12:operation soapAction="RDAIBServiceSpace/JXProject_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:JXProject_ListSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFuFei">
+      <soap12:operation soapAction="RDAIBServiceSpace/IsFuFei" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:IsFuFeiSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RDAIBService">
+    <wsdl:port name="RDAIBServiceSoap" binding="tns:RDAIBServiceSoap">
+      <soap:address location="http://192.168.1.9:6100/RDAIBService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RDAIBServiceSoap12" binding="tns:RDAIBServiceSoap12">
+      <soap12:address location="http://192.168.1.9:6100/RDAIBService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

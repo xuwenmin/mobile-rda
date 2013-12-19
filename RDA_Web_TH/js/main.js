@@ -8,17 +8,14 @@
 require.config({
     baseUrl: "js",
     paths:{
-        "zepto":"zepto.min",
         "underscore":"underscore.min",
         "iscroll":"iscroll",
         "ichart":"ichart.1.2.min",
         "base":"base",
         //子模块JS
-        "cwzb":"module/cwzb",//财务指标
-        "fxyj":"module/fxyj",//风险预警
+        "wdxm":"module/wdxm",//我的项目
         "index":"module/index",//首页
-        "cwbb":"module/cwbb", //财务报表
-        "rzgl":"module/rzgl", //融资管理
+        "fxyj":"module/fxyj", //预警中心
         "util":"module/util"    //公共
     },
     shim:{
@@ -28,14 +25,11 @@ require.config({
         "ichart":{
             exports:"iChart"
         },
-        "zepto":{
-            exports:"$"
-        },
         "underscore":{
             exports:"_"
         },
         "base":{
-           deps:["underscore","zepto","iscroll","ichart"] 
+           deps:["underscore","iscroll","ichart"] 
         }
     },
     // 处理js cache问题

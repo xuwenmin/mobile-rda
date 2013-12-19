@@ -32,5 +32,15 @@ namespace billrda.Properties {
                 return ((string)(this["billrda_RDA_RDAWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.1.9:6100/RDAIBService.asmx")]
+        public string billrda_RDA_TH_RDAIBService {
+            get {
+                return ((string)(this["billrda_RDA_TH_RDAIBService"]));
+            }
+        }
     }
 }

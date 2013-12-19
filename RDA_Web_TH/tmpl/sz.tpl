@@ -2,6 +2,7 @@
  <div class="head bgRed">
      <img from="index" class="pre" src="images/pre.png" alt="" />
      <h1>设置</h1>
+      <a href="#" class="next"></a>
  </div>
  <div class="content">
      <ul class="content_list">
@@ -58,7 +59,7 @@
         </li>
      </ul>
      <div class="loginfrm">
-        <a href="#" class="a_login">退出账户</a>
+        <a href="#" id="but_cancellogin" class="a_login">退出账户</a>
      </div>
  </div>
 

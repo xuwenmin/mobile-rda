@@ -1,5 +1,5 @@
-// 风险预警js功能模块.by xuwm
-define(["zepto","util","underscore"],function($,util,_){
+//预警中心功能模块.by xuwm
+define(["util","underscore"],function(util,_){
 	//风险预警--现金流量--现金到期债务比 图表
 	var createchart_fxyj_tb = function(hash) {
 		var _data=hash.para;
@@ -114,15 +114,40 @@ define(["zepto","util","underscore"],function($,util,_){
 	    }));*/
 	    chart.draw();
 	};
-	var $template='{{ for(var i=0;i<it.length;i++) { }}'+
-	'<li  name="li{{=it[i].code}}" to="fxyj_tb!/code={{=it[i].id}}" class="subli">'+
-                                '<a href="#fxyj_tb!/code={{=it[i].id}}" class="desc">'+
-                                    '{{=it[i].name}}<div class="list_next list_topright">'+
-                                    '<img src="images/a_right.png" alt="">'+
-                                '</div></a>'+
-                             '</li>'+
-                             '{{ } }}';
-    var $template_cwbb='{{ for(var i=0;i<it.length;i++) { }}'+
+	$template_index='{{ for(var i=0;i<it.length;i++) { }}'+
+	 '<li rel="li{{=i}}" class="hassub">'+
+             '<a href="#" class="desc">'+
+                 '{{=it[i].Name}}<div class="list_next list_topright">'+
+                 '<img src="images/a_down.png" alt="" class="imgdown">'+
+                 '<img src="images/a_top.png" alt="" class="imgtop">'+
+             '</div></a>'+
+         '<li name="li{{=i}}" class="subli">'+
+              '<a href="#" class="desc" to="yjzx_cwbb!/name={{=it[i].Name}}&ibdid={{=it[i].GroupID}}">'+
+                  '财务报表<em class="yuan">{{=it[i].CWBB}}</em><div class="list_next list_topright">'+
+                  '<img src="images/a_right.png" alt="">'+
+              '</div></a>'+
+          '</li>'+
+          '<li name="li{{=i}}"  class="subli">'+
+              '<a href="#" class="desc" to="yjzx_cwzb!/name={{=it[i].Name}}&ibdid={{=it[i].GroupID}}">'+
+                  '财务指标<em class="yuan">{{=it[i].CWZB}}</em><div class="list_next list_topright">'+
+                  '<img src="images/a_right.png" alt="">'+
+              '</div>'+
+              '</a>'+
+          '</li>'+
+          '<li name="li{{=i}}"  class="subli">'+
+                '<a href="#" class="desc">'+
+                    '网络巡检<em class="yuan">{{=it[i].WLXJ}}</em><div class="list_next list_topright">'+
+                    '<img src="images/a_right.png" alt="">'+
+                '</div>'+
+                '</a>'+
+          '</li>'+
+          '<li name="li{{=i}}"  class="subli">'+
+              '<a href="#" class="desc">'+
+                  '财务实时监控<span class="e-tip">{{=it[i].STATE}}</span>'+
+              '</a>'+
+        '</li>'+
+           '{{ } }}';
+ 	var $template_cwbb='{{ for(var i=0;i<it.length;i++) { }}'+
     ' <li  name="li{{=it[i].code}}" class="subli">'+
                              '<a href="#" class="desc">'+
                                  '<p class="pleft">{{=it[i].Name}}</p><div class="list_next list_topright list_right_content">'+
@@ -131,24 +156,55 @@ define(["zepto","util","underscore"],function($,util,_){
                              '</div></a>'+
                          '</li>'+
                          '{{ } }}';
-	var codeinfo={
-		//综合实力代码
-		1:"综合实力分析--经营能力",2:"综合实力分析--偿债能力--短期偿还",3:"综合实力分析--偿债能力--长期偿还",
-		4:"综合实力分析--获利能力",5:"综合实力分析--盈利质量--收入质量",6:"综合实力分析--盈利质量--利润质量",
-		7:"综合实力--发展潜力",
-		//资产质量代码
-		8:"资产质量--资产利用效率",
-		//现金流量代码
-		9:"现金流量分析_流动性分析",10:"现金流量--获取现金能力",11:"现金流量--现金保障能力"
-	};
-	//通过父级获取子级相关可用项
-	var _getsubitembycode=function(code,$this){
+    var $template='{{ for(var i=0;i<it.length;i++) { }}'+
+	'<li  name="li{{=it[i].code}}" to="yjzx_tb!/code={{=it[i].id}}&name={{=it[i].e_name}}&ibdid={{=it[i].e_ibdid}}" class="subli">'+
+                                '<a href="#yjzx_tb!/code={{=it[i].id}}&name={{=it[i].e_name}}&ibdid={{=it[i].e_ibdid}}" class="desc">'+
+                                    '{{=it[i].name}}<div class="list_next list_topright">'+
+                                    '<img src="images/a_right.png" alt="">'+
+                                '</div></a>'+
+                             '</li>'+
+                             '{{ } }}';
+	//预警首页信息
+	var _get_fxyj_inxex=function($this){
 		var result=[];
 		$.ajax({
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Index_OtherFinancial_Data",code:code,ibdid:util.getsysinfo().GroupID},
+			data:{
+				action:"Investmentbank_Index_Data",
+				ibdid:util.getsysinfo().GroupID,
+				userid:util.getsysinfo().userid
+			},
+			beforeSend:function(){
+				util.loadtip.show();
+			},
+			success:function(msg){
+				if(msg.Result){
+					msg.Data.table0 && msg.Data.table0.length && (function(){
+						result=_.map(msg.Data.table0,function(v){
+							return v;
+						});
+						console.log(result);
+						//开始填充模板
+						var doobj=doT.template($template_index);
+						$this.html(doobj(result));
+					}());
+				}
+				util.loadtip.hide();
+			},error:function(){
+				util.loadtip.hide();
+			}
+		});
+	};
+	//通过父级获取子级相关可用项
+	var _getsubitembycode=function(code,$this,hashobj){
+		var result=[];
+		$.ajax({
+			url:"getdata.aspx",
+			type:"get",
+			dataType:"json",
+			data:{action:"Index_OtherFinancial_Data",code:code,ibdid:hashobj._para.ibdid},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -193,6 +249,8 @@ define(["zepto","util","underscore"],function($,util,_){
 								v.codeinfo=argcode[0]["参考值说明__参考值含义"];
 								v.codedesc=argcode[0]["参考值说明__参考值说明"];
 								v.code=code;
+								v.e_name=hashobj._para.name;
+								v.e_ibdid=hashobj._para.ibdid;
 								return v;
 							});
 							//更新或者保存到localstorage里去
@@ -218,13 +276,13 @@ define(["zepto","util","underscore"],function($,util,_){
 		});
 	};
 	//通过风险预警的财务报表父类，获取子类信息
-	var _get_fxyj_cwbb=function(code,$this){
+	var _get_fxyj_cwbb=function(code,$this,hashobj){
 		var result=[];
 		$.ajax({
 			url:"getdata.aspx",
 			type:"get",
 			dataType:"json",
-			data:{action:"Risk_Report_Data",flag:code,ibdid:util.getsysinfo().GroupID},
+			data:{action:"Investmentbank_CWBB_Data",flag:code,ibdid:hashobj._para.ibdid},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
@@ -257,34 +315,14 @@ define(["zepto","util","underscore"],function($,util,_){
 			}
 		});
 	};
-	//获取风险预警统计相关信息
-	var _get_fxyj_tjinfo=function(){
-		$.ajax({
-			url:"getdata.aspx",
-			data:{action:"Risk_Count_Data",ibdid:util.getsysinfo().GroupID},
-			type:"get",
-			dataType:"json",
-			async:false,
-			success:function(msg){
-				if(msg.Result){
-					if(msg.Data.table0.length){
-						if("localStorage" in window){
-							window.localStorage["fxyj_index"]=JSON.stringify(msg.Data.table0[0]);
-						}
-					}
-				}				
-			    // console.log(msg);
-			}
-		});
-	};
 	return {
 		//统一创建风险预警图表信息
 		createchart_fxyj_tb:createchart_fxyj_tb,
+		//预警首页信息
+		get_fxyj_inxex:_get_fxyj_inxex,
 		//通过父级获取下面可用的子级，需要跟参考值进行对比
 		getsubitembycode:_getsubitembycode,
-		//获取风险预警首页，统计数量信息
-		get_fxyj_tjinfo:_get_fxyj_tjinfo,
-		//获取风险预警，财务报表信息
+		//财务报表
 		get_fxyj_cwbb:_get_fxyj_cwbb
 	}
 });

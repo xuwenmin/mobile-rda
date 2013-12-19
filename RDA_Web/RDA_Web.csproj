@@ -447,6 +447,8 @@
     <None Include="tmpl\cwzb.tpl" />
     <None Include="tmpl\cwzb_hbzj.tpl" />
     <None Include="tmpl\fxyj.tpl" />
+    <None Include="tmpl\fxyj_cwbb.tpl" />
+    <None Include="tmpl\fxyj_tb.tpl" />
     <None Include="tmpl\fxyj_xjll.tpl" />
     <None Include="tmpl\fxyj_zczl.tpl" />
     <Content Include="Web.config">
@@ -463,17 +465,25 @@
     <None Include="tmpl\login.tpl" />
     <None Include="tmpl\ly.tpl" />
     <None Include="tmpl\ly_fp.tpl" />
+    <None Include="tmpl\msg_desc.tpl" />
     <None Include="tmpl\mymsg.tpl" />
     <None Include="tmpl\rzgl.tpl" />
     <None Include="tmpl\rzgl_fbrzxx.tpl" />
     <None Include="tmpl\rzgl_fbrzxx_2.tpl" />
+    <None Include="tmpl\rzgl_list.tpl" />
+    <None Include="tmpl\rzgl_view.tpl" />
     <None Include="tmpl\ssxyzhpf.tpl" />
+    <None Include="tmpl\sz.tpl" />
+    <None Include="tmpl\sz_fontSize.tpl" />
+    <None Include="tmpl\sz_spsz.tpl" />
+    <None Include="tmpl\sz_yjfk.tpl" />
     <None Include="tmpl\xjll.tpl" />
     <None Include="tmpl\xypg.tpl" />
     <None Include="tmpl\xypg_xybg.tpl" />
     <None Include="tmpl\xypg_xybg_nd.tpl" />
     <None Include="tmpl\xypg_zxpg.tpl" />
     <None Include="tmpl\zcfz.tpl" />
+    <None Include="tmpl\zcfz_sub.tpl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

@@ -1,5 +1,5 @@
 // 风险预警js功能模块.by xuwm
-define(["zepto","util","underscore"],function($,util,_){
+define(["util","underscore"],function(util,_){
 	//风险预警--现金流量--现金到期债务比 图表
 	var createchart_fxyj_tb = function(hash) {
 		var _data=hash.para;

@@ -52,7 +52,7 @@
                              </div>
                              <div class="login_inputline">
                                  <div class="login_f1">
-                                     <div class="divwhite">
+                                     <div class="divwhite" id="div_autologin">
                                          <img class="hide" src="images/select.png" alt=""/>
                                      </div>
                                      <p>下次自动登录</p>
@@ -62,10 +62,10 @@
                                  </div>
 
                              </div>
-                             <a href="#" class="a_login">登录</a>
+                             <a href="#" class="a_login" id="but_login">登录</a>
                          </div>
-                         <hr>
-                         <div class="loginfrm">
+                         <hr class="hide">
+                         <div class="loginfrm hide">
                              <div class="login_inputline">
                                  <p>使用其它账户登录</p>
                              </div>

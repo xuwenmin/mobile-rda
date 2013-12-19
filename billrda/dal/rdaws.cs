@@ -13,10 +13,10 @@ namespace billrda.dal
         private static RDAWebService _rda;
         static rdaws(){
             _rda = new RDAWebService();
-            _rda.Url = ConfigurationManager.AppSettings["rdaservice"];
+            _rda.Url = ConfigurationManager.AppSettings["e_rdaservice"];
             SOAPHeaderHandle soap = new SOAPHeaderHandle();
-            soap.CurName = "ServiceUser@1120";
-            soap.CurPwd = "ServicePassword@1120";
+            soap.CurName = ConfigurationManager.AppSettings["e_soapname"];
+            soap.CurPwd = ConfigurationManager.AppSettings["e_soappwd"];
             _rda.SOAPHeaderHandleValue = soap; 
         }
         /// <summary>

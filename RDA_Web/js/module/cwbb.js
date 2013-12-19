@@ -1,5 +1,5 @@
 //财务报表相关操作js类
-define(["zepto","util","underscore"],function($,util,_){
+define(["util","underscore"],function(util,_){
 	//财务报表-现金流量中的li模板内容
 
 	var $template='{{ for(var i=0;i<it.length;i++) { }}'+

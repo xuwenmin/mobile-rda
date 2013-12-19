@@ -1,5 +1,5 @@
 <!-- 设置 字号大小 -->
- <div class="head bgRed">
+ <div class="head">
      <img from="sz" class="pre" src="images/pre.png" alt="" />
      <h1>字号大小</h1>
      <a href="#" class="next"></a>

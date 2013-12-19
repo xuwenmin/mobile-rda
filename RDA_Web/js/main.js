@@ -8,7 +8,6 @@
 require.config({
     baseUrl: "js",
     paths:{
-        "zepto":"zepto.min",
         "underscore":"underscore.min",
         "iscroll":"iscroll",
         "ichart":"ichart.1.2.min",
@@ -28,14 +27,11 @@ require.config({
         "ichart":{
             exports:"iChart"
         },
-        "zepto":{
-            exports:"$"
-        },
         "underscore":{
             exports:"_"
         },
         "base":{
-           deps:["underscore","zepto","iscroll","ichart"] 
+           deps:["underscore","iscroll","ichart"] 
         }
     },
     // 处理js cache问题

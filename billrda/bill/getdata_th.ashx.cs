@@ -1,0 +1,285 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Security.Cryptography;
+using System.Text;
+using billrda.dal;
+namespace billrda.bill
+{
+    /// <summary>
+    /// getdata 的摘要说明
+    /// </summary>
+    public class getdata_th : IHttpHandler
+    {
+
+        public void ProcessRequest(HttpContext context)
+        {
+            context.Response.ContentType = "text/json";
+            //获取请求的方法名
+            string method = context.Request["action"];         
+            switch (method) {
+                //查询风险预警父级下面的子项数据
+                case "Index_OtherFinancial_Data":
+                    Index_OtherFinancial_Data(context);
+                    break;
+                //用户登录
+                case "USER_Login":
+                    USER_Login(context);
+                    break;
+                //用户注册
+                case "USER_Register":
+                    USER_Register(context);
+                    break;
+                //在投项目列表
+                case "ZTProject_List":
+                    ZTProject_List(context);
+                    break;
+                //结项目列表数据
+                case "JXProject_List":
+                    JXProject_List(context);
+                    break;
+                //已关注项目列表
+                case "YIGZProject_List":
+                    YIGZProject_List(context);
+                    break;
+                //申请委托页面选择监控时长初始化
+                case "JKSCInit":
+                    JKSCInit(context);
+                    break;
+                //申请委托操作
+                case "THGZ_Ope":
+                    THGZ_Ope(context);
+                    break;
+                //投行预警中心首页
+                case "Investmentbank_Index_Data":
+                    Investmentbank_Index_Data(context);
+                    break;
+                //风险预警,财务报表
+                case "Investmentbank_CWBB_Data":
+                    Investmentbank_CWBB_Data(context);
+                    break;
+                //挑选项目页面挑选条件初始化 *
+                case "TXProCondiInit":
+                    TXProCondiInit(context);
+                    break;
+                //挑选项目页面数据查询 
+                case "TXProject_List":
+                    TXProject_List(context);
+                    break;
+                //申请委托页面选择监控类型初始化
+                case "SZWTInit":
+                    SZWTInit(context);
+                    break;
+            }
+            context.Response.Write("");
+        }
+        /// <summary>
+        /// 申请委托页面选择监控类型初始化
+        /// </summary>
+        /// <returns></returns>
+        public void SZWTInit(HttpContext context)
+        {
+            string result = string.Empty;
+            result = rdaws_th.SZWTInit();
+            context.Response.Write(result);
+        }
+        /// <summary>
+        ///挑选项目页面数据查询 
+        ///{GroupId:"IBD140",RZLX:"",SSHY:"",RZJE:"",BZ:"",RZSC:""}
+        /// </summary>
+        /// <param name="context"></param>
+        public void TXProject_List(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string enumdesc = HttpUtility.UrlDecode(context.Request["enumnam"]);
+            json = "{\"EnumName\":\"所属行业\"}";
+            result = rdaws_th.TXProject_List(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 挑选项目页面挑选条件初始化
+        /// {"EnumName":"所属行业"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void TXProCondiInit(HttpContext context)
+        {
+            string result = string.Empty;
+            string json = string.Empty;
+            string enumdesc = HttpUtility.UrlDecode(context.Request["enumnam"]);
+            json = "{\"EnumName\":\"所属行业\"}";
+            result = rdaws_th.TXProCondiInit(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 获取风险预警,财务报表相关的信息
+        ///{\"GroupID\":\"IBD116\",\"Flag\":\"0\"}
+        ///GroupID：企业Id,Flag：0 - 资产负债 1 - 现金流量 2 - 利润
+        /// </summary>
+        /// <param name="context"></param>
+        public void Investmentbank_CWBB_Data(HttpContext context)
+        {
+
+            string result = string.Empty;
+            string flag = context.Request["flag"];
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"Flag\":\"" + flag + "\"}";
+            result = rdaws_th.Investmentbank_CWBB_Data(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 投行预警中心首页
+        /// {'GroupID':'IBD001','UserID':1001'}
+        /// </summary>
+        /// <param name="context"></param>
+        public void Investmentbank_Index_Data(HttpContext context) {
+            string result = string.Empty;
+            string ibdid = context.Request["ibdid"];
+            string userid = context.Request["userid"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"UserID\":\"" + userid + "\"}";
+            result = rdaws_th.Investmentbank_Index_Data(json);
+            context.Response.Write(result); 
+        }
+        /// <summary>
+        /// 申请委托操作
+        /// {'QF':'zt','EquityId':'7e287b07-b3ab-4c25-b020-37d1d6d8b1a2','TYPS':'1;2;3;4','SC':'6','UserId':'1099'}
+        /// </summary>
+        /// <param name="context"></param>
+        public void THGZ_Ope(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string QF = context.Request["qf"];
+            string EquityId = context.Request["proid"];
+            string TYPS = context.Request["typs"];
+            string SC = context.Request["sc"];
+            string userid = context.Request["userid"];
+            json = "{'QF':'" + QF + "','EquityId':'" + EquityId + "','TYPS':'" + TYPS + "','SC':'" + SC + "','UserId':'" + userid + "'}";
+            result = rdaws_th.THGZ_Ope(json);
+            context.Response.Write(result); 
+        }
+        /// <summary>
+        /// 申请委托页面选择监控类型初始化
+        /// </summary>
+        /// <param name="context"></param>
+        public void JKSCInit(HttpContext context) {
+            string result = string.Empty;
+            result = rdaws_th.JKSCInit();
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 获取已关注项目列表数据
+        /// {"GroupId":"IBD140","UserId":"1099"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void YIGZProject_List(HttpContext context) {
+            string result = string.Empty;
+            string ibdid = context.Request["ibdid"];
+            string userid = context.Request["userid"];
+            string json = "{\"GroupId\":\"" + ibdid + "\",\"UserId\":\"" + userid + "\"}";
+            result = rdaws_th.YIGZProject_List(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 获取结项目列表数据
+        /// </summary>
+        /// <param name="context"></param>
+        public void JXProject_List(HttpContext context) {
+            string result = string.Empty;
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupId\":\"" + ibdid + "\"}";
+            result = rdaws_th.JXProject_List(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 获取在投项目列表数据
+        /// {"GroupId":"IBD140"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void ZTProject_List(HttpContext context) {
+            string result = string.Empty;
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupId\":\""+ibdid+"\"}";
+            result = rdaws_th.ZTProject_List(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 用户登录接口.by xuwm on 20131209
+        /// //{'UserName':'rdatest31','Password':'e10adc3949ba59abbe56e057f20f883e'}
+        /// </summary>
+        /// <param name="context"></param>
+        public void USER_Login(HttpContext context) {
+            
+            string result = string.Empty;
+            string username = HttpUtility.UrlDecode(context.Request["username"]);
+            string pwd = NewMD5(HttpUtility.UrlDecode(context.Request["pwd"]),"utf-8").ToLower();
+            string json = "{\"UserName\":\"" + username + "\",\"Password\":\""+pwd+"\"}";
+            result = rdaws_th.USER_Login(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 用户注册接口.by xuwm on 20131209
+        ///  //{'UserName':'rdatest31','Password':'e10adc3949ba59abbe56e057f20f883e','EtpName':'etp_rdatest31','Type':'1'} 
+        /// </summary>
+        /// <param name="context"></param>
+        public void USER_Register(HttpContext context) {
+           
+            string result = string.Empty;
+            string username = HttpUtility.UrlDecode(context.Request["username"]);
+            string pwd = NewMD5(HttpUtility.UrlDecode(context.Request["pwd"]),"utf-8").ToLower();
+            string etpname = HttpUtility.UrlDecode(context.Request["etpname"]);
+            string type = HttpUtility.UrlDecode(context.Request["type"]);
+            string json = "{\"UserName\":\""+username+"\",\"Password\":\""+pwd+"\",\"EtpName\":\""+etpname+"\",\"Type\":\""+type+"\"}";
+            result = rdaws_th.USER_Register(json);
+            context.Response.Write(result);
+        }
+        /// <summary>
+        /// 获取风险预警数据.by xuwm on 20131210
+        ///  //{\"GroupID\":\"IBD116\",\"Code\":\"1\"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void Index_OtherFinancial_Data(HttpContext context) {
+           
+            string result = string.Empty;
+
+            string iteminfo=string.Empty;//父类下面的所有子项
+            string codenumber=string.Empty;//父类下面子项的所有参考值
+
+            string code = context.Request["code"];
+            string ibdid = context.Request["ibdid"];
+            string json = "{\"GroupID\":\"" + ibdid + "\",\"Code\":" + code + "}";
+
+            string jsoncode="{\"Code\":\""+code+"\",\"Flag\":\"1\"}";
+
+            iteminfo = rdaws_th.Index_OtherFinancial_Data(json);
+            codenumber = rdaws_th.Index_ReferenceValue_Data(jsoncode);
+
+            result = "[" + iteminfo + "," + codenumber + "]";
+           
+            context.Response.Write(result);
+        }
+
+        /// <summary>
+        /// md5相关加密方法
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="charset"></param>
+        /// <returns></returns>
+        private string NewMD5(string source, string charset)
+        {
+            StringBuilder sb = new StringBuilder();
+            byte[] MD5Out = new MD5CryptoServiceProvider().ComputeHash(Encoding.GetEncoding(charset).GetBytes(source));
+            for (int i = 0; i < MD5Out.Length; i++)
+            {
+                sb.Append(MD5Out[i].ToString("x").PadLeft(2, char.Parse("0")));
+            }
+            return sb.ToString();
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+    }
+}

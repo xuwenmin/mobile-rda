@@ -407,7 +407,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             window.location.hash = "mymsg";
         });
         //绑定登录事件
-        $target.delegate(".a_login", touchevent, function(event) {
+        $target.delegate("#but_login", touchevent, function(event) {
             event.stopPropagation();
             event.preventDefault();
 
@@ -443,7 +443,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                                     if ("localStorage" in window) {
                                         window.localStorage["userinfo"] = JSON.stringify({
                                             groupid: msg.Data.table0[0].InfoList[0].GroupID,
-                                            userid: msg.Data.table0[0].InfoList[0].UserID
+                                            userid: msg.Data.table0[0].InfoList[0].UserID,
+                                            autologin:!$("#div_autologin").find("img").hasClass("hide")
                                         });
                                         // console.log(window.localStorage["userinfo"]);
                                     }
@@ -511,6 +512,8 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                                 alert("亲，企业名称被人抢了!");
                             } else if (msg.Data.table0[0].Flag == "10") {
                                 alert("亲，注册成功了");
+                            } else if(msg.Data.table0[0].Flag=="0"){
+                                alert("亲,用户名位数不能少于6位!")
                             } else {
                                 alert("亲，注册失败了!");
                             }
@@ -638,7 +641,17 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 }, 0)
             } else if (hashobj.hash == "bj") {
                 _.delay(function() {
-                    window.location.hash = "login";
+                    //此处检查是否自动登录
+                    var userinfo=window.localStorage["userinfo"] ? JSON.parse(localStorage["userinfo"]) : undefined;
+                    if(userinfo){
+                        if(userinfo.autologin){
+                            window.location.hash="index";
+                        }else{
+                            window.location.hash = "login";  
+                        }
+                    }else{
+                      window.location.hash = "login";  
+                    } 
                 }, 1000);
             }
 
@@ -716,6 +729,16 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             event.stopPropagation();
             event.preventDefault();
             rzgl.save();
+        });
+
+        //退出账户的时候，清除掉登录信息
+        $target.delegate("#but_cancellogin",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            if(confirm("是否退出当前登录?")){
+                window.localStorage.removeItem("userinfo");
+                window.location.hash="login";
+            }
         });
     };
     return {
