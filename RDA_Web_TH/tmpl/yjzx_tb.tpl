@@ -1,6 +1,6 @@
 <!-- 预警中心--通用--图表 -->
  <div class="head bgRed">
-                     <img from="{{=it.oldhash}}!/name={{=it.e_name}}&ibdid={{=it.ibdid}}" class="pre" src="images/pre.png" alt="">
+                     <img from="{{=it.oldhash}}!/name={{=it.e_name}}&ibdid={{=it.e_ibdid}}" class="pre" src="images/pre.png" alt="">
                      <h1>{{=it.name}}预警中心</h1>
                      <a href="#" class="next"></a>
                  </div>

@@ -296,6 +296,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Add_WTZ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_WTZResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Add_WTZResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="USER_CheckLoginNameSoapIn">
@@ -487,6 +501,15 @@
   <wsdl:message name="IsFuFeiSOAPHeaderHandleIB">
     <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
   </wsdl:message>
+  <wsdl:message name="Add_WTZSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_WTZ" />
+  </wsdl:message>
+  <wsdl:message name="Add_WTZSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_WTZResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_WTZSOAPHeaderHandleIB">
+    <wsdl:part name="SOAPHeaderHandleIB" element="tns:SOAPHeaderHandleIB" />
+  </wsdl:message>
   <wsdl:portType name="RDAIBServiceSoap">
     <wsdl:operation name="USER_CheckLoginName">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">验证用户名是否已存在</wsdl:documentation>
@@ -592,6 +615,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">是否付费</wsdl:documentation>
       <wsdl:input message="tns:IsFuFeiSoapIn" />
       <wsdl:output message="tns:IsFuFeiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_WTZ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">是否付费</wsdl:documentation>
+      <wsdl:input message="tns:Add_WTZSoapIn" />
+      <wsdl:output message="tns:Add_WTZSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RDAIBServiceSoap" type="tns:RDAIBServiceSoap">
@@ -806,6 +834,16 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Add_WTZ">
+      <soap:operation soapAction="RDAIBServiceSpace/Add_WTZ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Add_WTZSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RDAIBServiceSoap12" type="tns:RDAIBServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1014,6 +1052,16 @@
       <wsdl:input>
         <soap12:body use="literal" />
         <soap12:header message="tns:IsFuFeiSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_WTZ">
+      <soap12:operation soapAction="RDAIBServiceSpace/Add_WTZ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Add_WTZSOAPHeaderHandleIB" part="SOAPHeaderHandleIB" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />

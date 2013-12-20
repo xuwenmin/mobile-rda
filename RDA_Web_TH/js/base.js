@@ -1,9 +1,9 @@
-define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
+define(["util", "index","wdxm","fxyj","txxm"], function(util, index,wdxm,fxyj,txxm) {
     var _init = function() {
         console.log("if have some problem,please call me 151481184@qq.com,tks!")
         var $target = $(".main1");
         var curx = 0;
-        var curwidth, touchevent, curmodel, isgo, oldhash;
+        var curwidth, touchevent, curmodel, isgo, oldhash,prehash;
         var hashobj = {}; //hash对象,保存hash和传的参数信息
         //iscroll滚动条初始化
         var myScroll;
@@ -45,11 +45,11 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
             var result = hash.match(reg);
             hashobj = {}; //清空hash对象
             if (result) {
+                var _obj = {};
+                var _oldobj = {};
                 if (result[2]) {
                     hashobj.hash = result[2];
                     var _para = result[3];
-                    var _obj = {};
-                    var _oldobj = {};
                     var _args = _para.split('&');
                     for (var i = 0; i < _args.length; i++) {
                         var ss = _args[i].split('=');
@@ -74,6 +74,12 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
                 },
                 success: function(msg) {
                     var dotobj = doT.template(msg);
+                    if(hashobj.hash=="wdxm" || hashobj.hash=="txxm" || hashobj.hash=="wtjk_sqwtjk"){
+                        prehash=hashobj.hash;
+                    }
+                    if(prehash){
+                        _obj.prehash=prehash; 
+                    }
                     if(hashobj.hash=="wdxm_ztxm_sqwt_tp1"){
                         _obj.sqtypedesc= _obj.qf=="zt" ? "在投项目" :"关注项目";
                         _obj.gohash=_obj.qf=="zt" ? "wdxm_ztxm" :"wdxm_gzxm";
@@ -133,10 +139,10 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
         $target.delegate(".pre[from]", touchevent, function(event) {
             event.stopPropagation();
             event.preventDefault();
-            // 此处检查假如是发布获取所属行业时，不应该返回到上一页，只用切换显示隐藏即可
-            if(hashobj.hash.indexOf("rzgl_fbrzxx")>-1){
-                if($("#rzgl_rzxx_sub")[0].style.display=="block"){
-                    $("#sel_rzsshy").trigger(touchevent);
+            // 此处检查假如是挑选项目时，不应该返回到上一页，只用切换显示隐藏即可
+            if(hashobj.hash=="txxm_txtj"){
+                if($("#txxm_sshy")[0].style.display=="block"){
+                    $("#txxm_sshy_ok").trigger(touchevent);
                     return false;
                 }
             }
@@ -304,8 +310,7 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
                     });
                     if (existarg.length) {
                         //假如是同一种类型，则检查是否超过5个
-                        if (rz_sslx1.length >= 3) {
-                            alert("亲,只能选择一个值!");
+                        if (rz_sslx1.length >= 5) {
                             //然后去掉此项的勾
                             $obj.addClass("hide");
                         } else {
@@ -315,7 +320,6 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
                             }
                         }
                     } else {
-                         alert("亲,只能选择一个值!");
                         $obj.addClass("hide");
                     }
                 } else {
@@ -562,6 +566,38 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
                     wdxm.get_sqwt_tp($("#sqwt_tp"));
                 },0);
             }
+            if(hashobj.hash=="txxm_txtj"){
+                //挑选项目页面enum初始化
+                 window.localStorage.removeItem("sqwt_tp");
+                _.delay(function(){
+                    txxm.initenum($("#ul_enum_rzlx"),$("#ul_enum_rzrmb"),$("#ul_enum_rzje"),$("#ul_enum_rzsc"),$("#txxm_sshy"));
+                },0);
+            }
+            if(hashobj.hash=="txxm_txtj_sslb"){
+                //查询挑选项目
+                 _.delay(function(){
+                    txxm.query_txxm($("#txxm_querylist"));
+                },0);
+            }
+            if(hashobj.hash=="txxm_xmjj"){
+                //查询项目简介
+                 _.delay(function(){
+                    txxm.gettrading(hashobj,$("#txxm_pro_desc"));
+                },0);
+            }
+            if(hashobj.hash=="txxm_xmxq"){
+                //查看项目详细页面
+                _.delay(function(){
+                    txxm.getallinfo(hashobj,$("#xmxx_pro"),$("#xmxx_e"));
+                },0)
+            }
+            /*  if(hashobj.hash=="txxm_txtj_ck"){
+                //挑选项目--所属行业初始化
+                window.localStorage.removeItem("sqwt_tp");
+                 _.delay(function(){
+                    txxm.initenum_sshy($("#txxm_sshy"));
+                },0);
+            }*/
 
 
             //效果做玩之后,再执行下面的check
@@ -595,78 +631,10 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
 
             isend = false;
 
-            //更新年份和月份的数据
-            if (hashobj._para) {
-                if (hashobj._para.year) {
-                    $(".selyear").val(hashobj._para.year);
-                    $(".selmonth").val(hashobj._para.month);
-                }
-            }
-
 
         });
 
-        //绑定当前选择的年和月
-        $target.delegate(".selyear", "change", function(event) {
-            var dateinfo = localStorage["dateinfo"] ? JSON.parse(localStorage["dateinfo"]) : {};
-            dateinfo.year = $(this).val();
-            localStorage["dateinfo"] = JSON.stringify(dateinfo);
-            //此处检查是否触动自动更新
-            if (util.isautoupdate(hashobj.hash)) {
-                if (hashobj.hash == "cwzb_hbzj") {
-                    cwzb.getcwzbdata(hashobj);
-                }
-                if (hashobj.hash == "zcfz") {
-                    cwbb.getcwbb_zcfz_upindex($("#container_tmpl"));
-                }
-                if (hashobj.hash == "zcfz_sub") {
-                    cwbb.getcwbb_zcfz_upsub(hashobj, $("#ul_zcfz"));
-                }
-                if (hashobj.hash == "xjll") {
-                //开始获取现金流量信息
-                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_CashFlow_Data");
-                };
-                if (hashobj.hash == "ly") {
-                    //开始获取现金流量信息
-                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_Profit_Data");
-                };
-
-            }
-        });
-        $target.delegate(".selmonth", "change", function(event) {
-            var dateinfo = localStorage["dateinfo"] ? JSON.parse(localStorage["dateinfo"]) : {};
-            dateinfo.month = $(this).val();
-            localStorage["dateinfo"] = JSON.stringify(dateinfo);
-            //此处检查是否触动自动更新
-            if (util.isautoupdate(hashobj.hash)) {
-                if (hashobj.hash == "cwzb_hbzj") {
-                    cwzb.getcwzbdata(hashobj);
-                }
-                if (hashobj.hash == "zcfz") {
-                    cwbb.getcwbb_zcfz_upindex($("#container_tmpl"));
-                }
-                if (hashobj.hash == "zcfz_sub") {
-                    cwbb.getcwbb_zcfz_upsub(hashobj, $("#ul_zcfz"));
-                }
-                if (hashobj.hash == "xjll") {
-                //开始获取现金流量信息
-                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_CashFlow_Data");
-                };
-                if (hashobj.hash == "ly") {
-                    //开始获取现金流量信息
-                    cwbb.getcwbb_byfid(0, $("#ul_cwbb"), "Report_Profit_Data");
-                };
-            }
-
-        });
         
-        //保存融资发布信息
-        $target.delegate("#rzgl_save",touchevent,function(event){
-            event.stopPropagation();
-            event.preventDefault();
-            rzgl.save();
-        });
-
         //退出账户的时候，清除掉登录信息
         $target.delegate("#but_cancellogin",touchevent,function(e){
             e.stopPropagation();
@@ -674,6 +642,116 @@ define(["util", "index","wdxm","fxyj"], function(util, index,wdxm,fxyj) {
             if(confirm("是否退出当前登录?")){
                 window.localStorage.removeItem("userinfo");
                 window.location.hash="login";
+            }
+        });
+
+        //申请委托时，添加当前用户到委托者列表
+        $target.delegate("a.addsqwtz",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            var val=$(this).attr("data-val");
+            var qf=val.split(',')[0];
+            var proid=val.split(',')[1];
+            wdxm.action_addwtz(qf,proid,$(this));
+        });
+
+        //所属行业，切换所属行业
+        $target.delegate("li.li_txxm_sshy",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            $("#txxm_txtj_main").hide();
+            $("#txxm_index_h").hide();
+            $("#txxm_sshy").show();
+            $("#txxm_sshy_ok").show();
+            $("#txxm_sshy_h").show();
+        });
+        //选中所属行业中的确定按钮
+        $target.delegate("#txxm_sshy_ok",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            var result=window.localStorage["sqwt_tp"] ? JSON.parse(window.localStorage["sqwt_tp"]) : undefined;
+            if(result){
+                var data_desc=[];
+                var data_val=[];
+                _.each(result,function(v){
+                    data_desc.push(v.split('_')[2]);
+                    data_val.push(v.split('_')[1]);
+                });
+                $("#a_sshy_val").attr("data-val",data_val.join(','));
+                $("#a_sshy_val").html(data_desc.join(','));//赋值选好的所属行业
+            }
+            $("#txxm_txtj_main").show();
+             $("#txxm_index_h").show();
+            $("#txxm_sshy").hide();
+            $("#txxm_sshy_ok").hide();
+             $("#txxm_sshy_h").hide();
+        });
+        //挑选项目，根据条件查询项目信息
+        $target.delegate("#txxm_query",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            window.localStorage.removeItem("txxm_query");//先清空条件
+            //RZLX:"",SSHY:"",RZJE:"",BZ:"",RZSC:""
+            var RZLX=[],SSHY=[],RZJE=[],BZ=[],RZSC=[];
+            //融资类型
+            $("#ul_enum_rzlx").find(".divwhite").each(function(){
+                if(!$(this).find("img").hasClass("hide")){
+                    RZLX.push($(this).attr("data-val"));
+                }
+            });
+            //融资金额
+            $("#ul_enum_rzje").find(".divwhite").each(function(){
+                if(!$(this).find("img").hasClass("hide")){
+                    RZJE.push($(this).attr("data-val"));
+                }
+            });
+            //币种
+            $("#ul_enum_rzrmb").find(".divwhite").each(function(){
+                if(!$(this).find("img").hasClass("hide")){
+                    BZ.push($(this).attr("data-val"));
+                }
+            });
+            //融资时长
+            $("#ul_enum_rzsc").find(".divwhite").each(function(){
+                if(!$(this).find("img").hasClass("hide")){
+                    RZSC.push($(this).attr("data-val"));
+                }
+            });
+            //所属行业
+            SSHY=$("#a_sshy_val").attr("data-val") ? $("#a_sshy_val").attr("data-val").split(','):[];
+            
+            var txxm_query={
+                RZLX:RZLX,SSHY:SSHY,RZJE:RZJE,BZ:BZ,RZSC:RZSC
+            };
+            //将条件保存到本地存储中
+            window.localStorage["txxm_query"]=JSON.stringify(txxm_query);
+            window.location.hash="txxm_txtj_sslb";
+        });
+        //查看详细按钮绑定事件
+        $target.delegate("#txxm_view",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            if(txxm.isfufei(hashobj)){
+                //如果已经付费，则跳到查看详细页面
+                 window.location.hash="txxm_xmxq!/ibdid="+hashobj._para.ibdid+"&proid="+hashobj._para.proid; 
+            }
+            else{
+                if(confirm("此为付费项目，需要付费才能查看!")){
+                    //调用付费接口，成功则跳到查看详细页面
+                    if(txxm.fufei(hashobj)){
+                        window.location.hash="txxm_xmxq!/ibdid="+hashobj._para.ibdid+"&proid="+hashobj._para.proid;   
+                    }else{
+                        alert("付费失败！");
+                    }
+                }
+            }
+        });
+        //已关注按钮绑定事件
+        $target.delegate("#txxm_gzxm",touchevent,function(e){
+            e.stopPropagation();
+            e.preventDefault(); 
+            if(txxm.addgzxm(hashobj)){
+               alert("已成功添加已关注列表中!"); 
             }
         });
     };

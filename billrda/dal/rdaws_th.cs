@@ -132,5 +132,54 @@ namespace billrda.dal
         public static string TXProject_List(string json) {
             return _rda.TXProject_List(json);
         }
+        /// <summary>
+        /// 根据项目编号获得项目信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string gettrading(string json) {
+            return _rda.gettrading(json);
+        }
+        /// <summary>
+        /// 根据企业编号获得项目信息
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string getenterprise(string json) {
+            return _rda.getenterprise(json);
+        }
+        /// <summary>
+        /// 付费
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string FuFei(string json) {
+            return _rda.FuFei(json);
+        }
+        /// <summary>
+        /// 添加到关注项目列表
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string THGZ_Add(string json) {
+            return _rda.THGZ_Add(json);
+        }
+        /// <summary>
+        /// 是否付费
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string IsFuFei(string json) {
+            return _rda.IsFuFei(json);
+        }
+        /// <summary>
+        /// 改在投项目或关注项目某条记录委托者，"1092,1091,1099"
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string Add_WTZ(string json) {
+            return _rda.Add_WTZ(json);
+        }
+
     }
 }

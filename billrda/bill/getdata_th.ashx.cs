@@ -70,9 +70,120 @@ namespace billrda.bill
                 case "SZWTInit":
                     SZWTInit(context);
                     break;
+                //根据项目编号获得项目信息
+                case "gettrading":
+                    gettrading(context);
+                    break;
+                //根据企业编号获得项目信息
+                case "getenterprise":
+                    getenterprise(context);
+                    break;
+                //付费
+                case "FuFei":
+                    FuFei(context);
+                    break;
+                //添加到关注项目列表
+                case "THGZ_Add":
+                    THGZ_Add(context);
+                    break;
+                //是否付费
+                case "IsFuFei":
+                    IsFuFei(context);
+                    break;
+                //修改在投项目或关注项目某条记录委托者
+                case "Add_WTZ":
+                    Add_WTZ(context);
+                    break;
             }
             context.Response.Write("");
         }
+        /// <summary>
+        /// 根据项目编号获得项目信息
+        /// {EquityId:"0caa8e82-947a-4f52-bc6d-e21d8fa13631"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void gettrading(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string EquityId = context.Request["proid"];
+            json = "{\"EquityId\":\"" + EquityId + "\"}";
+            result = rdaws_th.gettrading(json);
+            context.Response.Write(result);   
+        }
+        /// <summary>
+        /// 根据企业编号获得项目信息
+        /// {EgroupId:"IBD101"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void getenterprise(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string EgroupId = context.Request["e_ibdid"];
+            json = "{\"EgroupId\":\"" + EgroupId + "\"}";
+            result = rdaws_th.getenterprise(json);
+            context.Response.Write(result);   
+        }
+        /// <summary>
+        /// 付费
+        /// {GroupId:"IBD140",EgroupId:"IBD101",EquityId:"0caa8e82-947a-4f52-bc6d-e21d8fa13631"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void FuFei(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string EquityId = context.Request["proid"];
+            string GroupId = context.Request["ibdid"];
+            string EgroupId = context.Request["e_ibdid"];
+            json = "{\"GroupId\":\"" + GroupId + "\",\"EgroupId\":\"" + EgroupId + "\",\"EquityId\":\"" + EquityId + "\"}";
+            result = rdaws_th.FuFei(json);
+            context.Response.Write(result);  
+        }
+        /// <summary>
+        /// 添加到关注项目列表
+        /// {GroupId:"IBD140",EgroupId:"IBD101",EquityId:"0caa8e82-947a-4f52-bc6d-e21d8fa13631",UserId:"1099"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void THGZ_Add(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string EquityId = context.Request["proid"];
+            string GroupId = context.Request["ibdid"];
+            string userid = context.Request["userid"];
+            string EgroupId = context.Request["e_ibdid"];
+            json = "{\"GroupId\":\"" + GroupId + "\",\"EgroupId\":\"" + EgroupId + "\",\"EquityId\":\"" + EquityId + "\",\"UserId\":\"" + userid + "\"}";
+            result = rdaws_th.THGZ_Add(json);
+            context.Response.Write(result); 
+        }
+        /// <summary>
+        /// 是否付费
+        /// {GroupId:"IBD140",EquityId:"0caa8e82-947a-4f52-bc6d-e21d8fa13631"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void IsFuFei(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string EquityId = context.Request["proid"];
+            string GroupId = context.Request["ibdid"];
+            json = "{\"GroupId\":\"" + GroupId + "\",\"EquityId\":\"" + EquityId + "\"}";
+            result = rdaws_th.IsFuFei(json);
+            context.Response.Write(result); 
+        }
+        /// <summary>
+        /// 修改在投项目或关注项目某条记录委托者
+        /// {QF:"zt","UserId":"1099",EquityId:"0caa8e82-947a-4f52-bc6d-e21d8fa13631"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void Add_WTZ(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string QF = context.Request["qf"];
+            string EquityId = context.Request["proid"];
+            string userid = context.Request["userid"];
+            json = "{\"QF\":\"" + QF + "\",\"UserId\":\"" + userid + "\",\"EquityId\":\"" + EquityId + "\"}";
+            result = rdaws_th.Add_WTZ(json);
+            context.Response.Write(result); 
+        }
+
         /// <summary>
         /// 申请委托页面选择监控类型初始化
         /// </summary>
@@ -91,8 +202,13 @@ namespace billrda.bill
         public void TXProject_List(HttpContext context) {
             string result = string.Empty;
             string json = string.Empty;
-            string enumdesc = HttpUtility.UrlDecode(context.Request["enumnam"]);
-            json = "{\"EnumName\":\"所属行业\"}";
+            string ibdid = context.Request["ibdid"];
+            string RZLX = context.Request["RZLX"];
+            string SSHY = context.Request["SSHY"];
+            string RZJE = context.Request["RZJE"];
+            string BZ = context.Request["BZ"];
+            string RZSC = context.Request["RZSC"];
+            json = "{\"GroupId\":\"" + ibdid + "\",\"RZLX\":\"" + RZLX + "\",\"SSHY\":\"" + SSHY + "\",\"RZJE\":\"" + RZJE + "\",\"BZ\":\"" + BZ + "\",\"RZSC\":\"" + RZSC + "\"}";
             result = rdaws_th.TXProject_List(json);
             context.Response.Write(result);
         }
@@ -105,8 +221,8 @@ namespace billrda.bill
         {
             string result = string.Empty;
             string json = string.Empty;
-            string enumdesc = HttpUtility.UrlDecode(context.Request["enumnam"]);
-            json = "{\"EnumName\":\"所属行业\"}";
+            string enumdesc = HttpUtility.UrlDecode(context.Request["enumname"]);
+            json = "{\"EnumName\":\"" + enumdesc + "\"}";
             result = rdaws_th.TXProCondiInit(json);
             context.Response.Write(result);
         }
@@ -191,12 +307,14 @@ namespace billrda.bill
         }
         /// <summary>
         /// 获取在投项目列表数据
+        /// 增加了一个userid 20131220
         /// {"GroupId":"IBD140"}
         /// </summary>
         /// <param name="context"></param>
         public void ZTProject_List(HttpContext context) {
             string result = string.Empty;
             string ibdid = context.Request["ibdid"];
+            string userid = context.Request["userid"];
             string json = "{\"GroupId\":\""+ibdid+"\"}";
             result = rdaws_th.ZTProject_List(json);
             context.Response.Write(result);

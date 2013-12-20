@@ -73,6 +73,8 @@ namespace billrda.RDA_TH {
         
         private System.Threading.SendOrPostCallback IsFuFeiOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Add_WTZOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -182,6 +184,9 @@ namespace billrda.RDA_TH {
         
         /// <remarks/>
         public event IsFuFeiCompletedEventHandler IsFuFeiCompleted;
+        
+        /// <remarks/>
+        public event Add_WTZCompletedEventHandler Add_WTZCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleIBValue")]
@@ -810,6 +815,36 @@ namespace billrda.RDA_TH {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleIBValue")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("RDAIBServiceSpace/Add_WTZ", RequestNamespace="RDAIBServiceSpace", ResponseNamespace="RDAIBServiceSpace", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string Add_WTZ(string param) {
+            object[] results = this.Invoke("Add_WTZ", new object[] {
+                        param});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Add_WTZAsync(string param) {
+            this.Add_WTZAsync(param, null);
+        }
+        
+        /// <remarks/>
+        public void Add_WTZAsync(string param, object userState) {
+            if ((this.Add_WTZOperationCompleted == null)) {
+                this.Add_WTZOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdd_WTZOperationCompleted);
+            }
+            this.InvokeAsync("Add_WTZ", new object[] {
+                        param}, this.Add_WTZOperationCompleted, userState);
+        }
+        
+        private void OnAdd_WTZOperationCompleted(object arg) {
+            if ((this.Add_WTZCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Add_WTZCompleted(this, new Add_WTZCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1408,6 +1443,32 @@ namespace billrda.RDA_TH {
         private object[] results;
         
         internal IsFuFeiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void Add_WTZCompletedEventHandler(object sender, Add_WTZCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Add_WTZCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Add_WTZCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

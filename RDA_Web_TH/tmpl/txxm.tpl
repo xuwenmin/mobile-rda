@@ -16,7 +16,7 @@
          </li>
          <!--已关注项目-->
          <li>
-             <a  to="txxm_gzxm_ckxq" s href="#" class="desc">
+             <a  to="wdxm_gzxm" s href="#" class="desc">
                  <img src="images/txxm_list_icon.png" alt="" class="icon" />
                  已关注项目<div class="list_next list_topright">
                  <img src="images/a_right.png" alt="" />

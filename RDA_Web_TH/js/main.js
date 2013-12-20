@@ -16,6 +16,7 @@ require.config({
         "wdxm":"module/wdxm",//我的项目
         "index":"module/index",//首页
         "fxyj":"module/fxyj", //预警中心
+        "txxm":"module/txxm",//挑选项目
         "util":"module/util"    //公共
     },
     shim:{

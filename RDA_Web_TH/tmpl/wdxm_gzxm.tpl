@@ -1,6 +1,6 @@
 <!-- 我的项目--关注项目 -->
  <div class="head bgRed">
-     <img from="wdxm" class="pre" src="images/pre.png" alt="">
+     <img from="{{=it.prehash}}" class="pre" src="images/pre.png" alt="">
      <h1>关注项目</h1>
      <img class="pre" id="img_setting" src="images/top_menu.png" alt="" />
 </div>

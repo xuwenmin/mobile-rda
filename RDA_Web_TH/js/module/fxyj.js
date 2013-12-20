@@ -185,7 +185,7 @@ define(["util","underscore"],function(util,_){
 						result=_.map(msg.Data.table0,function(v){
 							return v;
 						});
-						console.log(result);
+						// console.log(result);
 						//开始填充模板
 						var doobj=doT.template($template_index);
 						$this.html(doobj(result));

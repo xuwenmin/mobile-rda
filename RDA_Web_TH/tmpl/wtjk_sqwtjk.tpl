@@ -7,16 +7,16 @@
  <div class="content">
      <ul class="content_list">
          <!--在投项目-->
-         <li to="wtjk_sqwtjk_ztxm">
-             <a href="#wtjk_sqwtjk_ztxm" class="desc">
+         <li to="wdxm_ztxm">
+             <a href="#wdxm_ztxm" class="desc">
                  <img src="images/wtjk_list_icon.png" alt="" class="icon" />
                  在投项目<div class="list_next list_topright">
                  <img src="images/a_right.png" alt="" />
              </div></a>
          </li>
          <!--关注项目-->
-         <li to="wtjk_sqwtjk_gzxm">
-             <a href="#wtjk_sqwtjk_gzxm" class="desc">
+         <li to="wdxm_gzxm">
+             <a href="#wdxm_gzxm" class="desc">
                  <img src="images/wtjk_list_icon.png" alt="" class="icon" />
                  关注项目<div class="list_next list_topright">
                  <img src="images/a_right.png" alt="" />

@@ -752,4 +752,12 @@ input::-webkit-input-placeholder{
 .content #sqwt_tp.content_list{
     text-align: left;
 }
+.content .content_list.ultxtleft{
+    text-align: left;
+}
+
+.wrapper .content div.e-txxm-btn{
+    position: relative;
+    padding: 20px 0;
+}
 

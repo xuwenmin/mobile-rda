@@ -15,7 +15,15 @@ define(["util","underscore"],function(util,_){
             '<p><span class="e-type">所属行业：</span>{{=it[i].sshy}}</p>'+
             '<p><span class="e-type">融资金额：</span>￥{{=it[i].rzjestart}}-{{=it[i].rzjeend}}</p>'+
             '<p><span class="e-type e-cg">关注度：</span><span class="e-c3">{{=it[i].gjd}} 点击率：{{=it[i].djl}}次</span> <span class="e-date e-c3">{{=it[i].timestart}}</span></p>'+
-            '<p class="e-tl"><a href="#" class="e-sqwt" to="wdxm_ztxm_sqwt_tp1!/qf=zt&proid={{=it[i].proid}}&sc={{=it[i].sc}}">申请委托</a></p>'+
+            '<p class="e-tl">'+
+            '{{ if(!it[i].iswt) { }}'+
+            '<a href="#" class="e-sqwt" to="wdxm_ztxm_sqwt_tp1!/qf=zt&proid={{=it[i].proid}}&sc={{=it[i].sc}}">'+
+             '{{  } else if (it[i].iswt && it[i].iscontains) {  }}'+
+              '<a href="#" class="e-sqwt e-sqwt-disable">'+
+              '{{  } else if (it[i].iswt && !it[i].iscontains) {  }}'+
+               '<a href="#" class="e-sqwt addsqwtz" data-val="{{=it[i].qf}},{{=it[i].proid}}" >'+
+                '{{  } }}'+
+            '申请委托</a></p>'+
          '</div>'+
            '{{ } }}';
     //结项目列表模板
@@ -46,7 +54,15 @@ define(["util","underscore"],function(util,_){
             '<p><span class="e-type">融资类型：</span>{{=it[i].rzlx}}</p>'+
             '<p><span class="e-type">所属行业：</span>{{=it[i].sshy}}</p>'+
             '<p><span class="e-type">融资金额：</span>￥{{=it[i].rzjestart}}-{{=it[i].rzjeend}}</p>'+
-            '<p class="e-tl"><a href="#" to="wdxm_ztxm_sqwt_tp1!/qf=qt&proid={{=it[i].proid}}&sc={{=it[i].sc}}" class="e-sqwt">申请委托</a></p>'+
+            '<p class="e-tl">'+
+           '{{ if(!it[i].iswt) { }}'+
+            '<a href="#" class="e-sqwt" to="wdxm_ztxm_sqwt_tp1!/qf=zt&proid={{=it[i].proid}}&sc={{=it[i].sc}}">'+
+             '{{  } else if (it[i].iswt && it[i].iscontains) {  }}'+
+              '<a href="#" class="e-sqwt e-sqwt-disable">'+
+              '{{  } else if (it[i].iswt && !it[i].iscontains) {  }}'+
+               '<a href="#" class="e-sqwt addsqwtz" data-val="{{=it[i].qf}},{{=it[i].proid}}" >'+
+                '{{  } }}'+
+            '申请委托</a></p>'+
          '</div>'+
          '{{ } }}';
     	//所属行业enum模板 
@@ -91,7 +107,8 @@ define(["util","underscore"],function(util,_){
 			dataType:"json",
 			data:{
 				action:"ZTProject_List",
-				ibdid:util.getsysinfo().GroupID
+				ibdid:util.getsysinfo().GroupID,
+				userid:util.getsysinfo().userid
 			},
 			beforeSend:function(){
 				util.loadtip.show();
@@ -110,8 +127,17 @@ define(["util","underscore"],function(util,_){
 							v.djl=v["在投项目信息__点击率"];
 							v.gjd=parseInt(v.djl)>200 ? "高" :"低";
 							v.timestart=v["在投项目信息__发布时间"];
+							v.qf="zt";
+							v.iswt=(+v["在投项目信息__委托状态"])>0 ? true :false;
+							if(!!v["在投项目信息__委托者"]){
+								v.iscontains=_.contains(v["在投项目信息__委托者"].split(','),util.getsysinfo().userid);
+							}else{
+								v.iscontains=false;
+							}
+							
 							return v;
 						});
+						// console.log(result);
 						//开始填充模板
 						var doobj=doT.template($template);
 						$this.html(doobj(result));
@@ -138,7 +164,7 @@ define(["util","underscore"],function(util,_){
 				util.loadtip.show();
 			},
 			success:function(msg){
-				console.log(msg);
+				// console.log(msg);
 				if(msg.Result){
 					msg.Data.table0 && msg.Data.table0.length && (function(){
 						result=_.map(msg.Data.table0,function(v){
@@ -177,7 +203,7 @@ define(["util","underscore"],function(util,_){
 				util.loadtip.show();
 			},
 			success:function(msg){
-				console.log(msg);
+				// console.log(msg);
 				if(msg.Result){
 					msg.Data.table0 && msg.Data.table0.length && (function(){
 						result=_.map(msg.Data.table0,function(v){
@@ -188,9 +214,17 @@ define(["util","underscore"],function(util,_){
 							v.sshy=v["_项目信息__所属行业_"];
 							v.rzjeend=v["AMOUNT_FINANCING_Y"];
 							v.rzjestart=v["AMOUNT_FINANCING_C"];
+							v.qf="gt";
+							v.iswt=(+v["ThisTHIsWeiTuo"])>0 ? true :false;
+							if(!!v["WTZ"]){
+								v.iscontains=_.contains(v["WTZ"].split(','),util.getsysinfo().userid);
+							}else{
+								v.iscontains=false;
+							}
+
 							return v;
 						});
-						console.log(result);
+						// console.log(result);
 						//开始填充模板
 						var doobj=doT.template($template_gz);
 						$this.html(doobj(result));
@@ -216,7 +250,7 @@ define(["util","underscore"],function(util,_){
 			},
 			success:function(msg){
 				msg=eval("("+msg+")");
-				console.log(msg);
+				// console.log(msg);
 				if(msg.Result){
 					msg.Data.table0 && msg.Data.table0.length && (function(){
 						result=_.map(msg.Data.table0[0].DataContent,function(v){
@@ -227,7 +261,7 @@ define(["util","underscore"],function(util,_){
 							}
 							return v;
 						});
-						console.log(result);
+						// console.log(result);
 						//开始填充模板
 						var doobj=doT.template($template_sqwt_tp);
 						$this.html(doobj(result));
@@ -289,11 +323,53 @@ define(["util","underscore"],function(util,_){
 			}
 		});
 	};
+
+	//添加当前用户到委托者列表
+	var _action_addwtz=function(qf,proid,$this){
+
+		$.ajax({
+			url:"getdata.aspx",
+			type:"get",
+			dataType:"json",
+			data:{
+				action:"Add_WTZ",
+				qf:qf,
+				proid:proid,
+				userid:util.getsysinfo().userid
+			},
+			beforeSend:function(){
+				util.loadtip.show();
+			},
+			success:function(msg){
+				if(msg.Result){
+					msg.Data && msg.Data.table0 && msg.Data.table0.length && (function(){
+						if(msg.Data.table0[0].msg=="1"){
+							alert(msg.Data.table0[0].msgbox);
+							$this.removeClass("addsqwtz").addClass("e-sqwt-disable");
+						}else{
+							alert(msg.Data.table0[0].msgbox);
+						}
+					}());
+				}
+				util.loadtip.hide();
+			},
+			error:function(){
+				util.loadtip.hide();
+			}
+		});
+	}
 	return {
+		//在投项目列表
 		get_wdxm_ztxm:_get_wdxm_ztxm,
+		//结项项目列表
 		get_wdxm_jxxm:_get_wdxm_jxxm,
+		//关注项目列表
 		get_wdxm_ygjxm:_get_wdxm_ygjxm,
+		//获取申请委托监控类型
 		get_sqwt_tp:_get_sqwt_tp,
-		action_sqwt:_action_sqwt
+		//申请委托操作
+		action_sqwt:_action_sqwt,
+		//添加委托者到已委托人员列表中
+		action_addwtz:_action_addwtz
 	}
 });
