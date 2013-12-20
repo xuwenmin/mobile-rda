@@ -202,6 +202,9 @@ define(["util", "index","wdxm","fxyj","txxm"], function(util, index,wdxm,fxyj,tx
                 else if (hashobj.hash == "yjzx_zczl") {
                     fxyj.getsubitembycode(code, $(this),hashobj);
                 }
+                else if (hashobj.hash == "yjzx_xjll") {
+                    fxyj.getsubitembycode(code, $(this),hashobj);
+                }
             }
         });
 

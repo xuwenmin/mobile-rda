@@ -24,7 +24,7 @@
              </a>
          </li>
 
-         <li rel="li2"   class="hassub">
+         <li rel="li2" to="yjzx_xjll!/name={{=it.name}}&ibdid={{=it.ibdid}}"   class="hassub">
              <a href="#" class="desc">
                  <img src="images/zxpg.png" alt="" class="icon">
                  现金流量

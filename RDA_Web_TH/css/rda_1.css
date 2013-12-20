@@ -537,6 +537,7 @@ input::-webkit-input-placeholder{
 }
 .wrapper .content  .content_list li a .list_right_content p.pred{
     color: red;
+    font-size: 15px;
 }
 .wrapper .content  .content_list li a .list_right_content p.p12{
     font-size: 12px;
@@ -546,6 +547,7 @@ input::-webkit-input-placeholder{
     float: left;
     padding: 0;
     width: 40%;
+    font-size: 15px;
 }
 .wrapper .content .content_list .subli a p.pleft_up{
     width: 85%;
