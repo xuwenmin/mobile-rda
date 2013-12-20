@@ -301,7 +301,8 @@ namespace billrda.bill
         public void JXProject_List(HttpContext context) {
             string result = string.Empty;
             string ibdid = context.Request["ibdid"];
-            string json = "{\"GroupId\":\"" + ibdid + "\"}";
+            string userid = context.Request["userid"];
+            string json = "{\"GroupId\":\"" + ibdid + "\",\"UserId\":\"" + userid + "\"}";
             result = rdaws_th.JXProject_List(json);
             context.Response.Write(result);
         }
@@ -315,7 +316,7 @@ namespace billrda.bill
             string result = string.Empty;
             string ibdid = context.Request["ibdid"];
             string userid = context.Request["userid"];
-            string json = "{\"GroupId\":\""+ibdid+"\"}";
+            string json = "{\"GroupId\":\"" + ibdid + "\",\"UserId\":\"" + userid + "\"}";
             result = rdaws_th.ZTProject_List(json);
             context.Response.Write(result);
         }

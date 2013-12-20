@@ -7,8 +7,8 @@
                  <div class="content">
                      <div class="loginfrm logintab">
                          <div class="tabdiv RedL">
+                            <a href="#" class="active">会员登录</a>
                              <a href="#">用户注册</a>
-                             <a href="#" class="active">会员登录</a>
                          </div>
                      </div>
                      <div class="div_register hide">

@@ -617,7 +617,7 @@
       <wsdl:output message="tns:IsFuFeiSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Add_WTZ">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">是否付费</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改在投项目或关注项目某条记录委托者</wsdl:documentation>
       <wsdl:input message="tns:Add_WTZSoapIn" />
       <wsdl:output message="tns:Add_WTZSoapOut" />
     </wsdl:operation>

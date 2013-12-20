@@ -158,13 +158,14 @@ define(["util","underscore"],function(util,_){
 			dataType:"json",
 			data:{
 				action:"JXProject_List",
-				ibdid:util.getsysinfo().GroupID
+				ibdid:util.getsysinfo().GroupID,
+				userid:util.getsysinfo().userid
 			},
 			beforeSend:function(){
 				util.loadtip.show();
 			},
 			success:function(msg){
-				// console.log(msg);
+				console.log(msg);
 				if(msg.Result){
 					msg.Data.table0 && msg.Data.table0.length && (function(){
 						result=_.map(msg.Data.table0,function(v){
