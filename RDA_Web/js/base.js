@@ -104,7 +104,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                     }
                     if(hashobj.hash=="rzgl_view"){
                         _obj=rzgl.getrzgl_desc(hashobj._para.id);
-                        console.log(_obj);
+                        // console.log(_obj);
                     }
 
                     hashobj.para = _obj;
@@ -377,7 +377,11 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             event.preventDefault();
             //开始保存这一步的数据
             if(rzgl.saverzgl_2()){
-               window.location.hash = "rzgl_fbrzxx"; 
+              if(hashobj._para && hashobj._para.id){
+                 window.location.hash = "rzgl_fbrzxx!/id="+hashobj._para.id; 
+               }else{
+                 window.location.hash = "rzgl_fbrzxx"; 
+               }
             }               
         });
         //绑定下一步事件
@@ -388,7 +392,12 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             if (val) {
                 //开始保存这一步的数据
                 if(rzgl.saverzgl_1()){
-                   window.location.hash = "rzgl_fbrzxx_2"; 
+                   if(hashobj._para && hashobj._para.id){
+                     window.location.hash = "rzgl_fbrzxx_2!/id="+hashobj._para.id; 
+                   }else{
+                     window.location.hash = "rzgl_fbrzxx_2"; 
+                   }
+                  
                 }               
             } else {
                 util.popwindow.show("pop1");
@@ -615,7 +624,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
             if (hashobj.hash == "rzgl_fbrzxx") {
                 // rzgl.getrzgl_enum("2");
                 //初始化发布信息融资第一步的enum信息
-                rzgl.initenum1();
+                rzgl.initenum1(hashobj);
             }
             if(hashobj.hash=="rzgl_fbrzxx_2"){
                 rzgl.initenum2();
@@ -728,7 +737,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
         $target.delegate("#rzgl_save",touchevent,function(event){
             event.stopPropagation();
             event.preventDefault();
-            rzgl.save();
+            rzgl.save(hashobj);
         });
 
         //退出账户的时候，清除掉登录信息

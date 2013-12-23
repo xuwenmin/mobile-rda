@@ -18,7 +18,11 @@ define(["util", "underscore"], function(util, _) {
 		'<div class="list_next list_topright list_right_content">' +
 		'<p class="pred">' +
 		'<button to="rzgl_view!/id={{=it[i].id}}" data-type="view" class="rzbutton normal">查看</button>' +
+		'{{ if(it[i].isupdate) { }}'+
+		'<button data-id="{{=it[i].id}}" to="rzgl_fbrzxx!/id={{=it[i].id}}" data-type="edit" class="rzbutton">编辑</button>' +
+		'{{ } else { }}'+
 		'<button data-id="{{=it[i].id}}" data-type="edit" class="rzbutton disable">编辑</button>' +
+		'{{ } }}'+
 		'</p>' +
 		'</div>' +
 		'</a>' +
@@ -95,18 +99,19 @@ define(["util", "underscore"], function(util, _) {
 							v.name=v["项目信息__标题"];
 							v.time=v["项目信息__发布时间"];
 							v.busybook=v["项目信息__商业计划书"];
-							v.sshy=v["项目信息__所属行业"];
+							v.sshy=v["_项目信息__所属行业_"];
 							v.mobile=v["项目信息__手机号"];
 							v.phonearea=v["项目信息__电话区号"];
 							v.phone=v["项目信息__电话号码"];
 							v.phonebranch=v["项目信息__电话号码分机"];
-							v.rzrmb=v["项目信息__融资币种"];
-							v.rzsc=v["项目信息__融资时长"];
-							v.rzlx=v["项目信息__融资类型"];
-							v.moneybegin=v["项目信息__融资金额始"];
-							v.moneyend=v["项目信息__融资金额起"];
+							v.rzrmb=v["_项目信息__融资币种_"];
+							v.rzsc=v["_项目信息__融资时长_"];
+							v.rzlx=v["_项目信息__融资类型_"];
+							v.moneybegin=v["项目信息__融资金额起"];
+							v.moneyend=v["项目信息__融资金额始"];
 							v.email=v["项目信息__邮箱"];
 							v.lxy=v["项目信息__项目联系人"];
+
 							return v;
 						}))[0];
 					}());
@@ -138,8 +143,10 @@ define(["util", "underscore"], function(util, _) {
 							//此处可以把参考值的相关信息加进去
 							v.time = v["项目信息__发布时间"];
 							v.title = v["项目信息__标题"];
-							v.status = v["项目信息__融资状态"];
+							//0 =信息已保存,1=信息已发布,2=融资已成功,4=信息已过期
+							v.status = v["项目信息__融资状态"]==0 ? "信息已保存" :(v["项目信息__融资状态"]==1 ? "信息已发布" : (v["项目信息__融资状态"]==2 ? "融资已成功" : "信息已过期"));
 							v.id = v["项目信息__项目编号"];
+							v.isupdate=v["项目信息__融资状态"]!=4 ? true :false;
 							return v;
 						});
 					}
@@ -291,7 +298,15 @@ define(["util", "underscore"], function(util, _) {
 		}	
 	};
 	//初始化enum信息
-	var _initrzgl_enum = function() {
+	var _initrzgl_enum = function(hashobj) {
+		if( hashobj._para && hashobj._para.id){
+			//如果项目id不为空，则是编辑状态
+			var _result=_getrzgl_desc(hashobj._para.id);
+			//开始给用于第一步和第二步的本地存储赋值
+			// console.log(_result);
+			_displayrzxx_edit(_result,hashobj._para.id);
+
+		}
 
 		//开始回显数据，只有从上一步过来的才能回显数据
 		_display_rzgl1();
@@ -363,6 +378,89 @@ define(["util", "underscore"], function(util, _) {
 		return true;
 		//r_projectname,rzgl_rzlx,rzgl_sshy,rzgl_sc,rzgl_rmb,r_moneystart,r_moneyend
 	};
+
+	//回显要修改的融资信息
+	var _displayrzxx_edit=function(_r,proid){
+
+		//保存第一步的数据
+		var GroupID = util.getsysinfo().GroupID; //企业id
+		var UserID = util.getsysinfo().userid;
+		var ProjectName = _r.name; //项目名称
+		var Category = _r["项目信息__融资类型"]; //融资类型
+		var Category_desc=_r.rzlx;
+		var Trade = _r["项目信息__所属行业"]; //所属行业
+		var Trade_desc=_r.sshy;
+		var RZSC = _r["项目信息__融资时长"]; //融资时长
+		var RZSC_desc=_r.rzsc;
+		var Currency = _r["项目信息__融资币种"]; //融资币种
+		var Currency_desc=_r.rzrmb;
+		var MoneyBegin = _r.moneybegin; //融资金额起
+		var MoneyEnd = _r.moneyend; //融资金额始
+		var data = {
+			"GroupID": GroupID,
+			"UserID": UserID,
+			"ProjectName":ProjectName, 
+			"Category":{
+				k:Category,
+				v:Category_desc
+			},
+			"Trade":{
+				k:Trade,
+				v:Trade_desc
+			},
+			"RZSC":{
+				k:RZSC,
+				v:RZSC_desc
+			},
+			"Currency":{
+				k:Currency,
+				v:Currency_desc
+			},
+			"MoneyBegin":MoneyBegin,
+			"MoneyEnd":MoneyEnd,
+			//项目ID，有的话，则是编辑
+			"proid":proid
+		}
+		window.localStorage["rzgl_1"]=JSON.stringify(data);
+
+		//保存第二步的数据
+		var e_r=JSON.parse(window.localStorage["e_baseinfo"]);
+
+		var Ename = e_r["E_基本信息__Name"]; //企业名称
+		var EType = e_r["E_基本信息__EType"]; //企业性质
+		var EType_desc=e_r["_E_基本信息__EType_"];
+		var Industry = e_r["E_基本信息__Industry"]; //所属行业
+		var Industry_desc=e_r["_E_基本信息__Industry_"];
+		var SalesCurrency = e_r["E_基本信息__SalesCurrency"]; //年销售额币种
+		var SalesCurrency_desc=e_r["_E_基本信息__SalesCurrency_"];
+		var Park = e_r["E_基本信息__Park"]; //所属园区
+		var Sales = e_r["E_基本信息__Sales"]; //年销售额
+		var PhoneArea= _r["项目信息__电话区号"],
+		Phone= _r["项目信息__电话号码"],
+		PhoneFJ= _r["项目信息__电话号码分机"];
+
+		var LXR=_r["项目信息__项目联系人"]; //联系人
+		var MPhone=_r.mobile;//联系电话
+		var Email=_r["项目信息__邮箱"];//邮箱
+
+		var _data = {
+			"EType":{
+				k:EType,
+				v:EType_desc
+			},
+			"Industry":{
+				k:Industry,
+				v:Industry_desc
+			},
+			"SalesCurrency":{
+				k:SalesCurrency,
+				v:SalesCurrency_desc
+			},
+			"Ename":Ename,"Park":Park,"Sales":Sales,"PhoneArea":PhoneArea,"Phone":Phone,"PhoneFJ":PhoneFJ,
+			"LXR":LXR,"MPhone":MPhone,"Email":Email
+		}
+		window.localStorage["rzgl_2"]=JSON.stringify(_data);
+	}
 	var _saverzgl_2 = function() {
 		//LXR：联系人,MPhone:手机号码,PhoneArea:座机区号,Phone:座机号码,PhoneFJ:分机号码，Email：电子邮箱
 		//EType：企业性质，Industry：所属行业，Sales：年销售额，SalesCurrency：年销售额币种，Park：所属园区
@@ -403,7 +501,7 @@ define(["util", "underscore"], function(util, _) {
 		return true;
 	}
 	//保存发布信息
-	var _save=function(){
+	var _save=function(hashobj){
 		//先从本地取第一步保存的信息
 		//获取第二步要写的信息
 		_saverzgl_2();
@@ -413,6 +511,9 @@ define(["util", "underscore"], function(util, _) {
 			action:"Trading_Edit",
 		};
 		data=_.extend(data,onedata,twodata);
+		if(hashobj._para && hashobj._para.id){
+			data.proid=hashobj._para.id;
+		}
 		//去掉里面enum的描述，只要enum id信息
 		for(var i in data){
 			if(data[i].k){
@@ -436,7 +537,7 @@ define(["util", "underscore"], function(util, _) {
 						if(msg.Data.table0.length){
 							if(msg.Data.table0[0].Flag=="2"){
 								alert("亲，发布融资项目成功!");
-								window.location.hash="rzgl";
+								window.location.hash="rzgl_list";
 							}
 						}
 					}

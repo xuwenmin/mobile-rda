@@ -1,6 +1,6 @@
 <!-- 融资管理--发布融资信息-第二步  -->
                 <div class="head">
-                     <img from="rzgl_fbrzxx" class="pre" src="images/pre.png" alt="">
+                     <img from="rzgl_fbrzxx!/id={{=it.id}}" class="pre" src="images/pre.png" alt="">
                      <h1>融资管理</h1>
                      <a href="#" class="next"></a>
                  </div>

@@ -288,11 +288,25 @@ namespace billrda.bill
             string Sales = context.Request["Sales"];
             string SalesCurrency = context.Request["SalesCurrency"];
             string Park = context.Request["Park"];
-            string json = "{\"GroupID\":\""+GroupID+"\",\"UserID\":\""+UserID+"\",\"ProjectName\":\""+ProjectName+"\",\"Category\":\""+Category+"\",\"Trade\":\""+Trade+"\","+
-         "\"MoneyBegin\":"+MoneyBegin+",\"MoneyEnd\":"+MoneyEnd+",\"Currency\":"+Currency+",\"RZSC\":"+RZSC+","+
-        "\"LXR\":\""+LXR+"\",\"MPhone\":\""+MPhone+"\",\"PhoneArea\":\""+PhoneArea+"\",\"Phone\":\""+Phone+"\",\"PhoneFJ\":\""+PhoneFJ+"\","+
-        "\"Email\":\""+Email+"\",\"EType\":"+EType+",\"Industry\":\""+Industry+"\",\"Sales\":"+Sales+",\"SalesCurrency\":"+SalesCurrency+",\"Park\":\""+Park+"\"} ";
 
+            string json = string.Empty;
+            
+            if (!string.IsNullOrEmpty(context.Request["proid"]))
+            {
+                //ProjectID
+                //编辑融资信息 update
+                json = "{\"ProjectID\":\"" + context.Request["proid"] + "\",\"GroupID\":\"" + GroupID + "\",\"UserID\":\"" + UserID + "\",\"ProjectName\":\"" + ProjectName + "\",\"Category\":\"" + Category + "\",\"Trade\":\"" + Trade + "\"," +
+         "\"MoneyBegin\":" + MoneyBegin + ",\"MoneyEnd\":" + MoneyEnd + ",\"Currency\":" + Currency + ",\"RZSC\":" + RZSC + "," +
+        "\"LXR\":\"" + LXR + "\",\"MPhone\":\"" + MPhone + "\",\"PhoneArea\":\"" + PhoneArea + "\",\"Phone\":\"" + Phone + "\",\"PhoneFJ\":\"" + PhoneFJ + "\"," +
+        "\"Email\":\"" + Email + "\",\"EType\":" + EType + ",\"Industry\":\"" + Industry + "\",\"Sales\":" + Sales + ",\"SalesCurrency\":" + SalesCurrency + ",\"Park\":\"" + Park + "\"} ";
+            }
+            else {
+                //发布融资信息 add
+                json = "{\"GroupID\":\"" + GroupID + "\",\"UserID\":\"" + UserID + "\",\"ProjectName\":\"" + ProjectName + "\",\"Category\":\"" + Category + "\",\"Trade\":\"" + Trade + "\"," +
+                         "\"MoneyBegin\":" + MoneyBegin + ",\"MoneyEnd\":" + MoneyEnd + ",\"Currency\":" + Currency + ",\"RZSC\":" + RZSC + "," +
+                        "\"LXR\":\"" + LXR + "\",\"MPhone\":\"" + MPhone + "\",\"PhoneArea\":\"" + PhoneArea + "\",\"Phone\":\"" + Phone + "\",\"PhoneFJ\":\"" + PhoneFJ + "\"," +
+                        "\"Email\":\"" + Email + "\",\"EType\":" + EType + ",\"Industry\":\"" + Industry + "\",\"Sales\":" + Sales + ",\"SalesCurrency\":" + SalesCurrency + ",\"Park\":\"" + Park + "\"} ";
+            }
             result = rdaws.Trading_Edit(json);
 
             context.Response.Write(result);

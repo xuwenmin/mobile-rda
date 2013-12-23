@@ -23,24 +23,30 @@
                         <div to="zcfz_sub!/fid={{=it[0].typeid}}" class="f1 qmcenter">
                             <div class="item_desc item_desc_w100">
                                 <img src="images/zcicon.png" alt=""/>
-                                <p>{{=it[0].truename}}</p>
                                 <p>{{=it[0].Money}}</p>
+                            </div>
+                            <div class="item_desc_name">
+                                 <p>{{=it[0].truename}}</p>
                             </div>
                         </div>
                         <!--负债-->
                         <div to="zcfz_sub!/fid={{=it[1].typeid}}" class="r1 qmcenter">
                             <div class="item_desc item_desc_w100">
                                 <img src="images/fzicon.png" alt=""/>
-                                <p>{{=it[1].truename}}</p>
                                 <p>{{=it[1].Money}}</p>
+                            </div>
+                             <div class="item_desc_name">
+                                 <p>{{=it[1].truename}}</p>
                             </div>
                         </div>
                         <!--所有者权益-->
                         <div to="zcfz_sub!/fid={{=it[2].typeid}}" class="r1 r2 qmcenter">
                             <div class="item_desc item_desc_w100">
                                 <img src="images/syzqyicon.png" alt=""/>
-                                <p>{{=it[2].truename}}</p>
                                 <p>{{=it[2].Money}}</p>
+                            </div>
+                             <div class="item_desc_name">
+                                 <p>{{=it[2].truename}}</p>
                             </div>
                         </div>
                     </div>

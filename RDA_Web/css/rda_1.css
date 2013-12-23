@@ -700,12 +700,7 @@ input::-webkit-input-placeholder{
 .wrapper .head .h1_index{
     width: 83%;
 }
-/*消息正文样式*/
-.wrapper .content .content_list .msgdesc{
-    vertical-align: middle;
-    width: 97%;
-    position: relative;
-}
+
 
 .wrapper .content .content_list li.subli {
     border: 1px solid #eee;
@@ -749,3 +744,35 @@ input::-webkit-input-placeholder{
     background-color: #e04d4d;
 }
 
+/*消息正文样式*/
+.wrapper .content .content_list li.msgli{
+    height: auto;
+    padding: 10px;
+}
+.wrapper .content .content_list .msgdesc{
+    vertical-align: middle;
+    width: 97%;
+    position: relative;
+    display: inline-block;
+   
+}
+.wrapper .content .content_list .msgdesc p.pleft{
+    float: left;
+    font-size: 18px;
+    line-height: 23px;
+    color: #666;
+}
+.wrapper .content .content_list .msgdesc .imgright{
+    float: right;
+    width: 30px;
+    height: 30px;
+    max-width: 100%;
+}
+.wrapper .content .content_list .msgdesc .msginfo{
+    margin-top: 10px;
+    clear: both;
+    text-indent: 50px;
+    color: #333;
+    font-size: 18px;
+    line-height: 23px;
+}

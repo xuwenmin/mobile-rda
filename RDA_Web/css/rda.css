@@ -308,6 +308,7 @@
             background-color:greenyellow;
         }
        .wrapper .content .subitem .f1{
+           position: relative;
            float: left;
            height: 100%;
            width: 50%;
@@ -317,6 +318,7 @@
            border-right: 10px solid #fff;
        }
        .wrapper .content .subitem .r1{
+          position: relative;
            height:50%;
            width: 50%;
            -webkit-box-sizing: border-box;
@@ -326,6 +328,7 @@
            border-bottom: 10px solid #fff;
        }
        .wrapper .content .subitem .r2{
+           position: relative;
            border-bottom: 0;
            background-color: #Fbb033;
        }
@@ -338,6 +341,17 @@
            height: 54px;
        }
        .wrapper .content .subitem .item_desc p{
+           color: #fff;
+           font-size: 16px;
+           line-height: 20px;
+       }
+       /*资产中的文字放在块的左下角*/
+       .wrapper .content .subitem .item_desc_name{
+           position: absolute;
+           left: 5px;
+           bottom: 5px;
+       }
+       .wrapper .content .subitem .item_desc_name p{
            color: #fff;
            font-size: 16px;
            line-height: 20px;
