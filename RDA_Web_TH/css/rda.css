@@ -147,19 +147,19 @@
        .wrapper .head em.yuan{
            position: absolute;
            /*display: block;*/
-           width: 20px;
-           height: 20px;
+           width: 25px;
+           height: 15px;
            background-color: #ff3000;
-           border-radius: 10px;
+           border-radius: 5px;
            border: 1px solid #fff;
            font-size: 12px;
-           line-height:20px;
+           line-height:15px;
            -webkit-box-sizing: border-box;
            box-sizing: border-box;
            text-align: center;
            color: white;
            font-style: normal;
-           top: 5px;
+           top: 9px;
            right: 3px;
        }
         /*内容页中小圆图标*/
@@ -167,11 +167,11 @@
            position: absolute;
            /*display: block;*/
            width: 30px;
-           height: 30px;
+           height: 15px;
            background-color: #ff3000;
-           border-radius: 15px;
+           border-radius: 10px;
            font-size: 12px;
-           line-height:30px;
+           line-height:15px;
            -webkit-box-sizing: border-box;
            box-sizing: border-box;
            text-align: center;
@@ -267,7 +267,7 @@
         /*列表项内容为行块*/
         .wrapper .content .content_list li a{
             color: #000;
-            font-size:18px;
+            font-size:16px;
             display:inline-block;
             vertical-align: middle;
             width: 97%;

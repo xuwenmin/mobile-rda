@@ -8,8 +8,8 @@
 
                      <ul class="content_list">
                          <!--银行-->
-                         <li to="msg_desc!/title=银行">
-                             <a href="#msg_desc!/title=银行" class="desc">
+                         <li to="msg_desc!/title={{=encodeURIComponent('企业')}}">
+                             <a href="#msg_desc!/title={{=encodeURIComponent('企业')}}" class="desc">
                                  <img src="images/mymsg.png" alt="" class="icon">
                                  银行<em class="yuan">3</em><div class="list_next list_topright">
                                  <img src="images/a_right.png" alt="">

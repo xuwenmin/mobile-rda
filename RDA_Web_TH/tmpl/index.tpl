@@ -1,6 +1,7 @@
 <!-- 主页 -->
                             <div class="head bgRed">
-                                <img class="pre pre_index" id="img_setting" src="images/top_menu.png" alt="">
+                                <a class="pre pre_index" href="#"></a>
+                                <!-- <img class="pre pre_index" id="img_setting" src="images/top_menu.png" alt=""> -->
                                 <h1 class="h1_index" >RDA实时信用管理专家</h1>
                                 <img class="next next_index" id="img_msg" src="images/top_msg.png" alt="">
                                 <em class="yuan">12</em>

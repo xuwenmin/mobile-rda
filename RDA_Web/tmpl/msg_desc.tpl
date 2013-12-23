@@ -1,7 +1,7 @@
 <!-- 我的消息---消息详情 -->
  <div class="head">
                      <img from="index" class="pre" src="images/pre.png" alt="">
-                     <h1>{{=it.title}}</h1>
+                     <h1>{{=decodeURIComponent(it.title) }}</h1>
                      <a href="#" class="next"></a>
                  </div>
                  <div class="content">
