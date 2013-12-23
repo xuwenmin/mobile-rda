@@ -594,6 +594,12 @@ define(["util", "index","wdxm","fxyj","txxm"], function(util, index,wdxm,fxyj,tx
                     txxm.getallinfo(hashobj,$("#xmxx_pro"),$("#xmxx_e"));
                 },0)
             }
+             if(hashobj.hash=="wdxm_jkxm" || hashobj.hash=="wtjk_ywtjk"){
+                //查看监控项目列表
+                _.delay(function(){
+                    wdxm.get_wdxm_jkxm(hashobj,$("#ul_jkxm"));
+                },0)
+            }
             /*  if(hashobj.hash=="txxm_txtj_ck"){
                 //挑选项目--所属行业初始化
                 window.localStorage.removeItem("sqwt_tp");

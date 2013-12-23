@@ -181,5 +181,14 @@ namespace billrda.dal
             return _rda.Add_WTZ(json);
         }
 
+        /// <summary>
+        /// 获取监控项目列表
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static string ControlProject(string json) {
+            return _rda.ControlProject(json);
+        }
+
     }
 }

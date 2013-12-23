@@ -1,7 +1,7 @@
 // 公共js功能模块.by xuwm
 define(["underscore"],function(_){
 	var _scrollload=["wdxm_ztxm","wdxm_jxxm","wdxm_gzxm","wdxm_ztxm_sqwt_tp1",
-	"yjzx","yjzx_cwbb","txxm_txtj","txxm_txtj_ck","txxm_txtj_sslb"];
+	"yjzx","yjzx_cwbb","txxm_txtj","txxm_txtj_ck","txxm_txtj_sslb","wdxm_jkxm","wtjk_ywtjk"];
 
 	var _autoupdate=["cwzb_hbzj","zcfz","zcfz_sub","xjll","ly"];
 	 //检测平台

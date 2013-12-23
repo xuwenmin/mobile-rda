@@ -75,6 +75,8 @@ namespace billrda.RDA_TH {
         
         private System.Threading.SendOrPostCallback Add_WTZOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ControlProjectOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -187,6 +189,9 @@ namespace billrda.RDA_TH {
         
         /// <remarks/>
         public event Add_WTZCompletedEventHandler Add_WTZCompleted;
+        
+        /// <remarks/>
+        public event ControlProjectCompletedEventHandler ControlProjectCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleIBValue")]
@@ -845,6 +850,36 @@ namespace billrda.RDA_TH {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("SOAPHeaderHandleIBValue")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("RDAIBServiceSpace/ControlProject", RequestNamespace="RDAIBServiceSpace", ResponseNamespace="RDAIBServiceSpace", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ControlProject(string jsonparm) {
+            object[] results = this.Invoke("ControlProject", new object[] {
+                        jsonparm});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ControlProjectAsync(string jsonparm) {
+            this.ControlProjectAsync(jsonparm, null);
+        }
+        
+        /// <remarks/>
+        public void ControlProjectAsync(string jsonparm, object userState) {
+            if ((this.ControlProjectOperationCompleted == null)) {
+                this.ControlProjectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnControlProjectOperationCompleted);
+            }
+            this.InvokeAsync("ControlProject", new object[] {
+                        jsonparm}, this.ControlProjectOperationCompleted, userState);
+        }
+        
+        private void OnControlProjectOperationCompleted(object arg) {
+            if ((this.ControlProjectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ControlProjectCompleted(this, new ControlProjectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1469,6 +1504,32 @@ namespace billrda.RDA_TH {
         private object[] results;
         
         internal Add_WTZCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void ControlProjectCompletedEventHandler(object sender, ControlProjectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ControlProjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ControlProjectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

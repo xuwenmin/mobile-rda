@@ -94,8 +94,25 @@ namespace billrda.bill
                 case "Add_WTZ":
                     Add_WTZ(context);
                     break;
+                //监控项目列表
+                case "ControlProject":
+                    ControlProject(context);
+                    break;
             }
             context.Response.Write("");
+        }
+        /// <summary>
+        /// {\"GroupID\":\"IBD168\",\"UserID\":\"1175\"}
+        /// </summary>
+        /// <param name="context"></param>
+        public void ControlProject(HttpContext context) {
+            string result = string.Empty;
+            string json = string.Empty;
+            string GroupId = context.Request["ibdid"];
+            string userid = context.Request["userid"];
+            json = "{\"GroupID\":\"" + GroupId + "\",\"UserID\":\"" + userid + "\"}";
+            result = rdaws_th.ControlProject(json);
+            context.Response.Write(result); 
         }
         /// <summary>
         /// 根据项目编号获得项目信息

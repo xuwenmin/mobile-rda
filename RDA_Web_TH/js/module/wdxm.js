@@ -98,6 +98,72 @@ define(["util","underscore"],function(util,_){
 		'</li>' +
 		'{{  } }}' +
 		'{{ } }}';
+	//监控项目模板
+	var $template_jkxm='{{ for(var i=0;i<it.length;i++) { }}' +
+		'<li rel="li{{=i}}" class="hassub">'+
+             '<a href="#" class="desc">'+
+                 '{{=it[i].name}}'+
+                 '{{ if(it[i].wtval==1) { }}'+
+                 '<span class="e-wtjg e-being">'+
+                  '{{ } else if(it[i].wtval==2) { }}'+
+                   '<span class="e-wtjg e-suc">'+
+                   '{{ } else if(it[i].wtval==3) { }} '+
+                     '<span class="e-wtjg e-fail">'+
+                     '{{ } }}'+
+                 '{{=it[i].wtdesc}}</span><div class="list_next list_topright">'+
+                 '<img src="images/a_down.png" alt="" class="imgdown">'+
+                 '<img src="images/a_top.png" alt="" class="imgtop">'+
+             '</div></a>'+
+         '</li>'+
+         '<div name="li{{=i}}" class="subli e-showC e-wp">'+
+            '<p><span class="e-type">监控开始时间：</span>{{=it[i].timestart}}</p>'+
+            '<p><span class="e-type">监控结束时间：</span>{{=it[i].timeend}}</p>'+
+            '<p><span class="e-type">监控时常：</span>6个月</p>'+
+            '<p><span class="e-type">项目名称：</span>{{=it[i].proname}}</p>'+
+         '</div>'+
+        '{{ } }}';
+    //获取监控项目列表
+	var _get_wdxm_jkxm=function(hashobj,$this){
+		var result=[];
+		$.ajax({
+			url:"getdata.aspx",
+			type:"get",
+			dataType:"json",
+			data:{
+				action:"ControlProject",
+				ibdid:util.getsysinfo().GroupID,
+				userid:util.getsysinfo().userid
+			},
+			beforeSend:function(){
+				util.loadtip.show();
+			},
+			success:function(msg){
+				console.log(msg);
+				if(msg.Result){
+					msg.Data.table0 && msg.Data.table0.length && (function(){
+						result=_.map(msg.Data.table0,function(v){
+							v.name=v["Name"]; //名称
+							v.timestart=v["ControlBeginDate"];//开始时间
+							v.timeend=v["ControlEndDate"];//结束时间
+							v.kzsc=v["ControlTime"];//控制时长
+							v.proname=v["TITLE"];//项目名称
+							//1：申请委托处理中2：委托成功3：委托失败
+							v.wtval=v["EntrustState"];
+							v.wtdesc=v["EntrustState"]=="1" ? "申请委托处理中" : (v["EntrustState"]=="2" ? "委托成功" : "委托失败");
+							return v;
+						});
+						// console.log(result);
+						//开始填充模板
+						var doobj=doT.template($template_jkxm);
+						$this.html(doobj(result));
+					}());
+				}
+				util.loadtip.hide();
+			},error:function(){
+				util.loadtip.hide();
+			}
+		});
+	};
     //获取在投项目列表
 	var _get_wdxm_ztxm=function($this){
 		var result=[];
@@ -366,6 +432,8 @@ define(["util","underscore"],function(util,_){
 		get_wdxm_jxxm:_get_wdxm_jxxm,
 		//关注项目列表
 		get_wdxm_ygjxm:_get_wdxm_ygjxm,
+		//监控项目列表
+		get_wdxm_jkxm:_get_wdxm_jkxm,
 		//获取申请委托监控类型
 		get_sqwt_tp:_get_sqwt_tp,
 		//申请委托操作

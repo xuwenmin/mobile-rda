@@ -629,7 +629,7 @@ define(["util", "index", "fxyj", "cwzb", "cwbb", "rzgl"], function(util, index, 
                 }, 0);
             } else if (hashobj.hash == "fxyj_tb") {
                 _.delay(function() {
-                    fxyj.createchart_fxyj_tb(hashobj);
+                    fxyj.ha(hashobj);
                 }, 0);
             } else if (hashobj.hash == "index" || hashobj.hash == "ssxyzhpf") {
                 _.delay(function() {
